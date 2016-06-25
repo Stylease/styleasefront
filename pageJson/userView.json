@@ -22,7 +22,7 @@
         "color":"blue",
         "action":"redirect",
         "jsonPage":"editUser",
-        "fieldsToSend":["_id","name","email"],
+        "fieldsToSend":["_id"],
         "callFindOne":"user/getOne"
       },
       {
@@ -55,7 +55,7 @@
         "action":"uploadcsv"
       }
     ],
-    
+
     "apiCall": {
         "url": "User/getAll",
         "params": ""

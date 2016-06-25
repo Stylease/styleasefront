@@ -3,7 +3,7 @@
     "jsonPage": "userView",
     "desciption": "",
     "pageType": "edit",
-    "urlFields": ["_id", "name","email"],
+    "urlFields": ["_id"],
     "fields": [{
         "name": "Id",
         "type": "hidden",
@@ -24,7 +24,7 @@
         "model": "name"
     }, {
         "name": "Email",
-        "type": "text",
+        "type": "email",
         "tableRef": "email",
         "placeholder": "Enter Email",
         "id": "input4",
