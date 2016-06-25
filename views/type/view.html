@@ -1,0 +1,31 @@
+<section class="md-whiteframe-z1 users">
+    <md-list ng-cloak>
+        <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+         <md-divider></md-divider>
+
+        <md-list-item class="ls-head secondary-button-padding padlr16">
+            <p ng-repeat="field in json.fields">{{field.name}}</p>
+            <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
+              <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
+            </md-button>
+        </md-list-item>
+
+        <div ng-hide="json.tableData.length>=0" class="loadingbox">
+          Loading...
+        </div>
+
+        <md-list-item ng-show="json.tableData.length>=0" ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
+            <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef}}</p>
+            <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
+              <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+            </md-button>
+        </md-list-item>
+
+    </md-list>
+ <a ui-sref="{{json.createButtonState}}">
+    <!-- <a ui-sref="{{json.create.createButtonState}}" ng-if="json.create"> -->
+    <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
+        <md-icon class="fa fa-plus plus-icon"></md-icon>
+    </md-button>
+  </a>
+</section>

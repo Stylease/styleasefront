@@ -1,0 +1,50 @@
+<section class="md-whiteframe-z1 users">
+  <md-list ng-cloak>
+    <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+    <md-divider></md-divider>
+  </md-list>
+
+<form name="plan" class="padlr16">
+  <md-input-container class="md-block" ng-repeat="field in json.fields">
+    <div ng-if="field.type=='hidden'">
+      <input ng-model="json.editData[field.model]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+    </div>
+    <div ng-if="field.type=='text' || field.type=='email'">
+      <label>{{field.name}}</label>
+      <input ng-model="json.editData[field.model]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+      <!-- <div ng-messages="name.$error">
+        <div ng-message="required">This is required.</div>
+        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+      </div> -->
+    </div>
+    <div ng-if="field.type=='readonly'">
+      <label>{{field.name}}</label>
+      <input ng-model="json.editData[field.model]" type="text" readonly="true" name="{{field.name}}" id="{{field.id}}">
+    </div>
+    <div  ng-if="field.type=='select'">
+      <label>{{field.name}}</label>
+      <md-select ng-model="json.editData[field.model]">
+        <md-option ng-repeat="item in field.url" value="{{item._id}}">{{item.name}}</md-option>
+      </md-select>
+    </div>
+    <div ng-if="field.type=='selectFromTable'">
+      <label>{{field.name}}</label>
+      <md-select ng-model="json.editData[field.model]">
+        <md-option ng-repeat="item in field.url" value="{{item._id}}">{{item.name}}</md-option>
+      </md-select>
+    </div>
+  </md-input-container>
+
+    <div ng-if="field.type=='image'">
+        <label for="">Upload Image</label>
+        <!-- <img ng-src="{{field.image|uploadpath}}"> -->
+        <upload-image ng-model="field.model"></upload-image>
+    </div>
+
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button class="md-raised md-primary" ng-click="makeReadyForApi()" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
+      <md-button class="md-raised md-warn" ui-sref="{{json.action[1].stateName}}">Cancel</md-button>
+  </section>
+
+</form>
+</section>

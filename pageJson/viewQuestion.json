@@ -1,0 +1,56 @@
+{
+    "title": "All Questions",
+    "description": "",
+    "pageType": "view",
+    "fields": [
+      {
+        "name":"User",
+        "isSort":"",
+        "tableRef":"user.armyName"
+      }
+
+    ],
+    "action": [
+      {
+        "name":"edit",
+        "icon":"remove_red_eye",
+        "color":"blue",
+        "action":"editQuestion",
+        "jsonPage":"editQuestion",
+        "fieldsToSend":["_id"],
+        "callFindOne":"question/getOne",
+        "type":"onlyView"
+      }
+    ],
+    "button": [
+      {
+        "name":"excelexport",
+        "icon":"print",
+        "color":"blue",
+        "action":"excelexport"
+      },
+      {
+        "name":"uploadcsv",
+        "icon":"delete",
+        "color":"red",
+        "action":"uploadcsv"
+      }
+    ],
+    "filter": [
+      {
+        "name":"category",
+        "url":"http://192.168.1.127:1337/Accounts/getAll"
+      },
+      {
+        "name":"uploadcsv",
+        "icon":"delete",
+        "color":"red",
+        "action":"uploadcsv"
+      }
+    ],
+    "apiCall": {
+        "url": "question/findLimited",
+        "params": ""
+    }
+
+}
