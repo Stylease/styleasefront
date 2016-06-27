@@ -1,0 +1,142 @@
+{
+	"title": "Edit Product",
+	"jsonPage": "viewProduct",
+	"desciption": "",
+	"pageType": "edit",
+	"urlFields": ["_id"],
+	"fields": [{
+					"name": "Name",
+					"type": "text",
+					"tableRef": "name",
+					"placeholder": "Enter name",
+					"id": "input1",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"name":"name"
+			},
+			 {
+					"name": "SKU",
+					"type": "text",
+					"tableRef": "sku",
+					"placeholder": "Enter sku",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"sku":"sku"
+			},
+			 {
+					"name": "Details",
+					"type": "text",
+					"tableRef": "details",
+					"placeholder": "Enter details",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"details":"details"
+			},
+			 {
+					"name": "Care",
+					"type": "text",
+					"tableRef": "care",
+					"placeholder": "Enter care",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"care":"care"
+			},
+			 {
+					"name": "Notes",
+					"type": "text",
+					"tableRef": "notes",
+					"placeholder": "Enter notes",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"notes":"notes"
+			},
+			 {
+					"name": "Price",
+					"type": "text",
+					"tableRef": "price",
+					"placeholder": "Enter price",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"model":"price"
+			},
+			 {
+					"name": "Quantity",
+					"type": "text",
+					"tableRef": "quantity",
+					"placeholder": "Enter quantity",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"model":"quantity"
+			},
+			 {
+					"name": "Size",
+					"type": "text",
+					"tableRef": "size",
+					"placeholder": "Enter size",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"model":"size"
+			},
+			 {
+					"name": "Rental Amount",
+					"type": "text",
+					"tableRef": "rentalamount",
+					"placeholder": "Enter rentalamount",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"model":"rentalamount"
+			},
+			 {
+					"name": "Securitydeposit",
+					"type": "text",
+					"tableRef": "securitydeposit",
+					"placeholder": "Enter securitydeposit",
+					"id": "input2",
+					"validation": ["required", "trim", "unique"],
+					"url": "",
+					"model":"securitydeposit"
+			},
+			{
+					"name": "Image",
+					"type": "image",
+					"tableRef": "image",
+					"placeholder": "Enter image",
+					"id": "input5",
+					"model": "",
+					"validation": [],
+					"url": "",
+					"model": "image"
+			}
+
+	],
+	"action": [{
+		"name": "submit",
+		"action": "submitProduct"
+	}, {
+		"name": "cancel",
+		"action": "cancelProduct",
+		"stateName": "page({jsonName:'viewProduct'})"
+	}],
+	"apiCall": {
+		"url": "product/save",
+		"params": "_id"
+	},
+	"preApi": {
+		"url": "product/getOne",
+		"params": "_id"
+	},
+	"sidemenu": [{
+		"url": "",
+		"anchor": "",
+		"state": "",
+		"action": ""
+	}]
+}
