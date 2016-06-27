@@ -12,7 +12,7 @@
 					"id": "input1",
 					"validation": ["required", "trim", "unique"],
 					"url": "",
-					"name":"name"
+					"model":"name"
 			},
 			 {
 					"name": "SKU",
@@ -22,7 +22,7 @@
 					"id": "input2",
 					"validation": ["required", "trim", "unique"],
 					"url": "",
-					"sku":"sku"
+					"model":"sku"
 			},
 			 {
 					"name": "Details",
@@ -32,7 +32,7 @@
 					"id": "input2",
 					"validation": ["required", "trim", "unique"],
 					"url": "",
-					"details":"details"
+					"model":"details"
 			},
 			 {
 					"name": "Care",
@@ -42,7 +42,7 @@
 					"id": "input2",
 					"validation": ["required", "trim", "unique"],
 					"url": "",
-					"care":"care"
+					"model":"care"
 			},
 			 {
 					"name": "Notes",
@@ -52,7 +52,7 @@
 					"id": "input2",
 					"validation": ["required", "trim", "unique"],
 					"url": "",
-					"notes":"notes"
+					"model":"notes"
 			},
 			 {
 					"name": "Price",

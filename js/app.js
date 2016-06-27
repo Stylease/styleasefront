@@ -72,15 +72,19 @@ firstapp.filter('uploadpath', function() {
     };
 });
 
-firstapp.filter('getValue', function() {
-    return function(input, keyVal) {
+firstapp.filter('getValue', function($filter) {
+    return function(input, keyVal, type) {
         if (keyVal) {
             var keyArr = keyVal.split(".");
             var returnValue = input;
             _.each(keyArr, function(n) {
                 returnValue = returnValue[n];
             });
-            return returnValue;
+            if (type != "image") {
+                return returnValue;
+            } else {
+                return $filter("uploadpath")(returnValue, 100, 100, "fill");
+            }
         }
 
     };

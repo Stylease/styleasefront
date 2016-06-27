@@ -2,7 +2,8 @@
 var adminurl = "http://localhost:1337/";
 // var adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
 // var imgurl = "http://pantherworldadmin.jaipurpinkpanthers.com/upload/";
-var imgurl = "http://localhost/gsebackend/upload/";
+var imgurl = "http://localhost:1337/upload/";
+var uploadurl = imgurl;
 var imgpath = imgurl + "readFile";
 var navigationservice = angular.module('navigationservice', [])
 
@@ -16,6 +17,18 @@ var navigationservice = angular.module('navigationservice', [])
         name: "Product",
         classis: "active",
         link: "#/page/viewProduct",
+        subnav: []
+    },
+    {
+        name: "Size",
+        classis: "active",
+        link: "#/page/viewSize",
+        subnav: []
+    },
+    {
+        name: "Occassion",
+        classis: "active",
+        link: "#/page/viewoccassion",
         subnav: []
     }];
 
