@@ -28,7 +28,13 @@ var navigationservice = angular.module('navigationservice', [])
     {
         name: "Occassion",
         classis: "active",
-        link: "#/page/viewoccassion",
+        link: "#/page/viewOccasion",
+        subnav: []
+    },
+    {
+        name: "Color",
+        classis: "active",
+        link: "#/page/viewColor",
         subnav: []
     }];
 

@@ -1,6 +1,6 @@
 {
-    "title": "Create Size",
-    "jsonPage": "viewSize",
+    "title": "Create Color",
+    "jsonPage": "viewColor",
     "desciption": "",
     "pageType": "create",
     "fields": [{
@@ -36,14 +36,14 @@
     }],
     "action": [{
         "name": "submit",
-        "action": "submitSize"
+        "action": "submitColor"
     }, {
         "name": "cancel",
-        "stateName": "page({jsonName:'viewSize'})"
+        "stateName": "page({jsonName:'viewColor'})"
     }],
 
     "apiCall": {
-        "url": "size/save"
+        "url": "color/save"
     },
 
     "sidemenu": [{

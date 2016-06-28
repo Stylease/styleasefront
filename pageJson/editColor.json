@@ -1,16 +1,27 @@
 {
-    "title": "Create Size",
-    "jsonPage": "viewSize",
+    "title": "Edit Color",
+    "jsonPage": "viewColor",
     "desciption": "",
-    "pageType": "create",
+    "pageType": "edit",
+    "urlFields": ["_id"],
     "fields": [{
+        "name": "Id",
+        "type": "hidden",
+        "tableRef": "_id",
+        "placeholder": "Enter id",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "_id"
+    }, {
         "name": "Name",
         "type": "text",
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "",
+        "model": "name"
     }, {
         "name": "Order",
         "type": "text",
@@ -18,13 +29,15 @@
         "placeholder": "Enter order",
         "id": "input4",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "",
+        "model": "order"
     }, {
         "name": "Status",
         "type": "select",
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "input3",
+        "model": "status",
         "validation": ["required", "trim", "unique"],
         "url": [{
             "value": "True",
@@ -36,16 +49,19 @@
     }],
     "action": [{
         "name": "submit",
-        "action": "submitSize"
+        "action": "submitColor"
     }, {
         "name": "cancel",
-        "stateName": "page({jsonName:'viewSize'})"
+        "stateName": "page({jsonName:'viewColor'})"
     }],
-
     "apiCall": {
-        "url": "size/save"
+        "url": "color/save",
+        "params": "_id"
     },
-
+    "preApi": {
+        "url": "color/getOne",
+        "params": "_id"
+    },
     "sidemenu": [{
         "url": "",
         "anchor": "",

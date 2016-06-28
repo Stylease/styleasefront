@@ -1,6 +1,6 @@
 {
-    "title": "Create Size",
-    "jsonPage": "viewSize",
+    "title": "Create Occasion",
+    "jsonPage": "viewOccasion",
     "desciption": "",
     "pageType": "create",
     "fields": [{
@@ -20,30 +20,31 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Status",
-        "type": "select",
-        "tableRef": "status",
-        "placeholder": "Enter status",
-        "id": "input3",
-        "validation": ["required", "trim", "unique"],
-        "url": [{
-            "value": "True",
-            "name": "Enable"
-        }, {
-            "value": "False",
-            "name": "Disable"
-        }]
+      "name": "Status",
+      "type": "select",
+      "tableRef": "status",
+      "placeholder": "Enter status",
+      "id": "input3",
+      "model": "status",
+      "validation": ["required", "trim", "unique"],
+      "url": [{
+          "value": "True",
+          "name": "Enable"
+      }, {
+          "value": "False",
+          "name": "Disable"
+      }]
     }],
     "action": [{
         "name": "submit",
-        "action": "submitSize"
+        "action": "submitOccasion"
     }, {
         "name": "cancel",
-        "stateName": "page({jsonName:'viewSize'})"
+        "stateName": "page({jsonName:'viewOccasion'})"
     }],
 
     "apiCall": {
-        "url": "size/save"
+        "url": "occasion/save"
     },
 
     "sidemenu": [{

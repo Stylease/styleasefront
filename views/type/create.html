@@ -21,11 +21,20 @@
         <label>{{field.name}}</label>
         <input ng-model="json.editData[field.model]" type="text" readonly="true" name="{{field.name}}" id="{{field.id}}">
       </div>
-      <div ng-if="field.type=='select'">
+      <!-- <div ng-if="field.type=='select'">
         <label>{{field.name}}</label>
         <md-select ng-model="json.editData[field.model]">
           <md-option ng-repeat="item in field.url" value="{{item._id}}">{{item.name}}</md-option>
         </md-select>
+      </div> -->
+      <!-- // SELECT FROM TABLE-->
+      <div ng-if="field.type=='select'">
+          <label for="{{field.id}}">{{field.name}} </label>
+          <br>{{optionitem}}
+          <select ng-model="field.model" ng-options="item.value as item.name for item in field.url">
+          </select>
+
+          <br>
       </div>
       <div ng-if="field.type=='selectFromTable'">
         <label>{{field.name}}</label>

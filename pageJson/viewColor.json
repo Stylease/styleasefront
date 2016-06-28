@@ -1,5 +1,5 @@
 {
-    "title": "All Occasion",
+    "title": "All Color",
     "desciption": "",
     "pageType": "view",
     "fields": [
@@ -26,18 +26,18 @@
         "icon":"mode_edit",
         "color":"blue",
         "action":"redirect",
-        "jsonPage":"editOccasion",
+        "jsonPage":"editColor",
         "fieldsToSend":["_id"],
-        "callFindOne":"occasion/getOne"
+        "callFindOne":"color/getOne"
       },
       {
         "name":"delete",
         "icon":"delete",
         "color":"red",
         "action":"apiCallConfirm",
-        "title":"Delete Occasion",
-        "content":"Are you sure you want to delete occasion?",
-        "api":"occasion/delete",
+        "title":"Delete Color",
+        "content":"Are you sure you want to delete color?",
+        "api":"color/delete",
         "fieldsToSend":[
           {
             "name":"_id",
@@ -62,8 +62,8 @@
     ],
 
     "apiCall": {
-        "url": "occasion/getAll",
+        "url": "color/getAll",
         "params": ""
     },
-    "createButtonState":"page({jsonName:'createOccasion'})"
+    "createButtonState":"page({jsonName:'createColor'})"
 }
