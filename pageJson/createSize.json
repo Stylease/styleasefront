@@ -27,10 +27,10 @@
         "id": "input3",
         "validation": ["required", "trim", "unique"],
         "url": [{
-            "value": "True",
+            "value": "Enable",
             "name": "Enable"
         }, {
-            "value": "False",
+            "value": "Disable",
             "name": "Disable"
         }]
     }],

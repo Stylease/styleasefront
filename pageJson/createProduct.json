@@ -75,14 +75,14 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    }, {
+    },{
         "name": "Size",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "size",
         "placeholder": "Enter size",
-        "id": "input2",
+        "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "size/getAll"
     }, {
         "name": "Rental Amount",
         "type": "text",
