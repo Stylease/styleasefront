@@ -14,24 +14,31 @@ var navigationservice = angular.module('navigationservice', [])
         link: "#/page/userView",
         subnav: []
     }, {
+        name: "Category",
+        classis: "active",
+        link: "#/page/viewCategory",
+        subnav: []
+    }, {
+        name: "Subcategory",
+        classis: "active",
+        link: "#/page/viewSubcategory",
+        subnav: []
+    }, {
         name: "Product",
         classis: "active",
         link: "#/page/viewProduct",
         subnav: []
-    },
-    {
+    }, {
         name: "Size",
         classis: "active",
         link: "#/page/viewSize",
         subnav: []
-    },
-    {
+    }, {
         name: "Occassion",
         classis: "active",
         link: "#/page/viewOccasion",
         subnav: []
-    },
-    {
+    }, {
         name: "Color",
         classis: "active",
         link: "#/page/viewColor",
@@ -70,6 +77,9 @@ var navigationservice = angular.module('navigationservice', [])
         },
         deleteApi: function(data, successCallback, errorCallback) {
             $http.post(adminURL + "api/delete", data).success(successCallback).error(errorCallback);
+        },
+        getDropDown: function(apiName, successCallback, errorCallback) {
+            $http.post(adminurl + apiName).success(successCallback).error(errorCallback);
         },
         logout: function(successCallback, errorCallback) {
             $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);

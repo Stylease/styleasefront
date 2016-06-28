@@ -1,0 +1,74 @@
+{
+    "title": "All Subcategory",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [
+      {
+        "name":"Category",
+        "isSort":"",
+        "tableRef":"category.name"
+      },
+      {
+        "name":"Name",
+        "isSort":"",
+        "tableRef":"name"
+      },
+      {
+        "name":"Order",
+        "isSort":"",
+        "tableRef":"order"
+      },
+      {
+        "name":"Status",
+        "isSort":"",
+        "tableRef":"status"
+      }
+
+    ],
+    "action": [
+      {
+        "name":"edit",
+        "icon":"mode_edit",
+        "color":"blue",
+        "action":"redirect",
+        "jsonPage":"editSubcategory",
+        "fieldsToSend":["_id"],
+        "callFindOne":"subcategory/getOne"
+      },
+      {
+        "name":"delete",
+        "icon":"delete",
+        "color":"red",
+        "action":"apiCallConfirm",
+        "title":"Delete Subcategory",
+        "content":"Are you sure you want to delete subcategory?",
+        "api":"subcategory/delete",
+        "fieldsToSend":[
+          {
+            "name":"_id",
+            "value":"_id"
+          }
+        ]
+      }
+    ],
+    "button": [
+      {
+        "name":"excelexport",
+        "icon":"print",
+        "color":"blue",
+        "action":"excelexport"
+      },
+      {
+        "name":"uploadcsv",
+        "icon":"delete",
+        "color":"red",
+        "action":"uploadcsv"
+      }
+    ],
+
+    "apiCall": {
+        "url": "subcategory/getAllCat",
+        "params": ""
+    },
+    "createButtonState":"page({jsonName:'createSubcategory'})"
+}

@@ -1,0 +1,63 @@
+{
+    "title": "Create Subcategory",
+    "jsonPage": "viewSubcategory",
+    "desciption": "",
+    "pageType": "create",
+    "fields": [{
+        "name": "Category",
+        "type": "selectFromTable",
+        "tableRef": "category",
+        "placeholder": "Enter category",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "category/getAll"
+    }, {
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Order",
+        "type": "text",
+        "tableRef": "order",
+        "placeholder": "Enter order",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "True",
+            "name": "Enable"
+        }, {
+            "value": "False",
+            "name": "Disable"
+        }]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSubcategory"
+    }, {
+        "name": "cancel",
+        "stateName": "page({jsonName:'viewSubcategory'})"
+    }],
+
+    "apiCall": {
+        "url": "subcategory/save"
+    },
+
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}

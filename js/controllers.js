@@ -100,6 +100,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     n.model = "";
                 }
             });
+            // get select fields dropdown
+            _.each($scope.json.fields, function(n) {
+                if (n.type == "selectFromTable") {
+                    NavigationService.getDropDown(n.url, function(data) {
+                      console.log(data);
+                        n.dropdownvalues= [];
+                        if (data) {
+                            for (var i = 0; i < data.data.length; i++) {
+
+
+                                var dropdown = {};
+                                dropdown._id = data.data[i]._id;
+                                if(!n.dropDownName)
+                                {
+                                    dropdown.name = data.data[i].name;
+                                }
+                                else {
+                                    dropdown.name = data.data[i][n.dropDownName];
+                                }
+
+                                n.dropdownvalues.push(dropdown);
+                            }
+
+
+                        }
+                    }, function() {
+                        console.log("Fail");
+                    });
+                }
+            });
 
         } else if (data.pageType == "edit") {
             console.log(urlParams);
