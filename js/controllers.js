@@ -49,7 +49,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonArr = $stateParams.jsonName.split("¢");
     var jsonName = jsonArr[0];
     var urlParams = {};
-
+    $scope.dropdown = {};
+    $scope.dropdownvalues = [];
     var jsonParam1 = jsonArr[1];
     var jsonParam2 = jsonArr[2];
     var jsonParam3 = jsonArr[3];
@@ -139,6 +140,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, function() {
                 console.log("Fail");
             });
+            // get select fields dropdown
+            _.each($scope.json.fields, function(n) {
+                if (n.type == "selectFromTable") {
+                    NavigationService.getDropDown(n.url, function(data) {
+                      console.log(data);
+                        if (data) {
+                            for (var i = 0; i < data.data.length; i++) {
+                                $scope.dropdown = {};
+                                $scope.dropdown._id = data.data[i]._id;
+                                $scope.dropdown.name = data.data[i].name;
+                                $scope.dropdownvalues.push($scope.dropdown);
+                                console.log($scope.dropdownvalues);
+                            }
+
+
+                        }
+                    }, function() {
+                        console.log("Fail");
+                    });
+                }
+            });
+
 
         } else if (data.pageType == "view") {
             // call api for view data

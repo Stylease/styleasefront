@@ -9,6 +9,16 @@
         "tableRef":"name"
       },
       {
+        "name":"Category",
+        "isSort":"",
+        "tableRef":"category.name"
+      },
+      {
+        "name":"Subcategory",
+        "isSort":"",
+        "tableRef":"subcategory.name"
+      },
+      {
         "name":"Quantity",
         "isSort":"",
         "tableRef":"quantity"
@@ -67,7 +77,7 @@
     ],
 
     "apiCall": {
-        "url": "product/getAll",
+        "url": "product/getAllDetails",
         "params": ""
     },
     "createButtonState":"page({jsonName:'createProduct'})"
