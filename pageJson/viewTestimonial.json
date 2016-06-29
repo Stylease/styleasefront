@@ -24,7 +24,7 @@
         "icon":"mode_edit",
         "color":"blue",
         "action":"redirect",
-        "jsonPage":"editProduct",
+        "jsonPage":"editTestimonial",
         "fieldsToSend":["_id"],
         "callFindOne":"testimonial/getOne"
       },
@@ -33,7 +33,7 @@
         "icon":"delete",
         "color":"red",
         "action":"apiCallConfirm",
-        "title":"Delete Product",
+        "title":"Delete Testimonial",
         "content":"Are you sure you want to delete testimonial?",
         "api":"testimonial/delete",
         "fieldsToSend":[
@@ -63,5 +63,5 @@
         "url": "testimonial/getAllDetails",
         "params": ""
     },
-    "createButtonState":"page({jsonName:'createProduct'})"
+    
 }

@@ -105,33 +105,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             _.each($scope.json.fields, function(n) {
                 if (n.type == "selectFromTable") {
                     NavigationService.getDropDown(n.url, function(data) {
-                      console.log(data);
-                        n.dropdownvalues= [];
+                        console.log(data);
+                        n.dropdownvalues = [];
                         if (data) {
                             for (var i = 0; i < data.data.length; i++) {
-
-
                                 var dropdown = {};
                                 dropdown._id = data.data[i]._id;
-                                if(!n.dropDownName)
-                                {
+                                if (!n.dropDownName) {
                                     dropdown.name = data.data[i].name;
-                                }
-                                else {
+                                } else {
                                     dropdown.name = data.data[i][n.dropDownName];
                                 }
-
                                 n.dropdownvalues.push(dropdown);
                             }
-
-
                         }
                     }, function() {
                         console.log("Fail");
                     });
                 }
             });
-
         } else if (data.pageType == "edit") {
             console.log(urlParams);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
@@ -144,25 +136,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             _.each($scope.json.fields, function(n) {
                 if (n.type == "selectFromTable") {
                     NavigationService.getDropDown(n.url, function(data) {
-                      console.log(data);
+                        console.log(data);
+                        n.dropdownvalues = [];
                         if (data) {
                             for (var i = 0; i < data.data.length; i++) {
-                                $scope.dropdown = {};
-                                $scope.dropdown._id = data.data[i]._id;
-                                $scope.dropdown.name = data.data[i].name;
-                                $scope.dropdownvalues.push($scope.dropdown);
-                                console.log($scope.dropdownvalues);
+                                var dropdown = {};
+                                dropdown._id = data.data[i]._id;
+                                if (!n.dropDownName) {
+                                    dropdown.name = data.data[i].name;
+                                } else {
+                                    dropdown.name = data.data[i][n.dropDownName];
+                                }
+                                n.dropdownvalues.push(dropdown);
                             }
-
-
                         }
                     }, function() {
                         console.log("Fail");
                     });
                 }
             });
-
-
         } else if (data.pageType == "view") {
             // call api for view data
             $scope.apiName = $scope.json.apiCall.url;
