@@ -19,6 +19,8 @@
             <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">{{json.action}}
               <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
             </md-button>
+            <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="blogdata.totalpages==1"></uib-pagination>
+          
         </md-list-item>
 
     </md-list>

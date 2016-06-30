@@ -124,7 +124,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     });
                 }
             });
-        } else if (data.pageType == "edit") {
+        } else if (data.pageType == "edit" || data.pageType == "tableview") {
             console.log(urlParams);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
                 $scope.json.editData = data.data;
@@ -169,6 +169,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, function() {
                 console.log("Fail");
             });
+            // $scope.search = function() {
+            //     NavigationService.searchBlog($scope.pagedata, function(data) {
+            //         $scope.blogdata = data.data;
+            //         console.log(data.data);
+            //         $scope.totalItems = data.data.total;
+            //     });
+            //
+            // };
+            $scope.search();
         }
         $scope.template = TemplateService.jsonType(data.pageType);
     });
