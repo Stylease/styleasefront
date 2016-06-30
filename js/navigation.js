@@ -29,6 +29,11 @@ var navigationservice = angular.module('navigationservice', [])
         link: "#/page/viewProduct",
         subnav: []
     }, {
+        name: "Order",
+        classis: "active",
+        link: "#/page/viewOrder",
+        subnav: []
+    }, {
         name: "Size",
         classis: "active",
         link: "#/page/viewSize",
@@ -43,12 +48,20 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewColor",
         subnav: []
-    }, {
+    },
+    {
         name: "Testimonial",
         classis: "active",
         link: "#/page/viewTestimonial",
         subnav: []
-    }];
+    },
+    {
+        name: "Delivery Time",
+        classis: "active",
+        link: "#/page/viewProducttime",
+        subnav: []
+    }
+  ];
 
     return {
         getnav: function() {

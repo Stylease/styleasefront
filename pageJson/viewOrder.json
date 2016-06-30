@@ -1,36 +1,36 @@
 {
-    "title": "All Testimonial",
+    "title": "All Orders",
     "desciption": "",
     "pageType": "view",
     "fields": [{
-        "name": "Name",
-        "isSort": "",
-        "tableRef": "user.name"
-    }, {
-        "name": "Testimonial",
-        "isSort": "",
-        "tableRef": "testimonial"
-    }, {
-        "name": "Timestamp",
-        "isSort": "",
-        "tableRef": "timestamp"
-    }],
+            "name": "User",
+            "isSort": "",
+            "tableRef": "user.name"
+        }, {
+            "name": "Email",
+            "isSort": "",
+            "tableRef": "email"
+        }, {
+            "name": "Mobile",
+            "isSort": "",
+            "tableRef": "mobile"
+        }],
     "action": [{
         "name": "edit",
         "icon": "mode_edit",
         "color": "blue",
         "action": "redirect",
-        "jsonPage": "editTestimonial",
+        "jsonPage": "editOrder",
         "fieldsToSend": ["_id"],
-        "callFindOne": "testimonial/getOne"
+        "callFindOne": "order/getOne"
     }, {
         "name": "delete",
         "icon": "delete",
         "color": "red",
         "action": "apiCallConfirm",
-        "title": "Delete Testimonial",
-        "content": "Are you sure you want to delete testimonial?",
-        "api": "testimonial/delete",
+        "title": "Delete Order",
+        "content": "Are you sure you want to delete order?",
+        "api": "order/delete",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
@@ -49,10 +49,8 @@
     }],
 
     "apiCall": {
-        "url": "testimonial/getAllDetails",
+        "url": "order/getAllDetails",
         "params": ""
     },
     "createButtonState": "page({jsonName:'createOrder'})"
-
-
 }

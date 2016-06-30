@@ -16,7 +16,7 @@
 
         <md-list-item ng-show="json.tableData.length>=0" ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
             <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef}}</p>
-            <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
+            <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">{{json.action}}
               <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
             </md-button>
         </md-list-item>
