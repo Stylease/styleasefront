@@ -53,7 +53,7 @@
     }],
 
     "apiCall": {
-        "url": "producttime/getAll",
+        "url": "producttime/getLimited",
         "params": ""
     },
     "createButtonState": "page({jsonName:'createProducttime'})"

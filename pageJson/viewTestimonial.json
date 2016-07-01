@@ -49,7 +49,7 @@
     }],
 
     "apiCall": {
-        "url": "testimonial/getAllDetails",
+        "url": "testimonial/getLimited",
         "params": ""
     },
     "createButtonState": "page({jsonName:'createOrder'})"

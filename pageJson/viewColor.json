@@ -62,7 +62,7 @@
     ],
 
     "apiCall": {
-        "url": "color/getAll",
+        "url": "color/getLimited",
         "params": ""
     },
     "createButtonState":"page({jsonName:'createColor'})"
