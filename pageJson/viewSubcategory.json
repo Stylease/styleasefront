@@ -67,7 +67,7 @@
     ],
 
     "apiCall": {
-        "url": "subcategory/getAllCat",
+        "url": "subcategory/getLimited",
         "params": ""
     },
     "createButtonState":"page({jsonName:'createSubcategory'})"

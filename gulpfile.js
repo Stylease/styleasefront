@@ -16,6 +16,8 @@ var jsArray = [
   "./bower_components/angularjs-imageupload-directive/public/javascripts/imageupload.js",
   "./bower_components/jquery-ui/jquery-ui.js",
   "./bower_components/angular-ui-sortable/sortable.min.js",
+  "./bower_components/angular-bootstrap/ui-bootstrap.min.js",
+  "./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
 
   "./bower_components/ace-builds/src-noconflict/ace.js",
   "./bower_components/ace-builds/src-noconflict/theme-monokai.js",

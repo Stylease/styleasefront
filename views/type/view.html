@@ -16,12 +16,12 @@
 
         <md-list-item ng-show="json.tableData.length>=0" ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
             <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef}}</p>
-            <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">{{json.action}}
+            <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
               <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
             </md-button>
-            <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="blogdata.totalpages==1"></uib-pagination>
-          
         </md-list-item>
+
+        <uib-pagination total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems" ng-hide="pageInfo.lastpage==1"></uib-pagination>
 
     </md-list>
  <a ui-sref="{{json.createButtonState}}">

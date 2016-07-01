@@ -34,7 +34,8 @@
     "angular-clipboard": "~1.2.1",
     "js-beautify": "https://github.com/beautify-web/js-beautify.git#~1.5.10",
     "angularjs-imageupload-directive": "https://github.com/Mischi/angularjs-imageupload-directive.git",
-    "jStorage": "^0.4.12"
+    "jStorage": "^0.4.12",
+    "angular-bootstrap": "^1.3.3"
   },
   "resolutions": {
     "angular": "1.4.8"

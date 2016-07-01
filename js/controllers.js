@@ -2,7 +2,7 @@ var adminURL = "http://wohlig.io:81/";
 // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload', 'ui.bootstrap'])
 
 .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     $scope.menutitle = NavigationService.makeactive("Login");
@@ -158,26 +158,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if (data.pageType == "view") {
             // call api for view data
             $scope.apiName = $scope.json.apiCall.url;
-            var pagination = {
+            $scope.pagination = {
                 "search": "",
-                "pagenumber": "1",
-                "pagesize": "10"
+                "pagenumber": 1,
+                "pagesize": 2
             };
-            NavigationService.findProjects($scope.apiName, pagination, function(findData) {
-                $scope.json.tableData = findData.data;
-                console.log($scope.json.tableData);
-            }, function() {
-                console.log("Fail");
-            });
-            // $scope.search = function() {
-            //     NavigationService.searchBlog($scope.pagedata, function(data) {
-            //         $scope.blogdata = data.data;
-            //         console.log(data.data);
-            //         $scope.totalItems = data.data.total;
-            //     });
-            //
-            // };
-            $scope.search();
+            $scope.pageInfo = {};
+            $scope.getMoreResults = function() {
+                NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
+                    if (findData.value != false) {
+                        if (findData.data && findData.data.data && findData.data.data.length > 0) {
+                            $scope.pageInfo.lastpage = findData.data.totalpages;
+                            $scope.pageInfo.pagenumber = findData.data.pagenumber;
+                            $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
+                            $scope.json.tableData = findData.data.data;
+                        } else {
+                            $scope.json.tableData = [];
+                        }
+                    } else {
+                        $scope.json.tableData = [];
+                    }
+                }, function() {
+                    console.log("Fail");
+                });
+            };
+            $scope.getMoreResults();
         }
         $scope.template = TemplateService.jsonType(data.pageType);
     });
