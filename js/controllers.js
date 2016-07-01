@@ -127,8 +127,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if (data.pageType == "edit" || data.pageType == "tableview") {
             console.log(urlParams);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
+                console.log(data);
                 $scope.json.editData = data.data;
                 console.log($scope.json.editData);
+                _.each($scope.json.fields, function(n) {
+                    if (n.type == "table") {
+                        $scope.subTableData = $scope.json.editData[n.model];
+                    }
+                })
             }, function() {
                 console.log("Fail");
             });
