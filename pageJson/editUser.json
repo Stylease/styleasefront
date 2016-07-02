@@ -31,6 +31,39 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "email"
+    },{
+        "name": "Access Level",
+        "type": "select",
+        "tableRef": "accesslevel",
+        "model": "accesslevel",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "Admin",
+            "name": "Admin"
+        }, {
+            "value": "Operator",
+            "name": "Operator"
+        }, {
+            "value": "User",
+            "name": "User"
+        }]
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "model": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "Enable",
+            "name": "Enable"
+        }, {
+            "value": "Disable",
+            "name": "Disable"
+        }]
     }],
     "action": [{
         "name": "submit",

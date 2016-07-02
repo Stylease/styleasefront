@@ -2,63 +2,67 @@
     "title": "All Users",
     "desciption": "",
     "pageType": "view",
-    "fields": [
-      {
-        "name":"Name",
-        "isSort":"",
-        "tableRef":"name"
-      },
-      {
-        "name":"Email",
-        "isSort":"",
-        "tableRef":"email"
-      }
+    "fields": [{
+            "name": "Name",
+            "isSort": "",
+            "tableRef": "name"
+        }, {
+            "name": "Email",
+            "isSort": "",
+            "tableRef": "email"
+        }
 
     ],
-    "action": [
-      {
-        "name":"edit",
-        "icon":"mode_edit",
-        "color":"blue",
-        "action":"redirect",
-        "jsonPage":"editUser",
-        "fieldsToSend":["_id"],
-        "callFindOne":"user/getOne"
-      },
-      {
-        "name":"delete",
-        "icon":"delete",
-        "color":"red",
-        "action":"apiCallConfirm",
-        "title":"Delete User",
-        "content":"Are you sure you want to delete user?",
-        "api":"user/delete",
-        "fieldsToSend":[
-          {
-            "name":"_id",
-            "value":"_id"
-          }
-        ]
-      }
-    ],
-    "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editUser",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete User",
+        "content": "Are you sure you want to delete user?",
+        "api": "user/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "sidemenu": [{
+        "name": "User Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editUser",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "User Price",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewCart",
+        "fieldsToSend": [1],
+        "callFindOne": "user/findlimited"
+    }],
 
     "apiCall": {
         "url": "user/getLimited",
         "params": ""
     },
-    "createButtonState":"page({jsonName:'createUser'})"
+    "createButtonState": "page({jsonName:'createUser'})"
+
 }

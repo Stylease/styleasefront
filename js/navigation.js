@@ -102,6 +102,9 @@ var navigationservice = angular.module('navigationservice', [])
         logout: function(successCallback, errorCallback) {
             $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);
         },
+        sideMenu1: function(apiName, pagination, successCallback, errorCallback) {
+          $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
+        },
 
     };
 });
