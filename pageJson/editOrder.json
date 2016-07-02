@@ -5,7 +5,7 @@
     "pageType": "tableview",
     "urlFields": ["_id"],
     "tableFields": [{
-        "name": "Name",
+        "name": "Product Name",
         "model": "productname"
     }, {
         "name": "Time From",

@@ -34,14 +34,14 @@ var navigationservice = angular.module('navigationservice', [])
         link: "#/page/viewOrder",
         subnav: []
     }, {
+        name: "Celebrity choice",
+        classis: "active",
+        link: "#/page/viewCelebritychoice",
+        subnav: []
+    },{
         name: "Size",
         classis: "active",
         link: "#/page/viewSize",
-        subnav: []
-    }, {
-        name: "Occassion",
-        classis: "active",
-        link: "#/page/viewOccasion",
         subnav: []
     }, {
         name: "Color",

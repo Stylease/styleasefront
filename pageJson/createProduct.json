@@ -37,7 +37,7 @@
         "url": ""
     }, {
         "name": "Details",
-        "type": "text",
+        "type": "textarea",
         "tableRef": "details",
         "placeholder": "Enter details",
         "id": "input2",

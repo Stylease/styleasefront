@@ -167,7 +167,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.pagination = {
                 "search": "",
                 "pagenumber": 1,
-                "pagesize": 2
+                "pagesize":10
             };
             $scope.pageInfo = {};
             $scope.getMoreResults = function() {
