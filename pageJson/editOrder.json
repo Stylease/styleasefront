@@ -9,9 +9,11 @@
         "model": "productname"
     }, {
         "name": "Time From",
+        "type": "date",
         "model": "timeFrom"
     }, {
         "name": "Time To",
+        "type": "date",
         "model": "timeTo"
     }, {
         "name": "Price",
@@ -72,7 +74,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "billingaddressflat"
-    },{
+    }, {
         "name": "Billing Street address",
         "type": "text",
         "tableRef": "billingaddressstreet",
@@ -81,7 +83,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "billingaddressstreet"
-    },{
+    }, {
         "name": "Billing Nearest Landmark",
         "type": "text",
         "tableRef": "billingaddresslandmark",
@@ -90,7 +92,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "billingaddresslandmark"
-    },{
+    }, {
         "name": "Billing Pin Code",
         "type": "text",
         "tableRef": "billingaddresspin",
@@ -99,7 +101,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "billingaddresspin"
-    },{
+    }, {
         "name": "Billing City",
         "type": "text",
         "tableRef": "billingaddresscity",
@@ -117,7 +119,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "billingaddressstate"
-    },  {
+    }, {
         "name": "Billing Country",
         "type": "text",
         "tableRef": "billingaddresscountry",
@@ -135,7 +137,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "shippingaddressflat"
-    },{
+    }, {
         "name": "Shipping Street address",
         "type": "text",
         "tableRef": "shippingaddressstreet",
@@ -144,7 +146,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "shippingaddressstreet"
-    },{
+    }, {
         "name": "Shipping Nearest Landmark",
         "type": "text",
         "tableRef": "shippingaddresslandmark",
@@ -153,7 +155,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "shippingaddresslandmark"
-    },{
+    }, {
         "name": "Shipping Pin Code",
         "type": "text",
         "tableRef": "shippingaddresspin",
@@ -162,7 +164,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "shippingaddresspin"
-    },{
+    }, {
         "name": "Shipping City",
         "type": "text",
         "tableRef": "shippingaddresscity",
@@ -180,7 +182,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "shippingaddressstate"
-    },  {
+    }, {
         "name": "Shipping Country",
         "type": "text",
         "tableRef": "shippingaddresscountry",
@@ -240,6 +242,7 @@
         "tableRef": "status",
         "placeholder": "Enter orderstatus",
         "id": "input3",
+        "model": "status",
         "validation": ["required", "trim", "unique"],
         "url": [{
             "value": "Pending",

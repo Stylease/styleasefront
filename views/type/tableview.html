@@ -47,7 +47,7 @@
         <label for="">Upload Image</label>
         <!-- <img ng-src="{{field.image|uploadpath}}"> -->
         <upload-image ng-model="json.editData[field.model]" no-view multiple inobj></upload-image>
-        <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">
+        <div class="" ng-repeat="img in json.editData[field.model]" ng-if="son.editData[field.model]">
           <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
         </div>
       </div>
@@ -57,9 +57,11 @@
       <md-list-item class="ls-head secondary-button-padding padlr16">
         <p ng-repeat="heading in json.tableFields">{{heading.name}}</p>
       </md-list-item>
+
       <md-list-item ng-repeat="result in subTableData" class="secondary-button-padding padlr16">
         <p ng-repeat="values in json.tableFields">
-          {{result[values.model]}}
+          <span ng-if="values.type!='date'">{{result[values.model]}}</span>
+          <span ng-if="values.type=='date'">{{result[values.model] | date:'dd-MM-yyyy'}}</span>
         </p>
       </md-list-item>
     </md-list>
