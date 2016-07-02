@@ -3,12 +3,16 @@
     "jsonPage": "viewOrder",
     "desciption": "",
     "pageType": "tableview",
+    "urlFields": ["_id"],
     "tableFields": [{
         "name": "Name",
         "model": "productname"
     }, {
-        "name": "Quantity",
-        "model": "quantity"
+        "name": "Time From",
+        "model": "timeFrom"
+    }, {
+        "name": "Time To",
+        "model": "timeTo"
     }, {
         "name": "Price",
         "model": "price"
@@ -23,6 +27,24 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "_id"
+    }, {
+        "name": "First Name",
+        "type": "text",
+        "tableRef": "firstname",
+        "placeholder": "Enter First Name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "firstname"
+    }, {
+        "name": "Last Name",
+        "type": "text",
+        "tableRef": "lastname",
+        "placeholder": "Enter Last Name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "lastname"
     }, {
         "name": "Email",
         "type": "text",
@@ -41,6 +63,194 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "mobile"
+    }, {
+        "name": "Billing Address Line 1",
+        "type": "text",
+        "tableRef": "billingaddressflat",
+        "placeholder": "Enter billingaddress",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "billingaddressflat"
+    },{
+        "name": "Billing Street address",
+        "type": "text",
+        "tableRef": "billingaddressstreet",
+        "placeholder": "Enter Street address",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "billingaddressstreet"
+    },{
+        "name": "Billing Nearest Landmark",
+        "type": "text",
+        "tableRef": "billingaddresslandmark",
+        "placeholder": "Enter Nearest Landmark",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "billingaddresslandmark"
+    },{
+        "name": "Billing Pin Code",
+        "type": "text",
+        "tableRef": "billingaddresspin",
+        "placeholder": "Enter Pin Code",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "billingaddresspin"
+    },{
+        "name": "Billing City",
+        "type": "text",
+        "tableRef": "billingaddresscity",
+        "placeholder": "Enter City",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "billingaddresscity"
+    }, {
+        "name": "Billing State",
+        "type": "text",
+        "tableRef": "billingaddressstate",
+        "placeholder": "Enter State",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "billingaddressstate"
+    },  {
+        "name": "Billing Country",
+        "type": "text",
+        "tableRef": "billingaddresscountry",
+        "placeholder": "Enter Country",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "billingaddresscountry"
+    }, {
+        "name": "Shipping Address Line 1",
+        "type": "text",
+        "tableRef": "shippingaddressflat",
+        "placeholder": "Enter shippingaddress",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "shippingaddressflat"
+    },{
+        "name": "Shipping Street address",
+        "type": "text",
+        "tableRef": "shippingaddressstreet",
+        "placeholder": "Enter Street address",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "shippingaddressstreet"
+    },{
+        "name": "Shipping Nearest Landmark",
+        "type": "text",
+        "tableRef": "shippingaddresslandmark",
+        "placeholder": "Enter Nearest Landmark",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "shippingaddresslandmark"
+    },{
+        "name": "Shipping Pin Code",
+        "type": "text",
+        "tableRef": "shippingaddresspin",
+        "placeholder": "Enter Pin Code",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "shippingaddresspin"
+    },{
+        "name": "Shipping City",
+        "type": "text",
+        "tableRef": "shippingaddresscity",
+        "placeholder": "Enter City",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "shippingaddresscity"
+    }, {
+        "name": "Shipping State",
+        "type": "text",
+        "tableRef": "shippingaddressstate",
+        "placeholder": "Enter State",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "shippingaddressstate"
+    },  {
+        "name": "Shipping Country",
+        "type": "text",
+        "tableRef": "shippingaddresscountry",
+        "placeholder": "Enter Country",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "shippingaddresscountry"
+    }, {
+        "name": "Sub Total",
+        "type": "text",
+        "tableRef": "subtotal",
+        "placeholder": "Enter subtotal",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "subtotal"
+    }, {
+        "name": "Service Tax",
+        "type": "text",
+        "tableRef": "servicetax",
+        "placeholder": "Enter service tax",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "servicetax"
+    }, {
+        "name": "Refundable Deposit",
+        "type": "text",
+        "tableRef": "refundabledeposit",
+        "placeholder": "Enter refundable deposit",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "refundabledeposit"
+    }, {
+        "name": "Delivery Charge",
+        "type": "text",
+        "tableRef": "deliverycharge",
+        "placeholder": "Enter deliverycharge",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "deliverycharge"
+    }, {
+        "name": "Total",
+        "type": "text",
+        "tableRef": "total",
+        "placeholder": "Enter total",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "total"
+    }, {
+        "name": "Order Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter orderstatus",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "Pending",
+            "name": "Pending"
+        }, {
+            "value": "Processing",
+            "name": "Processing"
+        }, {
+            "value": "Completed",
+            "name": "Completed"
+        }]
     }, {
         "name": "Products",
         "type": "table",

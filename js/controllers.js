@@ -60,7 +60,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonParam7 = jsonArr[7];
     var jsonParam8 = jsonArr[8];
     var jsonParam9 = jsonArr[9];
-    console.log(jsonArr);
+    // console.log(jsonArr);
 
 
 
@@ -235,7 +235,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.makeReadyForApi = function() {
         var data = {};
-        if ($scope.json.pageType !== 'edit') {
+        if ($scope.json.pageType !== 'edit' && $scope.json.pageType!=='tableview') {
             // CONVERT MODEL NAMES SAME AS FIELD NAMES
             _.each($scope.json.fields, function(n) {
                 console.log(n);

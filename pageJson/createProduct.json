@@ -20,7 +20,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "subcategory/getAll"
     }, {
-        "name": "Name",
+        "name": "Product Name",
         "type": "text",
         "tableRef": "name",
         "placeholder": "Enter name",
@@ -44,23 +44,23 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Care",
+        "name": "Material & Care",
         "type": "text",
         "tableRef": "care",
-        "placeholder": "Enter care",
+        "placeholder": "Enter Material & Care",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Notes",
+        "name": "Stylist Notes",
         "type": "text",
         "tableRef": "notes",
-        "placeholder": "Enter notes",
+        "placeholder": "Enter Stylist Notes",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Price",
+        "name": "Retail Price",
         "type": "text",
         "tableRef": "price",
         "placeholder": "Enter price",
@@ -75,7 +75,7 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    },{
+    }, {
         "name": "Size",
         "type": "selectFromTable",
         "tableRef": "size",
@@ -92,6 +92,14 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
+        "name": "Refundable Security Deposit",
+        "type": "text",
+        "tableRef": "securitydeposit",
+        "placeholder": "Enter securitydeposit",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
         "name": "Image",
         "type": "image",
         "tableRef": "images",
@@ -100,14 +108,6 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "image"
-    }, {
-        "name": "Securitydeposit",
-        "type": "text",
-        "tableRef": "securitydeposit",
-        "placeholder": "Enter securitydeposit",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
     }],
     "action": [{
         "name": "submit",
