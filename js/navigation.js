@@ -29,26 +29,39 @@ var navigationservice = angular.module('navigationservice', [])
         link: "#/page/viewProduct",
         subnav: []
     }, {
+        name: "Order",
+        classis: "active",
+        link: "#/page/viewOrder",
+        subnav: []
+    }, {
+        name: "Celebrity choice",
+        classis: "active",
+        link: "#/page/viewCelebritychoice",
+        subnav: []
+    },{
         name: "Size",
         classis: "active",
         link: "#/page/viewSize",
-        subnav: []
-    }, {
-        name: "Occassion",
-        classis: "active",
-        link: "#/page/viewOccasion",
         subnav: []
     }, {
         name: "Color",
         classis: "active",
         link: "#/page/viewColor",
         subnav: []
-    }, {
+    },
+    {
         name: "Testimonial",
         classis: "active",
         link: "#/page/viewTestimonial",
         subnav: []
-    }];
+    },
+    {
+        name: "Delivery Time",
+        classis: "active",
+        link: "#/page/viewProducttime",
+        subnav: []
+    }
+  ];
 
     return {
         getnav: function() {
@@ -88,6 +101,9 @@ var navigationservice = angular.module('navigationservice', [])
         },
         logout: function(successCallback, errorCallback) {
             $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);
+        },
+        sideMenu1: function(apiName, pagination, successCallback, errorCallback) {
+          $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
 
     };

@@ -1,0 +1,57 @@
+{
+    "title": "Edit Testimonial",
+    "jsonPage": "viewTestimonial",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Id",
+        "type": "hidden",
+        "tableRef": "_id",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "_id"
+    }, {
+        "name": "Name",
+        "type": "readonly",
+        "tableRef": "user",
+        "placeholder": "Enter user",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "user"
+    }, {
+        "name": "Testimonial",
+        "type": "text",
+        "tableRef": "testimonial",
+        "placeholder": "Enter testimonial",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "testimonial"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitTestimonial"
+    }, {
+        "name": "cancel",
+        "action": "cancelTestimonial",
+        "stateName": "page({jsonName:'viewTestimonial'})"
+    }],
+    "apiCall": {
+        "url": "testimonial/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "testimonial/getOne",
+        "params": "_id"
+    },
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}

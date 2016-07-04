@@ -62,7 +62,7 @@
     ],
 
     "apiCall": {
-        "url": "size/getAll",
+        "url": "size/getLimited",
         "params": ""
     },
     "createButtonState":"page({jsonName:'createSize'})"

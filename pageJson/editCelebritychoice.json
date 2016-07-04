@@ -1,0 +1,88 @@
+{
+    "title": "Edit Celebritychoice",
+    "jsonPage": "viewCelebritychoice",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Product",
+        "type": "selectFromTable",
+        "tableRef": "product",
+        "placeholder": "Enter product",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "product/getAll",
+        "model":"product"
+
+    },  {
+        "name": "Name",
+        "type": "text",
+        "tableRef": "title",
+        "placeholder": "Enter Name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model":"title"
+    },  {
+        "name": "Celebrity Name",
+        "type": "text",
+        "tableRef": "celebrity",
+        "placeholder": "Enter Celebrity Name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model":"celebrity"
+    },   {
+        "name": "By Name",
+        "type": "text",
+        "tableRef": "by",
+        "placeholder": "Enter By Name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model":"by"
+    }, {
+        "name": "Rent",
+        "type": "text",
+        "tableRef": "rent",
+        "placeholder": "Enter Rent",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model":"rent"
+    }, {
+        "name": "Image",
+        "type": "image",
+        "tableRef": "images",
+        "placeholder": "Enter image",
+        "id": "input5",
+        "model": "",
+        "validation": [],
+        "url": "",
+        "model": "images"
+    }
+
+],
+"action": [{
+    "name": "submit",
+    "action": "submitCelebritychoice"
+}, {
+    "name": "cancel",
+    "action": "cancelCelebritychoice",
+    "stateName": "page({jsonName:'viewCelebritychoice'})"
+}],
+"apiCall": {
+    "url": "celebritychoice/save",
+    "params": "_id"
+},
+"preApi": {
+    "url": "celebritychoice/getOne",
+    "params": "_id"
+},
+"sidemenu": [{
+    "url": "",
+    "anchor": "",
+    "state": "",
+    "action": ""
+}]
+}

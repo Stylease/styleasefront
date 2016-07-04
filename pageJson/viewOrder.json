@@ -1,34 +1,36 @@
 {
-    "title": "All Users",
+    "title": "All Orders",
     "desciption": "",
     "pageType": "view",
     "fields": [{
-            "name": "Name",
+            "name": "User",
             "isSort": "",
-            "tableRef": "name"
+            "tableRef": "user.name"
         }, {
             "name": "Email",
             "isSort": "",
             "tableRef": "email"
-        }
-
-    ],
+        }, {
+            "name": "Mobile",
+            "isSort": "",
+            "tableRef": "mobile"
+        }],
     "action": [{
         "name": "edit",
         "icon": "mode_edit",
         "color": "blue",
         "action": "redirect",
-        "jsonPage": "editUser",
+        "jsonPage": "editOrder",
         "fieldsToSend": ["_id"],
-        "callFindOne": "user/getOne"
+        "callFindOne": "order/getOne"
     }, {
         "name": "delete",
         "icon": "delete",
         "color": "red",
         "action": "apiCallConfirm",
-        "title": "Delete User",
-        "content": "Are you sure you want to delete user?",
-        "api": "user/delete",
+        "title": "Delete Order",
+        "content": "Are you sure you want to delete order?",
+        "api": "order/delete",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
@@ -45,24 +47,10 @@
         "color": "red",
         "action": "uploadcsv"
     }],
-    "sidemenu": [{
-        "name": "User Details",
-        "action": "sidemenuRedirect",
-        "jsonPage": "editUser",
-        "fieldsToSend": [1],
-        "callFindOne": "user/getOne"
-    }, {
-        "name": "User Price",
-        "action": "sidemenuRedirect",
-        "jsonPage": "viewCart",
-        "fieldsToSend": [1],
-        "callFindOne": "user/findlimited"
-    }],
 
     "apiCall": {
-        "url": "user/getLimited",
+        "url": "order/getLimited",
         "params": ""
     },
-    "createButtonState": "page({jsonName:'createUser'})"
-
+    "createButtonState": "page({jsonName:'createOrder'})"
 }

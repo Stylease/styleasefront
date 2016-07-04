@@ -20,6 +20,37 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
+        "name": "Access Level",
+        "type": "select",
+        "tableRef": "accesslevel",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "Admin",
+            "name": "Admin"
+        }, {
+            "value": "Operator",
+            "name": "Operator"
+        }, {
+            "value": "User",
+            "name": "User"
+        }]
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "Enable",
+            "name": "Enable"
+        }, {
+            "value": "Disable",
+            "name": "Disable"
+        }]
+    }, {
         "name": "Password",
         "type": "password",
         "tableRef": "password",

@@ -2,66 +2,57 @@
     "title": "All Testimonial",
     "desciption": "",
     "pageType": "view",
-    "fields": [
-      {
-        "name":"Name",
-        "isSort":"",
-        "tableRef":"user.name"
-      },
-      {
-        "name":"Testimonial",
-        "isSort":"",
-        "tableRef":"testimonial"
-      },{
-        "name":"Timestamp",
-        "isSort":"",
-        "tableRef":"timestamp"
-      }
-    ],
-    "action": [
-      {
-        "name":"edit",
-        "icon":"mode_edit",
-        "color":"blue",
-        "action":"redirect",
-        "jsonPage":"editProduct",
-        "fieldsToSend":["_id"],
-        "callFindOne":"testimonial/getOne"
-      },
-      {
-        "name":"delete",
-        "icon":"delete",
-        "color":"red",
-        "action":"apiCallConfirm",
-        "title":"Delete Product",
-        "content":"Are you sure you want to delete testimonial?",
-        "api":"testimonial/delete",
-        "fieldsToSend":[
-          {
-            "name":"_id",
-            "value":"_id"
-          }
-        ]
-      }
-    ],
-    "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "user.name"
+    }, {
+        "name": "Testimonial",
+        "isSort": "",
+        "tableRef": "testimonial"
+    }, {
+        "name": "Timestamp",
+        "isSort": "",
+        "tableRef": "timestamp"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editTestimonial",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "testimonial/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete Testimonial",
+        "content": "Are you sure you want to delete testimonial?",
+        "api": "testimonial/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
 
     "apiCall": {
-        "url": "testimonial/getAllDetails",
+        "url": "testimonial/getLimited",
         "params": ""
     },
-    "createButtonState":"page({jsonName:'createProduct'})"
+    "createButtonState": "page({jsonName:'createOrder'})"
+
+
 }

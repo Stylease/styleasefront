@@ -1,29 +1,29 @@
 {
-    "title": "All Subcategory",
+    "title": "All Celebrity Choice",
     "desciption": "",
     "pageType": "view",
     "fields": [
       {
-        "name":"Category",
-        "isSort":"",
-        "tableRef":"category.name"
-      },
-      {
         "name":"Name",
         "isSort":"",
-        "tableRef":"name"
+        "tableRef":"title"
       },
       {
-        "name":"Order",
+        "name":"Celebrity",
         "isSort":"",
-        "tableRef":"order"
+        "tableRef":"celebrity"
       },
       {
-        "name":"Status",
+        "name":"By",
         "isSort":"",
-        "tableRef":"status"
-      }
+        "tableRef":"by"
+      },
 
+      {
+        "name":"Rent",
+        "isSort":"",
+        "tableRef":"rent"
+      }
     ],
     "action": [
       {
@@ -31,18 +31,18 @@
         "icon":"mode_edit",
         "color":"blue",
         "action":"redirect",
-        "jsonPage":"editSubcategory",
+        "jsonPage":"editCelebritychoice",
         "fieldsToSend":["_id"],
-        "callFindOne":"subcategory/getOne"
+        "callFindOne":"celebritychoice/getOne"
       },
       {
         "name":"delete",
         "icon":"delete",
         "color":"red",
         "action":"apiCallConfirm",
-        "title":"Delete Subcategory",
-        "content":"Are you sure you want to delete subcategory?",
-        "api":"subcategory/delete",
+        "title":"Delete CelebrityChoice",
+        "content":"Are you sure you want to delete celebritychoice?",
+        "api":"celebritychoice/delete",
         "fieldsToSend":[
           {
             "name":"_id",
@@ -67,8 +67,8 @@
     ],
 
     "apiCall": {
-        "url": "subcategory/getLimited",
+        "url": "celebritychoice/getLimited",
         "params": ""
     },
-    "createButtonState":"page({jsonName:'createSubcategory'})"
+    "createButtonState":"page({jsonName:'createCelebritychoice'})"
 }

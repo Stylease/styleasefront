@@ -62,7 +62,7 @@
     ],
 
     "apiCall": {
-        "url": "category/getAll",
+        "url": "category/getLimited",
         "params": ""
     },
     "createButtonState":"page({jsonName:'createCategory'})"

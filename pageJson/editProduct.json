@@ -23,7 +23,7 @@
             "url": "subcategory/getAll",
 						"model":"subcategory"
         }, {
-            "name": "Name",
+            "name": "Product Name",
             "type": "text",
             "tableRef": "name",
             "placeholder": "Enter name",
@@ -50,25 +50,25 @@
             "url": "",
             "model": "details"
         }, {
-            "name": "Care",
+            "name": "Material & Care",
             "type": "text",
             "tableRef": "care",
-            "placeholder": "Enter care",
+            "placeholder": "Enter Material & Care",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
             "url": "",
             "model": "care"
         }, {
-            "name": "Notes",
+            "name": "Stylist Notes",
             "type": "text",
             "tableRef": "notes",
-            "placeholder": "Enter notes",
+            "placeholder": "Enter Stylist Notes",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
             "url": "",
             "model": "notes"
         }, {
-            "name": "Price",
+            "name": "Retail Price",
             "type": "text",
             "tableRef": "price",
             "placeholder": "Enter price",
@@ -86,14 +86,14 @@
             "url": "",
             "model": "quantity"
         }, {
-            "name": "Size",
-            "type": "text",
-            "tableRef": "size",
-            "placeholder": "Enter size",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "size"
+          "name": "Size",
+          "type": "selectFromTable",
+          "tableRef": "size",
+          "placeholder": "Enter size",
+          "id": "input1",
+          "validation": ["required", "trim", "unique"],
+          "url": "size/getAll",
+          "model":"size"
         }, {
             "name": "Rental Amount",
             "type": "text",
@@ -104,7 +104,7 @@
             "url": "",
             "model": "rentalamount"
         }, {
-            "name": "Securitydeposit",
+            "name": "Refundable Security Deposit",
             "type": "text",
             "tableRef": "securitydeposit",
             "placeholder": "Enter securitydeposit",
@@ -115,13 +115,13 @@
         }, {
             "name": "Image",
             "type": "image",
-            "tableRef": "image",
+            "tableRef": "images",
             "placeholder": "Enter image",
             "id": "input5",
             "model": "",
             "validation": [],
             "url": "",
-            "model": "image"
+            "model": "images"
         }
 
     ],

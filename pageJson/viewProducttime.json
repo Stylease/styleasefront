@@ -1,0 +1,60 @@
+{
+    "title": "All Product Time",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [{
+            "name": "Delivery",
+            "isSort": "",
+            "tableRef": "delivery"
+        }, {
+            "name": "Pickup Time",
+            "isSort": "",
+            "tableRef": "pickupTime"
+        }, {
+            "name": "Delivery Time",
+            "isSort": "",
+            "tableRef": "deliveryTime"
+        }, {
+            "name": "Status",
+            "isSort": "",
+            "tableRef": "status"
+        }],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editProducttime",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "producttime/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete producttime",
+        "content": "Are you sure you want to delete producttime?",
+        "api": "producttime/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+
+    "apiCall": {
+        "url": "producttime/getLimited",
+        "params": ""
+    },
+    "createButtonState": "page({jsonName:'createProducttime'})"
+}

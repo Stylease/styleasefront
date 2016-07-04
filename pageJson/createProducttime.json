@@ -1,0 +1,63 @@
+{
+    "title": "Create Proucttime",
+    "jsonPage": "viewProducttime",
+    "desciption": "",
+    "pageType": "create",
+    "fields": [{
+        "name": "Delivery",
+        "type": "text",
+        "tableRef": "delivery",
+        "placeholder": "Enter Delivery",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Pickup Time",
+        "type": "text",
+        "tableRef": "pickupTime",
+        "placeholder": "Enter pickupTime",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Delivery Time",
+        "type": "text",
+        "tableRef": "deliveryTime",
+        "placeholder": "Enter deliveryTime",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "Enable",
+            "name": "Enable"
+        }, {
+            "value": "Disable",
+            "name": "Disable"
+        }]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitProucttime"
+    }, {
+        "name": "cancel",
+        "stateName": "page({jsonName:'viewProucttime'})"
+    }],
+
+    "apiCall": {
+        "url": "producttime/save"
+    },
+
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}
