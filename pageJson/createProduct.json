@@ -45,7 +45,7 @@
         "url": ""
     }, {
         "name": "Material & Care",
-        "type": "text",
+        "type": "textarea",
         "tableRef": "care",
         "placeholder": "Enter Material & Care",
         "id": "input2",
@@ -53,7 +53,7 @@
         "url": ""
     }, {
         "name": "Stylist Notes",
-        "type": "text",
+        "type": "textarea",
         "tableRef": "notes",
         "placeholder": "Enter Stylist Notes",
         "id": "input2",

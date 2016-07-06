@@ -42,7 +42,7 @@
             "model": "sku"
         }, {
             "name": "Details",
-            "type": "text",
+            "type": "textarea",
             "tableRef": "details",
             "placeholder": "Enter details",
             "id": "input2",
@@ -51,7 +51,7 @@
             "model": "details"
         }, {
             "name": "Material & Care",
-            "type": "text",
+            "type": "textarea",
             "tableRef": "care",
             "placeholder": "Enter Material & Care",
             "id": "input2",
@@ -60,7 +60,7 @@
             "model": "care"
         }, {
             "name": "Stylist Notes",
-            "type": "text",
+            "type": "textarea",
             "tableRef": "notes",
             "placeholder": "Enter Stylist Notes",
             "id": "input2",

@@ -40,7 +40,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog,$location) {
+.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("users");
     $scope.menutitle = NavigationService.makeactive("Users");
@@ -89,36 +89,39 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
         console.log(urlParams);
         $scope.json = data;
-console.log($scope.json);
-if ($scope.json.sidemenu && $scope.json.sidemenu.length > 0) {
-    $scope.sidemenuThere = true;
-}
-var idForCreate = $location.absUrl().split('%C2%A2')[1];
-
-console.log(idForCreate);
-$scope.idForCreate = idForCreate;
-if (idForCreate) {
-    $scope.goToCreatePage = function() {
-        console.log("In create");
-        $location.url("/page/" + $scope.json.createButtonUrl + idForCreate);
-    };
-
-}
-if (data.pageType == "create") {
-    $scope.goToCancelPageCreate = function() {
-        $location.url("/page/" + $scope.json.action[1].url + idForCreate);
-    };
-    _.each($scope.json.fields, function(n) {
-        if (n.type == "select") {
-            n.model = "";
-            n.url.unshift({
-                "value": "",
-                "name": "SELECT"
-            });
-        } else if (n.type == "selectFromTable") {
-            n.model = "";
+        console.log($scope.json);
+        if ($scope.json.sidemenu && $scope.json.sidemenu.length > 0) {
+            $scope.sidemenuThere = true;
         }
-    });
+        var idForCreate = $location.absUrl().split('%C2%A2')[1];
+
+        console.log(idForCreate);
+        $scope.idForCreate = idForCreate;
+        if (idForCreate) {
+            $scope.goToCreatePage = function() {
+                console.log("In create");
+                $location.url("/page/" + $scope.json.createButtonUrl + idForCreate);
+            };
+
+        }
+        if (data.pageType == "create") {
+            $scope.goToCancelPageCreate = function() {
+                $location.url("/page/" + $scope.json.action[1].url + idForCreate);
+            };
+            _.each($scope.json.fields, function(n) {
+                if (n.type == "select") {
+                    n.model = "";
+                    n.url.unshift({
+                        "value": "",
+                        "name": "SELECT"
+                    });
+                    if (n.name == "Status") {
+                        n.model = true;
+                    }
+                } else if (n.type == "selectFromTable") {
+                    n.model = "";
+                }
+            });
             // get select fields dropdown
             _.each($scope.json.fields, function(n) {
                 if (n.type == "selectFromTable") {
@@ -143,8 +146,8 @@ if (data.pageType == "create") {
                 }
             });
         } else if (data.pageType == "edit" || data.pageType == "tableview") {
-          var urlid1 = $location.absUrl().split('%C2%A2')[1];
-      var urlid2 = $location.absUrl().split('%C2%A2')[2];
+            var urlid1 = $location.absUrl().split('%C2%A2')[1];
+            var urlid2 = $location.absUrl().split('%C2%A2')[2];
             console.log(urlParams);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
                 console.log(data);
@@ -187,9 +190,8 @@ if (data.pageType == "create") {
             $scope.pagination = {
                 "search": "",
                 "pagenumber": 1,
-                "pagesize":10
+                "pagesize": 10
             };
-
 
             // SIDE MENU DATA
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
@@ -287,10 +289,10 @@ if (data.pageType == "create") {
     };
 
     $scope.makeReadyForApi = function() {
-      $scope.urlid = $location.absUrl().split('%C2%A2')[1];
+        $scope.urlid = $location.absUrl().split('%C2%A2')[1];
         $scope.urlid2 = $location.absUrl().split('%C2%A2')[2];
         var data = {};
-        if ($scope.json.pageType !== 'edit' && $scope.json.pageType!=='tableview') {
+        if ($scope.json.pageType !== 'edit' && $scope.json.pageType !== 'tableview') {
             // CONVERT MODEL NAMES SAME AS FIELD NAMES
             _.each($scope.json.fields, function(n) {
                 console.log(n);
@@ -312,21 +314,21 @@ if (data.pageType == "create") {
 
             // showToast("Project Saved Successfully");
             console.log("Success");
-                if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {
-                    $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid);
+            if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {
+                $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid);
 
-                } else if ($scope.json.action[0].submitUrl && $scope.urlid2) {
-                    $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid2);
-                } else {
-                    $state.go("page", {
-                        jsonName: $scope.json.jsonPage
-                    });
-                }
+            } else if ($scope.json.action[0].submitUrl && $scope.urlid2) {
+                $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid2);
+            } else {
+                $state.go("page", {
+                    jsonName: $scope.json.jsonPage
+                });
+            }
 
-            }, function() {
-                // showToast("Error saving the Project");
-                console.log("Fail");
-            });
+        }, function() {
+            // showToast("Error saving the Project");
+            console.log("Fail");
+        });
 
 
     };

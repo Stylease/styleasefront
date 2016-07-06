@@ -5,7 +5,7 @@
     "fields": [{
         "name": "Name",
         "isSort": "",
-        "tableRef": "user.name"
+        "tableRef": "user"
     }, {
         "name": "Testimonial",
         "isSort": "",
@@ -52,7 +52,7 @@
         "url": "testimonial/getLimited",
         "params": ""
     },
-    "createButtonState": "page({jsonName:'createOrder'})"
+    "createButtonState": "page({jsonName:'createTestimonial'})"
 
 
 }
