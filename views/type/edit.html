@@ -20,8 +20,8 @@
 
       <div ng-if="field.type=='textarea'">
         <label>{{field.name}}</label>
-          <textarea style="height:100px;" ng-model="json.editData[field.model]" name="{{field.name}}" id="{{field.id}}"></textarea>
-        </div>
+        <textarea style="height:100px;" ng-model="json.editData[field.model]" name="{{field.name}}" id="{{field.id}}"></textarea>
+      </div>
       <!-- <div ng-if="field.type=='textarea'">
         <label>{{field.name}}</label>
         <textarea style="height:100px;" ng-model="json.editData[field.model]" name="{{field.name}}" id="{{field.id}}"></textarea>
@@ -64,10 +64,7 @@
       <div ng-if="field.type=='select'">
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
-        <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model]">
-          <option ng-repeat="item in field.url track by $index" value="{{item.name}}" ng-selected="{{ item.name.Selected == true }}">
-            {{item.name}}
-          </option>
+        <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model]" ng-options="item.value as item.name for item in field.url">
         </select>
         <br>
       </div>

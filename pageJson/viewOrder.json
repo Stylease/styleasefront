@@ -52,5 +52,5 @@
         "url": "order/getLimited",
         "params": ""
     },
-    "createButtonState": "page({jsonName:'createOrder'})"
+    "createButtonState": ""
 }

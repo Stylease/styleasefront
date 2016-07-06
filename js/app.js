@@ -81,6 +81,11 @@ firstapp.filter('getValue', function($filter) {
                 returnValue = returnValue[n];
             });
             if (type != "image") {
+                if (returnValue == true) {
+                    returnValue = "Enabled";
+                } else if (returnValue == false) {
+                    returnValue = "Disabled";
+                }
                 return returnValue;
             } else {
                 return $filter("uploadpath")(returnValue, 100, 100, "fill");

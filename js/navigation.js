@@ -1,4 +1,5 @@
-var adminurl = "http://104.199.151.75/";
+var adminurl = "http://localhost:1337/";
+// var adminurl = "http://104.199.151.75/";
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var imgpath = imgurl + "readFile";
