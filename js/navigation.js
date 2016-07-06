@@ -1,8 +1,5 @@
-// var adminurl = "http://blazen.io/";
-var adminurl = "http://localhost:1337/";
-// var adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
-// var imgurl = "http://pantherworldadmin.jaipurpinkpanthers.com/upload/";
-var imgurl = "http://localhost:1337/upload/";
+var adminurl = "http://104.199.151.75/";
+var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var imgpath = imgurl + "readFile";
 var navigationservice = angular.module('navigationservice', [])
@@ -38,7 +35,7 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewCelebritychoice",
         subnav: []
-    },{
+    }, {
         name: "Size",
         classis: "active",
         link: "#/page/viewSize",
@@ -48,20 +45,17 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewColor",
         subnav: []
-    },
-    {
+    }, {
         name: "Testimonial",
         classis: "active",
         link: "#/page/viewTestimonial",
         subnav: []
-    },
-    {
+    }, {
         name: "Delivery Time",
         classis: "active",
         link: "#/page/viewProducttime",
         subnav: []
-    }
-  ];
+    }];
 
     return {
         getnav: function() {
@@ -103,7 +97,7 @@ var navigationservice = angular.module('navigationservice', [])
             $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);
         },
         sideMenu1: function(apiName, pagination, successCallback, errorCallback) {
-          $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
+            $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
 
     };
