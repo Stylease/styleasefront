@@ -285,6 +285,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             }
             $scope.confirm(action.title, action.content, pageURL, data);
+        } else if (action.action == 'sidemenuRedirect') {
+            pageURL = action.jsonPage;
+            if (action.fieldsToSend) {
+                _.each(action.fieldsToSend, function(n) {
+                    pageURL += "¢" + jsonArr[n];
+                });
+            }
+            $state.go("page", {
+                jsonName: pageURL
+            });
+        } else if (action.action === 'changeActive') {
+            $scope.defaultActive = action.active;
         }
     };
 
