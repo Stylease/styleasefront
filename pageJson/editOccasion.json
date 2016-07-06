@@ -56,11 +56,5 @@
     "preApi": {
         "url": "occasion/getOne",
         "params": "_id"
-    },
-    "sidemenu": [{
-        "url": "",
-        "anchor": "",
-        "state": "",
-        "action": ""
-    }]
+    }
 }

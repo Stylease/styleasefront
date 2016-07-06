@@ -7,9 +7,9 @@
         "isSort": "",
         "tableRef": "user"
     }, {
-        "name": "Testimonial",
+        "name": "Order",
         "isSort": "",
-        "tableRef": "testimonial"
+        "tableRef": "order"
     }, {
         "name": "Timestamp",
         "isSort": "",

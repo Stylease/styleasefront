@@ -61,11 +61,5 @@
     "preApi": {
         "url": "size/getOne",
         "params": "_id"
-    },
-    "sidemenu": [{
-        "url": "",
-        "anchor": "",
-        "state": "",
-        "action": ""
-    }]
+    }
 }

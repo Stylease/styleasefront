@@ -45,20 +45,7 @@
         "color": "red",
         "action": "uploadcsv"
     }],
-    "sidemenu": [{
-        "name": "User Details",
-        "action": "sidemenuRedirect",
-        "jsonPage": "editUser",
-        "fieldsToSend": [1],
-        "callFindOne": "user/getOne"
-    }, {
-        "name": "User Price",
-        "action": "sidemenuRedirect",
-        "jsonPage": "viewCart",
-        "fieldsToSend": [1],
-        "callFindOne": "user/findlimited"
-    }],
-
+  
     "apiCall": {
         "url": "user/getLimited",
         "params": ""

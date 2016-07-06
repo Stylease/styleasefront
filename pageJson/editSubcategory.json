@@ -71,11 +71,5 @@
     "preApi": {
         "url": "subcategory/getOne",
         "params": "_id"
-    },
-    "sidemenu": [{
-        "url": "",
-        "anchor": "",
-        "state": "",
-        "action": ""
-    }]
+    }
 }

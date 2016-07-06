@@ -11,6 +11,14 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
+    },{
+        "name": "Order",
+        "type": "text",
+        "tableRef": "order",
+        "placeholder": "Enter order",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
     }, {
         "name": "Testimonial",
         "type": "textarea",
