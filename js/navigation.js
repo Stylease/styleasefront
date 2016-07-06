@@ -1,5 +1,5 @@
-// var adminurl = "http://localhost:1337/";
-var adminurl = "http://104.199.151.75/";
+var adminurl = "http://localhost:1337/";
+// var adminurl = "http://104.199.151.75/";
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var imgpath = imgurl + "readFile";
@@ -80,17 +80,18 @@ var navigationservice = angular.module('navigationservice', [])
             console.log(adminurl + apiName);
             $http.post(adminurl + apiName, urlParams).success(successCallback).error(errorCallback);
         },
-        submitLogin: function(data, successCallback, errorCallback) {
-            $http.post(adminurl + "User/login", data).success(successCallback).error(errorCallback);
-        },
-        deleteApi: function(data, successCallback, errorCallback) {
-            $http.post(adminURL + "api/delete", data).success(successCallback).error(errorCallback);
-        },
+
         getDropDown: function(apiName, successCallback, errorCallback) {
             $http.post(adminurl + apiName).success(successCallback).error(errorCallback);
         },
-        logout: function(successCallback, errorCallback) {
-            $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);
+        submitLogin: function(data, successCallback, errorCallback) {
+          $http.post(adminurl + "register/login", data).success(successCallback).error(errorCallback);
+        },
+        deleteApi: function(data, successCallback, errorCallback) {
+          $http.post(adminURL + "api/delete", data).success(successCallback).error(errorCallback);
+        },
+        logout: function( successCallback, errorCallback) {
+          $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);
         },
         sideMenu1: function(apiName, pagination, successCallback, errorCallback) {
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
