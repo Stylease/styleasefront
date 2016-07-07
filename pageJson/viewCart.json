@@ -1,0 +1,79 @@
+{
+    "title": "View Cart",
+    "desciption": "",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "degreeTitle",
+            "isSort": "",
+            "tableRef": "degreeTitle"
+        }, {
+            "name": "instituteName",
+            "isSort": "",
+            "tableRef": "instituteName"
+        }, {
+            "name": "yearOfPassing",
+            "isSort": "",
+            "tableRef": "yearOfPassing"
+        }
+
+    ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editExpertEducation",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "expertuser/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete User",
+        "content": "Are you sure you want to delete user?",
+        "api": "expertuser/deleteEdu",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+
+    "apiCall": {
+        "url": "expertuser/getOne",
+        "params": "_id"
+    },
+    "createButtonState": "page({jsonName:'createExpertEducation'})",
+    "sidemenu": [{
+        "name": "User Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editUser",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "Cart Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewCart",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "Wishlist",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewWishlist",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getOne"
+    }]
+}

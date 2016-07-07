@@ -80,6 +80,24 @@
     "preApi": {
         "url": "user/getOne",
         "params": "_id"
-    }
-    
+    },
+    "sidemenu": [{
+        "name": "User Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editUser",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "Cart Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewCart",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "Wishlist",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewWishlist",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getOne"
+    }]
 }
