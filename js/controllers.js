@@ -213,11 +213,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     });
                 } else {
                     console.log("ELSE");
-                    pagination._id = urlid1;
-                    NavigationService.sideMenu1($scope.api1, pagination, function(data) {
-                        $scope.json.tableData = data.data.data;
+                    $scope.pagination._id = urlid1;
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination, function(data) {
+                        console.log(data);
+                        $scope.json.tableData = data.data;
                         console.log($scope.json.tableData);
-
                     }, function() {
                         console.log("fail");
                     });
@@ -250,6 +250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     // ACTION
     $scope.performAction = function(action, result) {
+        console.log(action, result);
         console.log("in pa");
         var pageURL = "";
         if (action.type == "onlyView") {

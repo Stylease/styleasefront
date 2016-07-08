@@ -1,62 +1,53 @@
 {
-    "title": "View Cart",
+    "title": "",
     "desciption": "",
     "pageType": "view",
-    "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-            "name": "degreeTitle",
+            "name": "Product Name",
             "isSort": "",
-            "tableRef": "degreeTitle"
+            "tableRef": "productname"
+        },{
+                "name": "Size",
+                "isSort": "",
+                "tableRef": "size"
+            }, {
+            "name": "timeTo",
+            "isSort": "",
+            "tableRef": "timeTo"
         }, {
-            "name": "instituteName",
+            "name": "timeFrom",
             "isSort": "",
-            "tableRef": "instituteName"
+            "tableRef": "timeFrom"
         }, {
-            "name": "yearOfPassing",
+            "name": "pickupTime",
             "isSort": "",
-            "tableRef": "yearOfPassing"
+            "tableRef": "pickupTime"
+        }, {
+            "name": "deliveryTime",
+            "isSort": "",
+            "tableRef": "deliveryTime"
         }
 
     ],
     "action": [{
-        "name": "edit",
-        "icon": "mode_edit",
-        "color": "blue",
-        "action": "redirect",
-        "jsonPage": "editExpertEducation",
-        "fieldsToSend": ["_id"],
-        "callFindOne": "expertuser/getOne"
-    }, {
         "name": "delete",
         "icon": "delete",
         "color": "red",
         "action": "apiCallConfirm",
         "title": "Delete User",
         "content": "Are you sure you want to delete user?",
-        "api": "expertuser/deleteEdu",
+        "api": "user/delete",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
         }]
     }],
-    "button": [{
-        "name": "excelexport",
-        "icon": "print",
-        "color": "blue",
-        "action": "excelexport"
-    }, {
-        "name": "uploadcsv",
-        "icon": "delete",
-        "color": "red",
-        "action": "uploadcsv"
-    }],
-
     "apiCall": {
-        "url": "expertuser/getOne",
+        "url": "user/getCart",
         "params": "_id"
     },
-    "createButtonState": "page({jsonName:'createExpertEducation'})",
+
     "sidemenu": [{
         "name": "User Details",
         "action": "sidemenuRedirect",
