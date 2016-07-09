@@ -15,24 +15,24 @@
     </div>
 
     <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
-      <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef}}</p>
+      <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
       <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
         <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
       </md-button>
     </md-list-item>
 
-    <md-list-item ng-if="json.tableData.cart.length>=0" ng-repeat="result in json.tableData.cart" class="secondary-button-padding padlr16">
-        <p ng-repeat="field in json.fields">
-            <span ng-if="field.type!='image'">{{result|getValue:field.tableRef}}</span>
-            <!-- <span ng-if="field.type=='date'">{{result|getValue:field.new Date(tableRef)}}</span> -->
-            <img ng-src="{{result|getValue:field.tableRef:field.type}}" ng-if="field.type=='image'">
-        </p>
-        <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
-            <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
-        </md-button>
-    </md-list-item>
+    <!-- <md-list-item ng-if="json.tableData.cart.length>=0" ng-repeat="result in json.tableData.cart" class="secondary-button-padding padlr16">
+      <p ng-repeat="field in json.fields">
+        <span ng-if="field.type!='image'"> {{json}}</span>
+        <img ng-src="{{result|getValue:field.tableRef:field.type}}" ng-if="field.type=='image'">
+      </p>
+      <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
+        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+      </md-button>
+    </md-list-item> -->
 
-    <uib-pagination ng-if="result.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems" ng-hide="pageInfo.lastpage==1"></uib-pagination>
+    <uib-pagination ng-if="result.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
+      ng-hide="pageInfo.lastpage==1"></uib-pagination>
 
   </md-list>
   <a ui-sref="{{json.createButtonState}}" ng-if="json.createButtonState">

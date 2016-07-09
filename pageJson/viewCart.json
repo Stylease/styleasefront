@@ -6,27 +6,33 @@
     "fields": [{
             "name": "Product Name",
             "isSort": "",
-            "tableRef": "productname"
-        },{
-                "name": "Size",
-                "isSort": "",
-                "tableRef": "size"
-            }, {
+            "tableRef": "productname",
+            "type": ""
+        }, {
+            "name": "Size",
+            "isSort": "",
+            "tableRef": "size",
+            "type": ""
+        }, {
             "name": "timeTo",
             "isSort": "",
-            "tableRef": "timeTo"
+            "tableRef": "timeTo",
+            "type": "date"
         }, {
             "name": "timeFrom",
             "isSort": "",
-            "tableRef": "timeFrom"
+            "tableRef": "timeFrom",
+            "type": "date"
         }, {
             "name": "pickupTime",
             "isSort": "",
-            "tableRef": "pickupTime"
+            "tableRef": "pickupTime",
+            "type": ""
         }, {
             "name": "deliveryTime",
             "isSort": "",
-            "tableRef": "deliveryTime"
+            "tableRef": "deliveryTime",
+            "type": ""
         }
 
     ],
@@ -59,7 +65,7 @@
         "action": "sidemenuRedirect",
         "jsonPage": "viewCart",
         "fieldsToSend": [1],
-        "callFindOne": "user/getOne"
+        "callFindOne": "user/getCart"
     }, {
         "name": "Wishlist",
         "action": "sidemenuRedirect",

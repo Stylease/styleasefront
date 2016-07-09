@@ -71,21 +71,52 @@ firstapp.filter('uploadpath', function() {
         }
     };
 });
+//
+// firstapp.filter('getValue', function($filter) {
+//     return function(input, keyVal, type) {
+//         if (keyVal) {
+//             var keyArr = keyVal.split(".");
+//             var returnValue = input;
+//             _.each(keyArr, function(n) {
+//                 returnValue = returnValue[n];
+//             });
+//             if (type != "image") {
+//                 if (returnValue == true) {
+//                     returnValue = "Enabled";
+//                 } else if (returnValue == false) {
+//                     returnValue = "Disabled";
+//                 }
+//                 return returnValue;
+//             } else {
+//                 return $filter("uploadpath")(returnValue, 100, 100, "fill");
+//             }
+//         }
+//
+//     };
+// });
 
 firstapp.filter('getValue', function($filter) {
     return function(input, keyVal, type) {
+      console.log(input, "aa" , keyVal , "bb" , type);
         if (keyVal) {
             var keyArr = keyVal.split(".");
             var returnValue = input;
             _.each(keyArr, function(n) {
                 returnValue = returnValue[n];
             });
-            if (type != "image") {
-                if (returnValue == true) {
-                    returnValue = "Enabled";
-                } else if (returnValue == false) {
-                    returnValue = "Disabled";
-                }
+            console.log(type);
+            if (type == "date") {
+                console.log('in date');
+                // return new Date(returnValue);
+                return $filter("date")(returnValue, "short");
+            }if (type == "longdate") {
+                console.log('in date');
+                // return new Date(returnValue);
+                return $filter("date")(returnValue, "longDate");
+            }if(type == "time"){
+              console.log('in time');
+              return $filter("date")(returnValue, "shortTime");
+            } if (type != "image") {
                 return returnValue;
             } else {
                 return $filter("uploadpath")(returnValue, 100, 100, "fill");
