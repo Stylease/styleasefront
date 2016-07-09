@@ -8,33 +8,7 @@
             "isSort": "",
             "tableRef": "product.name",
             "type": ""
-        }, {
-            "name": "Size",
-            "isSort": "",
-            "tableRef": "size",
-            "type": ""
-        }, {
-            "name": "timeTo",
-            "isSort": "",
-            "tableRef": "timeTo",
-            "type": "date"
-        }, {
-            "name": "timeFrom",
-            "isSort": "",
-            "tableRef": "timeFrom",
-            "type": "date"
-        }, {
-            "name": "pickupTime",
-            "isSort": "",
-            "tableRef": "pickupTime",
-            "type": ""
-        }, {
-            "name": "deliveryTime",
-            "isSort": "",
-            "tableRef": "deliveryTime",
-            "type": ""
         }
-
     ],
     "action": [{
         "name": "delete",
@@ -42,16 +16,16 @@
         "color": "red",
         "action": "apiCallConfirm",
         "title": "Delete User",
-        "content": "Are you sure you want to delete user?",
-        "api": "user/delete",
+        "content": "Are you sure you want to delete wishlist?",
+        "api": "wishlist/delete",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
         }]
     }],
     "apiCall": {
-        "url": "cart/getCart",
-        "params": "_id"
+        "url": "wishlist/getWishlist",
+        "params": "wishlist"
     },
 
     "sidemenu": [{
@@ -65,12 +39,12 @@
         "action": "sidemenuRedirect",
         "jsonPage": "viewCart",
         "fieldsToSend": [1],
-        "callFindOne": "cart/getCart"
+        "callFindOne": "user/getCart"
     }, {
         "name": "Wishlist",
         "action": "sidemenuRedirect",
         "jsonPage": "viewWishlist",
         "fieldsToSend": [1],
-        "callFindOne": "Wishlist/getWishlist"
+        "callFindOne": "wishlist/getWishlist"
     }]
 }

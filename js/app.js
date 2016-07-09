@@ -97,7 +97,6 @@ firstapp.filter('uploadpath', function() {
 
 firstapp.filter('getValue', function($filter) {
     return function(input, keyVal, type) {
-      console.log(input, "aa" , keyVal , "bb" , type);
         if (keyVal) {
             var keyArr = keyVal.split(".");
             var returnValue = input;
@@ -108,7 +107,7 @@ firstapp.filter('getValue', function($filter) {
             if (type == "date") {
                 console.log('in date');
                 // return new Date(returnValue);
-                return $filter("date")(returnValue, "short");
+                return $filter("date")(returnValue, "dd-MM-yyyy");
             }if (type == "longdate") {
                 console.log('in date');
                 // return new Date(returnValue);
