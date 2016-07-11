@@ -219,8 +219,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
 
             // SIDE MENU DATA
-            var urlid1 = $location.absUrl().split('%C2%A2')[1];
-            // var urlid2 = $location.absUrl().split('%C2%A2')[2];
+            
             $scope.pagination1 = {};
             if (urlid1) {
                 $scope.api1 = $scope.json.sidemenu[1].callFindOne;
