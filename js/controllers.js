@@ -52,6 +52,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             .hideDelay(3000)
         );
     }
+
+    var urlid1 = $location.absUrl().split('%C2%A2')[1];
+    var urlid2 = $location.absUrl().split('%C2%A2')[2];
+
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var jsonArr = $stateParams.jsonName.split("¢");
@@ -168,8 +172,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         } else if (data.pageType == "edit" || data.pageType == "tableview") {
-            var urlid1 = $location.absUrl().split('%C2%A2')[1];
-            var urlid2 = $location.absUrl().split('%C2%A2')[2];
+
             console.log(urlParams);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
                 console.log(data);
@@ -249,7 +252,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.pageInfo = {};
             $scope.getMoreResults = function() {
                 NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
-                    if (findData.value != false) {
+                    if (findData.value !== false) {
                         if (findData.data && findData.data.data && findData.data.data.length > 0) {
                             $scope.pageInfo.lastpage = findData.data.totalpages;
                             $scope.pageInfo.pagenumber = findData.data.pagenumber;
