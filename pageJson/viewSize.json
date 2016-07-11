@@ -2,6 +2,7 @@
     "title": "All Sizes",
     "desciption": "",
     "pageType": "view",
+    "sortable": "size/sort",
     "fields": [
       {
         "name":"Name",

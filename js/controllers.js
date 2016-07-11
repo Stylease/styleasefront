@@ -40,10 +40,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
+.controller('jsonViewCtrl', function($scope,$mdToast, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
     //Used to name the .html file
-    $scope.template = TemplateService.changecontent("users");
-    $scope.menutitle = NavigationService.makeactive("Users");
+    // $scope.template = TemplateService.changecontent("users");
+    // $scope.menutitle = NavigationService.makeactive("Users");
+    function showToast(text) {
+        $mdToast.show(
+            $mdToast.simple()
+            .textContent(text)
+            .position("bottom left")
+            .hideDelay(3000)
+        );
+    }
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var jsonArr = $stateParams.jsonName.split("¢");
@@ -62,6 +70,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonParam8 = jsonArr[8];
     var jsonParam9 = jsonArr[9];
     // console.log(jsonArr);
+
+
+
+    $scope.sortableOptions = {
+        stop: function(e, ui) {
+            console.log($scope.json.tableData);
+            var ids = _.map($scope.json.tableData, "_id");
+            var names = _.map($scope.json.tableData, "name");
+            console.log(names);
+            $http.post(adminurl + $scope.json.sortable, ids).success(function(data) {
+                showToast("Sorted Successfully");
+            }, function() {
+                showToast("Error Sorting");
+            });
+        }
+    };
 
 
 
@@ -157,7 +181,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if (n.type == "table") {
                         $scope.subTableData = $scope.json.editData[n.model];
                     }
-                })
+                });
             }, function() {
                 console.log("Fail");
             });
