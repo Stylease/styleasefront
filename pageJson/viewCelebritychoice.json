@@ -4,25 +4,9 @@
     "pageType": "view",
     "fields": [
       {
-        "name":"Name",
+        "name":"Product Name",
         "isSort":"",
-        "tableRef":"title"
-      },
-      {
-        "name":"Celebrity",
-        "isSort":"",
-        "tableRef":"celebrity"
-      },
-      {
-        "name":"By",
-        "isSort":"",
-        "tableRef":"by"
-      },
-
-      {
-        "name":"Rent",
-        "isSort":"",
-        "tableRef":"rent"
+        "tableRef":"product.name"
       }
     ],
     "action": [
