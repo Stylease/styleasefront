@@ -44,19 +44,31 @@
     </div> -->
 
       <!-- // SELECT -->
+      <!-- <div ng-if="field.type=='selectFromTable'">
+
+        <label for="{{field.id}}">{{field.name}}</label>
+        <br>
+          <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model]">{{json.editData[field.model]}}
+          <option value="">SELECT</option>
+          <option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">
+            {{item.name}}
+          </option>
+        </select>
+        <br>
+      </div> -->
+      <!-- // SELECT -->
       <div ng-if="field.type=='selectFromTable'">
 
         <label for="{{field.id}}">{{field.name}}</label>
         <br>
         <!-- <select ng-model="field.model" ng-options="item._id as item.name for item in field.url">
                                     </select> -->
+        <md-select ng-model="json.editData[field.model]" multiple>
+          <md-optgroup>
+            <md-option ng-value="item.name" ng-repeat="item in field.url">{{item.name}}</md-option>
+          </md-optgroup>
+        </md-select>
 
-        <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model]">{{json.editData[field.model]}}
-          <option value="">SELECT</option>
-          <option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">
-            {{item.name}}
-          </option>
-        </select>
         <br>
       </div>
 
@@ -68,6 +80,13 @@
         </select>
         <br>
       </div>
+      <!-- <div ng-if="field.type=='select'">
+        <md-select ng-model="json.editData[field.model]" multiple>
+          <md-optgroup>
+            <md-option ng-value="item.name" ng-repeat="item in field.url">{{item.name}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </div> -->
       <div ng-if="field.type=='image'">
         <label for="">Upload Image</label>
         <!-- <img ng-src="{{field.image|uploadpath}}"> -->

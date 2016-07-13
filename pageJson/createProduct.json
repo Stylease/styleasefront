@@ -78,6 +78,7 @@
     }, {
         "name": "Size",
         "type": "selectFromTable",
+        "option":"multiple",
         "tableRef": "size",
         "placeholder": "Enter size",
         "id": "input1",
