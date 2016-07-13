@@ -27,20 +27,20 @@
       <div ng-if="field.type=='selectFromTable'">
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
-        <!-- <div ng-if="field.option=='multiple'"> -->
-          <md-select ng-model="json.editData[field.model]" multiple>
+        <div ng-if="field.option=='multiple'">
+          <md-select ng-model="field.model" multiple>
             <md-optgroup>
               <md-option ng-value="item.name" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>
-        <!-- </div> -->
-        <!-- <div ng-if="field.option=='single'">
-          <md-select ng-model="json.editData[field.model]" multiple>
+        </div>
+        <div ng-if="field.option=='single'">
+          <md-select ng-model="field.model">
             <md-optgroup>
               <md-option ng-value="item.name" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>
-        </div> -->
+        </div>
         <br>
       </div>
       <!-- // SELECT FROM TABLE-->
