@@ -1,0 +1,53 @@
+{
+    "title": "All Configs",
+    "desciption": "",
+    "pageType": "view",
+    "sortable": "configtwo/sort",
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Type",
+        "isSort": "",
+        "tableRef": "type"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editConfig",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "configtwo/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete Config",
+        "content": "Are you sure you want to delete configtwo?",
+        "api": "configtwo/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+
+    "apiCall": {
+        "url": "configtwo/getLimited",
+        "params": ""
+    },
+    "createButtonState": "page({jsonName:'createConfig'})"
+}
