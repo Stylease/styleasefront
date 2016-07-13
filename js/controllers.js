@@ -40,10 +40,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
+.controller('jsonViewCtrl', function($scope,$mdToast, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
     //Used to name the .html file
-    $scope.template = TemplateService.changecontent("users");
-    $scope.menutitle = NavigationService.makeactive("Users");
+    // $scope.template = TemplateService.changecontent("users");
+    // $scope.menutitle = NavigationService.makeactive("Users");
+    function showToast(text) {
+        $mdToast.show(
+            $mdToast.simple()
+            .textContent(text)
+            .position("bottom left")
+            .hideDelay(3000)
+        );
+    }
+
+    var urlid1 = $location.absUrl().split('%C2%A2')[1];
+    var urlid2 = $location.absUrl().split('%C2%A2')[2];
+
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var jsonArr = $stateParams.jsonName.split("¢");
@@ -62,6 +74,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonParam8 = jsonArr[8];
     var jsonParam9 = jsonArr[9];
     // console.log(jsonArr);
+
+
+
+    $scope.sortableOptions = {
+        stop: function(e, ui) {
+            var ids = _.map($scope.json.tableData, "_id");
+            var names = _.map($scope.json.tableData, "name");
+            $http.post(adminurl + $scope.json.sortable, ids).success(function(data) {
+                showToast("Sorted Successfully");
+            }, function() {
+                showToast("Error Sorting");
+            });
+        }
+    };
 
 
 
@@ -146,8 +172,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         } else if (data.pageType == "edit" || data.pageType == "tableview") {
-            var urlid1 = $location.absUrl().split('%C2%A2')[1];
-            var urlid2 = $location.absUrl().split('%C2%A2')[2];
+
             console.log(urlParams);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
                 console.log(data);
@@ -157,7 +182,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if (n.type == "table") {
                         $scope.subTableData = $scope.json.editData[n.model];
                     }
-                })
+                });
             }, function() {
                 console.log("Fail");
             });
@@ -194,8 +219,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
 
             // SIDE MENU DATA
-            var urlid1 = $location.absUrl().split('%C2%A2')[1];
-            // var urlid2 = $location.absUrl().split('%C2%A2')[2];
+            
             $scope.pagination1 = {};
             if (urlid1) {
                 $scope.api1 = $scope.json.sidemenu[1].callFindOne;
@@ -227,7 +251,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.pageInfo = {};
             $scope.getMoreResults = function() {
                 NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
-                    if (findData.value != false) {
+                    if (findData.value !== false) {
                         if (findData.data && findData.data.data && findData.data.data.length > 0) {
                             $scope.pageInfo.lastpage = findData.data.totalpages;
                             $scope.pageInfo.pagenumber = findData.data.pagenumber;

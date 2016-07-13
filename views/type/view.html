@@ -14,12 +14,28 @@
       Loading...
     </div>
 
-    <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
-      <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
-      <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
-        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
-      </md-button>
-    </md-list-item>
+    <!-- if Table Sortable -->
+
+    <div ng-model="json.tableData"  ui-sortable="sortableOptions"  ng-if="json.sortable">
+      <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
+        <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
+        <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
+          <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+        </md-button>
+      </md-list-item>
+    </div>
+
+    <!-- if Table Not Sortable -->
+
+    <div no-sortable ng-if="!json.sortable">
+      <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
+        <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
+        <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
+          <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+        </md-button>
+      </md-list-item>
+    </div>
+
 
     <!-- <md-list-item ng-if="json.tableData.cart.length>=0" ng-repeat="result in json.tableData.cart" class="secondary-button-padding padlr16">
       <p ng-repeat="field in json.fields">
