@@ -40,7 +40,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function($scope,$mdToast, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
+.controller('jsonViewCtrl', function($scope, $mdToast, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
     //Used to name the .html file
     // $scope.template = TemplateService.changecontent("users");
     // $scope.menutitle = NavigationService.makeactive("Users");
@@ -121,7 +121,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         var idForCreate = $location.absUrl().split('%C2%A2')[1];
 
-        console.log(idForCreate);
         $scope.idForCreate = idForCreate;
         if (idForCreate) {
             $scope.goToCreatePage = function() {
@@ -215,7 +214,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.pagination = {
                 "search": "",
                 "pagenumber": 1,
-                "pagesize": 2
+                "pagesize": 10
             };
 
             // SIDE MENU DATA
