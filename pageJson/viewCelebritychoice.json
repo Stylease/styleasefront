@@ -2,6 +2,7 @@
     "title": "All Celebrity Choice",
     "desciption": "",
     "pageType": "view",
+    "sortable": "celebritychoice/sort",
     "fields": [
       {
         "name":"Celebrity Name",

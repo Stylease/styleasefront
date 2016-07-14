@@ -2,68 +2,54 @@
     "title": "All Category",
     "desciption": "",
     "pageType": "view",
-    "fields": [
-      {
-        "name":"Name",
-        "isSort":"",
-        "tableRef":"name"
-      },
-      {
-        "name":"Order",
-        "isSort":"",
-        "tableRef":"order"
-      },
-      {
-        "name":"Status",
-        "isSort":"",
-        "tableRef":"status"
-      }
+    "sortable": "size/sort",
+    "fields": [{
+            "name": "Name",
+            "isSort": "",
+            "tableRef": "name"
+        }, {
+            "name": "Status",
+            "isSort": "",
+            "tableRef": "status"
+        }
 
     ],
-    "action": [
-      {
-        "name":"edit",
-        "icon":"mode_edit",
-        "color":"blue",
-        "action":"redirect",
-        "jsonPage":"editCategory",
-        "fieldsToSend":["_id"],
-        "callFindOne":"category/getOne"
-      },
-      {
-        "name":"delete",
-        "icon":"delete",
-        "color":"red",
-        "action":"apiCallConfirm",
-        "title":"Delete Category",
-        "content":"Are you sure you want to delete category?",
-        "api":"category/delete",
-        "fieldsToSend":[
-          {
-            "name":"_id",
-            "value":"_id"
-          }
-        ]
-      }
-    ],
-    "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editCategory",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "category/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete Category",
+        "content": "Are you sure you want to delete category?",
+        "api": "category/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
 
     "apiCall": {
         "url": "category/getLimited",
         "params": ""
     },
-    "createButtonState":"page({jsonName:'createCategory'})"
+    "createButtonState": "page({jsonName:'createCategory'})"
 }
