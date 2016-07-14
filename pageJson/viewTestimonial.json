@@ -2,16 +2,12 @@
     "title": "All Testimonial",
     "desciption": "",
     "pageType": "view",
+    "sortable": "testimonial/sort",
     "fields": [{
         "name": "Name",
         "isSort": "",
         "tableRef": "user"
-    }, {
-        "name": "Order",
-        "isSort": "",
-        "tableRef": "order"
-
-    }, {
+    },  {
         "name": "Timestamp",
         "isSort": "",
         "tableRef": "timestamp",

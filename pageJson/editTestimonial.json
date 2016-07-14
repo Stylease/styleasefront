@@ -22,15 +22,6 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "user"
-    }, {
-        "name": "Order",
-        "type": "text",
-        "tableRef": "order",
-        "placeholder": "Enter order",
-        "id": "input4",
-        "validation": ["required", "trim", "unique"],
-        "url": "",
-        "model": "order"
     },{
         "name": "Testimonial",
         "type": "textarea",

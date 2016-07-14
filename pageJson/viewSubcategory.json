@@ -2,6 +2,7 @@
     "title": "All Subcategory",
     "desciption": "",
     "pageType": "view",
+    "sortable": "subcategory/sort",
     "fields": [
       {
         "name":"Category",
@@ -13,11 +14,7 @@
         "isSort":"",
         "tableRef":"name"
       },
-      {
-        "name":"Order",
-        "isSort":"",
-        "tableRef":"order"
-      },
+    
       {
         "name":"Status",
         "isSort":"",
