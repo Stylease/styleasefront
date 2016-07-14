@@ -215,11 +215,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.pagination = {
                 "search": "",
                 "pagenumber": 1,
-                "pagesize": 10
+                "pagesize": 2
             };
 
             // SIDE MENU DATA
-            
+
             $scope.pagination1 = {};
             if (urlid1) {
                 $scope.api1 = $scope.json.sidemenu[1].callFindOne;

@@ -4,6 +4,14 @@
     "desciption": "",
     "pageType": "create",
     "fields": [{
+        "name": "Celebrity",
+        "type": "text",
+        "tableRef": "celebrity",
+        "placeholder": "Enter celebrity",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Product",
         "type": "selectFromTable",
         "option":"single",

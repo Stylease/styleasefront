@@ -6,6 +6,7 @@
     "fields": [{
         "name": "Category",
         "type": "selectFromTable",
+        "option":"single",
         "tableRef": "category",
         "placeholder": "Enter category",
         "id": "input1",

@@ -4,6 +4,11 @@
     "pageType": "view",
     "fields": [
       {
+        "name":"Celebrity Name",
+        "isSort":"",
+        "tableRef":"celebrity"
+      },
+      {
         "name":"Product Name",
         "isSort":"",
         "tableRef":"product.name"

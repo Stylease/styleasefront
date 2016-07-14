@@ -17,6 +17,7 @@
         "name": "Category",
         "type": "selectFromTable",
         "tableRef": "category.name",
+        "option":"single",
         "placeholder": "Enter category",
         "id": "input1",
         "validation": ["required", "trim", "unique"],

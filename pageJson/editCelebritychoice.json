@@ -5,42 +5,52 @@
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Product",
-        "type": "selectFromTable",
-        "tableRef": "product",
-        "placeholder": "Enter product",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "product/getAll",
-        "model":"product"
+            "name": "Celebrity",
+            "type": "text",
+            "tableRef": "celebrity",
+            "placeholder": "Enter celebrity",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "",
+            "model": "celebrity"
+        }, {
+            "name": "Product",
+            "type": "selectFromTable",
+            "option": "single",
+            "tableRef": "product",
+            "placeholder": "Enter product",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "product/getAll",
+            "model": "product"
 
+        }, {
+            "name": "Image",
+            "type": "image",
+            "tableRef": "images",
+            "placeholder": "Enter image",
+            "id": "input5",
+            "model": "",
+            "validation": [],
+            "url": "",
+            "model": "images"
+        }
+
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitCelebritychoice"
     }, {
-        "name": "Image",
-        "type": "image",
-        "tableRef": "images",
-        "placeholder": "Enter image",
-        "id": "input5",
-        "model": "",
-        "validation": [],
-        "url": "",
-        "model": "images"
+        "name": "cancel",
+        "action": "cancelCelebritychoice",
+        "stateName": "page({jsonName:'viewCelebritychoice'})"
+    }],
+    "apiCall": {
+        "url": "celebritychoice/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "celebritychoice/getOne",
+        "params": "_id"
     }
-
-],
-"action": [{
-    "name": "submit",
-    "action": "submitCelebritychoice"
-}, {
-    "name": "cancel",
-    "action": "cancelCelebritychoice",
-    "stateName": "page({jsonName:'viewCelebritychoice'})"
-}],
-"apiCall": {
-    "url": "celebritychoice/save",
-    "params": "_id"
-},
-"preApi": {
-    "url": "celebritychoice/getOne",
-    "params": "_id"
-}
 }

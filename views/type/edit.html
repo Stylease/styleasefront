@@ -12,67 +12,48 @@
       <div ng-if="field.type=='text' || field.type=='email'">
         <label>{{field.name}}</label>
         <input ng-model="json.editData[field.model]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
-        <!-- <div ng-messages="name.$error">
-        <div ng-message="required">This is required.</div>
-        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
-      </div> -->
       </div>
 
       <div ng-if="field.type=='textarea'">
         <label>{{field.name}}</label>
         <textarea style="height:100px;" ng-model="json.editData[field.model]" name="{{field.name}}" id="{{field.id}}"></textarea>
       </div>
-      <!-- <div ng-if="field.type=='textarea'">
-        <label>{{field.name}}</label>
-        <textarea style="height:100px;" ng-model="json.editData[field.model]" name="{{field.name}}" id="{{field.id}}"></textarea>
-      </div> -->
+
       <div ng-if="field.type=='readonly'">
         <label>{{field.name}}</label>
         <input ng-model="json.editData[field.model]" type="text" readonly="true" name="{{field.name}}" id="{{field.id}}">
       </div>
-      <!-- <div  ng-if="field.type=='select'">
-      <label>{{field.name}}</label>
-      <md-select ng-model="json.editData[field.model]">
-        <md-option ng-repeat="item in field.url" value="{{item._id}}">{{item.name}}</md-option>
-      </md-select>
-    </div>
-    <div ng-if="field.type=='selectFromTable'">
-      <label>{{field.name}}</label>
-      <md-select ng-model="json.editData[field.model]">
-        <md-option ng-repeat="item in field.url" value="{{item._id}}">{{item.name}}</md-option>
-      </md-select>
-    </div> -->
 
-      <!-- // SELECT -->
-      <!-- <div ng-if="field.type=='selectFromTable'">
+      <div ng-if="field.type=='image'">
+        <label for="">Upload Image</label>
+        <upload-image ng-model="json.editData[field.model]" no-view multiple inobj></upload-image>
+        <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">
+          <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
+        </div>
+      </div>
 
-        <label for="{{field.id}}">{{field.name}}</label>
-        <br>
-          <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model]">{{json.editData[field.model]}}
-          <option value="">SELECT</option>
-          <option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">
-            {{item.name}}
-          </option>
-        </select>
-        <br>
-      </div> -->
-      <!-- // SELECT -->
+      <!-- // SELECT FROM TABLE -->
       <div ng-if="field.type=='selectFromTable'">
-
         <label for="{{field.id}}">{{field.name}}</label>
         <br>
-        <!-- <select ng-model="field.model" ng-options="item._id as item.name for item in field.url">
-                                    </select> -->
-        <md-select ng-model="json.editData[field.model]" multiple>
-          <md-optgroup>
-            <md-option ng-value="item.name" ng-repeat="item in field.url">{{item.name}}</md-option>
-          </md-optgroup>
-        </md-select>
-
+        <div ng-if="field.option=='multiple'">
+          <md-select ng-model="json.editData[field.model]" multiple>
+            <md-optgroup>
+              <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </div>
+        <div ng-if="field.option=='single'">
+          <md-select ng-model="json.editData[field.model]">
+            <md-optgroup>
+              <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </div>
         <br>
       </div>
 
-      <!-- // SELECT FROM TABLE-->
+      <!-- // SELECT -->
       <div ng-if="field.type=='select'">
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
@@ -80,28 +61,7 @@
         </select>
         <br>
       </div>
-      <!-- <div ng-if="field.type=='select'">
-        <md-select ng-model="json.editData[field.model]" multiple>
-          <md-optgroup>
-            <md-option ng-value="item.name" ng-repeat="item in field.url">{{item.name}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </div> -->
-      <div ng-if="field.type=='image'">
-        <label for="">Upload Image</label>
-        <!-- <img ng-src="{{field.image|uploadpath}}"> -->
-        <upload-image ng-model="json.editData[field.model]" no-view multiple inobj></upload-image>
-        <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">
-          <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
-        </div>
-      </div>
     </md-input-container>
-
-    <!-- <md-list>
-      <md-list-item ng-repeat="field in json.fields">
-
-      </md-list-item>
-    </md-list> -->
 
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
       <md-button class="md-raised md-primary" ng-click="makeReadyForApi()" ng-class="{'disabled' : !plan.$valid }">Save</md-button>

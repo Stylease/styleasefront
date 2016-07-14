@@ -20,30 +20,29 @@
       </div>
       <div ng-if="field.type=='readonly'">
         <label>{{field.name}}</label>
-        <input ng-model="json.editData[field.model]" type="text" readonly="true" name="{{field.name}}" id="{{field.id}}">
+        <input ng-model="field.model" type="text" readonly="true" name="{{field.name}}" id="{{field.id}}">
       </div>
       <!-- // SELECT FROM TABLE-->
-      <!-- // SELECT -->
       <div ng-if="field.type=='selectFromTable'">
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
         <div ng-if="field.option=='multiple'">
           <md-select ng-model="field.model" multiple>
             <md-optgroup>
-              <md-option ng-value="item.name" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
+              <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>
         </div>
         <div ng-if="field.option=='single'">
           <md-select ng-model="field.model">
             <md-optgroup>
-              <md-option ng-value="item.name" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
+              <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>
         </div>
         <br>
       </div>
-      <!-- // SELECT FROM TABLE-->
+      <!-- // SELECT-->
       <div ng-if="field.type=='select'">
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
