@@ -5,129 +5,142 @@
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{
-            "name": "Category",
-            "type": "selectFromTable",
-            "tableRef": "category",
-            "option": "single",
-            "placeholder": "Enter category",
-            "id": "input1",
-            "validation": ["required", "trim", "unique"],
-            "url": "category/getAll",
-            "model": "category"
+        "name": "Category",
+        "type": "selectFromTable",
+        "tableRef": "category",
+        "option": "single",
+        "placeholder": "Enter category",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "category/getAll",
+        "model": "category"
+    }, {
+        "name": "Subategory",
+        "type": "selectFromTable",
+        "tableRef": "subcategory",
+        "option": "single",
+        "placeholder": "Enter subcategory",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "subcategory/getAll",
+        "model": "subcategory"
+    }, {
+        "name": "Product Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "name"
+    }, {
+        "name": "SKU",
+        "type": "text",
+        "tableRef": "sku",
+        "placeholder": "Enter sku",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "sku"
+    }, {
+        "name": "Details",
+        "type": "textarea",
+        "tableRef": "details",
+        "placeholder": "Enter details",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "details"
+    }, {
+        "name": "Material & Care",
+        "type": "textarea",
+        "tableRef": "care",
+        "placeholder": "Enter Material & Care",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "care"
+    }, {
+        "name": "Stylist Notes",
+        "type": "textarea",
+        "tableRef": "notes",
+        "placeholder": "Enter Stylist Notes",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "notes"
+    }, {
+        "name": "Retail Price",
+        "type": "text",
+        "tableRef": "price",
+        "placeholder": "Enter price",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "price"
+    }, {
+        "name": "Quantity",
+        "type": "text",
+        "tableRef": "quantity",
+        "placeholder": "Enter quantity",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "quantity"
+    }, {
+        "name": "Size",
+        "type": "selectFromTable",
+        "option": "multiple",
+        "tableRef": "size",
+        "placeholder": "Enter size",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "size/getAll",
+        "model": "size"
+    }, {
+        "name": "Rental Amount",
+        "type": "text",
+        "tableRef": "rentalamount",
+        "placeholder": "Enter rentalamount",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "rentalamount"
+    }, {
+        "name": "Refundable Security Deposit",
+        "type": "text",
+        "tableRef": "securitydeposit",
+        "placeholder": "Enter securitydeposit",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "securitydeposit"
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "model": "status",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": true,
+            "name": "Enable"
         }, {
-            "name": "Subategory",
-            "type": "selectFromTable",
-            "tableRef": "subcategory",
-            "option": "single",
-            "placeholder": "Enter subcategory",
-            "id": "input1",
-            "validation": ["required", "trim", "unique"],
-            "url": "subcategory/getAll",
-            "model": "subcategory"
-        }, {
-            "name": "Product Name",
-            "type": "text",
-            "tableRef": "name",
-            "placeholder": "Enter name",
-            "id": "input1",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "name"
-        }, {
-            "name": "SKU",
-            "type": "text",
-            "tableRef": "sku",
-            "placeholder": "Enter sku",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "sku"
-        }, {
-            "name": "Details",
-            "type": "textarea",
-            "tableRef": "details",
-            "placeholder": "Enter details",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "details"
-        }, {
-            "name": "Material & Care",
-            "type": "textarea",
-            "tableRef": "care",
-            "placeholder": "Enter Material & Care",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "care"
-        }, {
-            "name": "Stylist Notes",
-            "type": "textarea",
-            "tableRef": "notes",
-            "placeholder": "Enter Stylist Notes",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "notes"
-        }, {
-            "name": "Retail Price",
-            "type": "text",
-            "tableRef": "price",
-            "placeholder": "Enter price",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "price"
-        }, {
-            "name": "Quantity",
-            "type": "text",
-            "tableRef": "quantity",
-            "placeholder": "Enter quantity",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "quantity"
-        }, {
-            "name": "Size",
-            "type": "selectFromTable",
-            "option": "multiple",
-            "tableRef": "size",
-            "placeholder": "Enter size",
-            "id": "input1",
-            "validation": ["required", "trim", "unique"],
-            "url": "size/getAll",
-            "model": "size"
-        }, {
-            "name": "Rental Amount",
-            "type": "text",
-            "tableRef": "rentalamount",
-            "placeholder": "Enter rentalamount",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "rentalamount"
-        }, {
-            "name": "Refundable Security Deposit",
-            "type": "text",
-            "tableRef": "securitydeposit",
-            "placeholder": "Enter securitydeposit",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": "",
-            "model": "securitydeposit"
-        }, {
-            "name": "Image",
-            "type": "image",
-            "tableRef": "images",
-            "placeholder": "Enter image",
-            "id": "input5",
-            "model": "",
-            "validation": [],
-            "url": "",
-            "model": "images"
-        }
-
-    ],
+            "value": false,
+            "name": "Disable"
+        }]
+    }, {
+        "name": "Image",
+        "type": "image",
+        "tableRef": "images",
+        "placeholder": "Enter image",
+        "id": "input5",
+        "model": "",
+        "validation": [],
+        "url": "",
+        "model": "images"
+    }],
     "action": [{
         "name": "submit",
         "action": "submitProduct"

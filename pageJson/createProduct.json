@@ -103,6 +103,20 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": true,
+            "name": "Enable"
+        }, {
+            "value": false,
+            "name": "Disable"
+        }]
+    }, {
         "name": "Image",
         "type": "image",
         "tableRef": "images",

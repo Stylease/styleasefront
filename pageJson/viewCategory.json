@@ -2,7 +2,7 @@
     "title": "All Category",
     "desciption": "",
     "pageType": "view",
-    "sortable": "size/sort",
+    "sortable": "category/sort",
     "fields": [{
             "name": "Name",
             "isSort": "",
