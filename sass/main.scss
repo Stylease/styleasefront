@@ -119,3 +119,22 @@ border-radius: .25rem;
     width: 420px;
     padding: 0 20px;
 }
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.all-user {
+  width: 50%;
+  float: left;
+}
+.search-bar {
+  width: 50%;
+  float: right;
+  .layout-row {
+    width: 100%;
+  }
+}

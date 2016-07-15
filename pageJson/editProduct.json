@@ -24,6 +24,16 @@
         "validation": ["required", "trim", "unique"],
         "url": "subcategory/getAll",
         "model": "subcategory"
+    },{
+        "name": "Designer Name",
+        "type": "selectFromTable",
+        "tableRef": "designer",
+        "option": "single",
+        "placeholder": "Enter designer",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "designer/getAll",
+        "model": "designer"
     }, {
         "name": "Product Name",
         "type": "text",

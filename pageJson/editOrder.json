@@ -30,6 +30,15 @@
         "url": "",
         "model": "_id"
     }, {
+        "name": "Order Number",
+        "type": "text",
+        "tableRef": "orderid",
+        "placeholder": "Enter Order Number",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "orderid"
+    }, {
         "name": "First Name",
         "type": "text",
         "tableRef": "firstname",
