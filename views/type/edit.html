@@ -37,14 +37,14 @@
         <label for="{{field.id}}">{{field.name}}</label>
         <br>
         <div ng-if="field.option=='multiple'">
-          <md-select ng-model="json.editData[field.model]" multiple>
+          <md-select style="margin: 0 !important;" ng-model="json.editData[field.model]" multiple>
             <md-optgroup>
               <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>
         </div>
         <div ng-if="field.option=='single'">
-          <md-select ng-model="json.editData[field.model]">
+          <md-select style="margin: 0 !important;" ng-model="json.editData[field.model]">
             <md-optgroup>
               <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
             </md-optgroup>

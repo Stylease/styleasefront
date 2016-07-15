@@ -1,0 +1,69 @@
+{
+    "title": "Edit Size",
+    "jsonPage": "viewProduct",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "model": "name",
+        "placeholder": "Enter name",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Text1",
+        "type": "text",
+        "tableRef": "text1",
+        "placeholder": "Enter text1",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "text1"
+    }, {
+        "name": "Text2",
+        "type": "text",
+        "tableRef": "text2",
+        "placeholder": "Enter text2",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "text2"
+    }, {
+        "name": "Text3",
+        "type": "text",
+        "tableRef": "text3",
+        "placeholder": "Enter text3",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "text3"
+    }, {
+        "name": "Text4",
+        "type": "text",
+        "tableRef": "text4",
+        "placeholder": "Enter text4",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "text4"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSizeForm"
+    }, {
+        "name": "cancel",
+        "action": "cancelSizeForm",
+        "stateName": "page({jsonName:'viewProduct'})"
+    }],
+    "apiCall": {
+        "url": "product/saveSize",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "product/findOneSize",
+        "params": "_id"
+    }
+}

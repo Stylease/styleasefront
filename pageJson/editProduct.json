@@ -88,16 +88,6 @@
         "url": "",
         "model": "quantity"
     }, {
-        "name": "Size",
-        "type": "selectFromTable",
-        "option": "multiple",
-        "tableRef": "size",
-        "placeholder": "Enter size",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "size/getAll",
-        "model": "size"
-    }, {
         "name": "Rental Amount",
         "type": "text",
         "tableRef": "rentalamount",
@@ -156,5 +146,19 @@
     "preApi": {
         "url": "product/getOne",
         "params": "_id"
-    }
+    },
+    "sidemenu": [{
+        "name": "Product Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editProduct",
+        "fieldsToSend": [1],
+        "callFindOne": "product/getOne"
+    }, {
+        "name": "Size Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewSizes",
+        "fieldsToSend": [1],
+        "callFindOne": "product/getSize"
+
+    }]
 }

@@ -20,10 +20,6 @@
             "isSort": "",
             "tableRef": "quantity"
         }, {
-            "name": "Size",
-            "isSort": "",
-            "tableRef": "size.name"
-        }, {
             "name": "Price",
             "isSort": "",
             "tableRef": "price"

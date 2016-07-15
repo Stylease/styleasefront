@@ -40,22 +40,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function($scope, $mdToast, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
+.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
     //Used to name the .html file
-    // $scope.template = TemplateService.changecontent("users");
-    // $scope.menutitle = NavigationService.makeactive("Users");
-    function showToast(text) {
-        $mdToast.show(
-            $mdToast.simple()
-            .textContent(text)
-            .position("bottom left")
-            .hideDelay(3000)
-        );
-    }
-
-    var urlid1 = $location.absUrl().split('%C2%A2')[1];
-    var urlid2 = $location.absUrl().split('%C2%A2')[2];
-
+    $scope.template = TemplateService.changecontent("users");
+    $scope.menutitle = NavigationService.makeactive("Users");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var jsonArr = $stateParams.jsonName.split("¢");
@@ -74,20 +62,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonParam8 = jsonArr[8];
     var jsonParam9 = jsonArr[9];
     // console.log(jsonArr);
-
-
-
-    $scope.sortableOptions = {
-        stop: function(e, ui) {
-            var ids = _.map($scope.json.tableData, "_id");
-            var names = _.map($scope.json.tableData, "name");
-            $http.post(adminurl + $scope.json.sortable, ids).success(function(data) {
-                showToast("Sorted Successfully");
-            }, function() {
-                showToast("Error Sorting");
-            });
-        }
-    };
 
 
 
@@ -121,6 +95,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         var idForCreate = $location.absUrl().split('%C2%A2')[1];
 
+        console.log(idForCreate);
         $scope.idForCreate = idForCreate;
         if (idForCreate) {
             $scope.goToCreatePage = function() {
@@ -171,7 +146,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         } else if (data.pageType == "edit" || data.pageType == "tableview") {
-
+            var urlid1 = $location.absUrl().split('%C2%A2')[1];
+            var urlid2 = $location.absUrl().split('%C2%A2')[2];
             console.log(urlParams);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
                 console.log(data);
@@ -180,8 +156,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 _.each($scope.json.fields, function(n) {
                     if (n.type == "table") {
                         $scope.subTableData = $scope.json.editData[n.model];
+                    }if (n.type == "time" || n.type == "date") {
+                        $scope.json.editData[n.model] = new Date($scope.json.editData[n.model]);
                     }
-                });
+
+                })
             }, function() {
                 console.log("Fail");
             });
@@ -214,43 +193,54 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.pagination = {
                 "search": "",
                 "pagenumber": 1,
-                "pagesize": 10
+                "pagesize": 2
             };
 
             // SIDE MENU DATA
-
-            $scope.pagination1 = {};
-            if (urlid1) {
-                $scope.api1 = $scope.json.sidemenu[1].callFindOne;
-                if ($scope.json.sidemenu[1].sendParam && $scope.json.sidemenu[1].sendParam !== '') {
-                    // ARRAY
-                    $scope.pagination1._id = urlid1;
-                    NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
-                        if (data.data.nominee) {
-                            $scope.json.tableData = data.data;
-                            console.log("IF");
-                            console.log($scope.json.tableData);
-                        }
-                    }, function() {
-                        console.log("fail");
-                    });
-                } else {
-                    console.log("ELSE");
-                    $scope.pagination._id = urlid1;
-                    NavigationService.sideMenu1($scope.api1, $scope.pagination, function(data) {
-                        console.log(data);
-                        $scope.json.tableData = data.data;
-                        console.log($scope.json.tableData);
-                    }, function() {
-                        console.log("fail");
-                    });
-                }
-            }
-
+              var urlid1 = $location.absUrl().split('%C2%A2')[1];
+              console.log(urlid1);
+              // var urlid2 = $location.absUrl().split('%C2%A2')[2];
+              $scope.pagination1 = {};
+              if (urlid1) {
+                  console.log('urlid1', urlid1);
+                  if ($scope.json.sendIdWithCreate) {
+                      $scope.json.createButtonState = $scope.json.createButtonState.split("'" + "})").join("¢" + urlid1 + "'" + "})");
+                      // $scope.json.createButtonState = $scope.json.createButtonState.split("%25C2%").join("%C2%");
+                      // $scope.json.createButtonState = $scope.json.createButtonState.split("%25A2").join("%A2");
+                  }
+                  console.log($scope.json.createButtonState);
+                  $scope.api1 = $scope.json.sidemenu[1].callFindOne;
+                  if ($scope.json.sidemenu[1].sendParam && $scope.json.sidemenu[1].sendParam !== '') {
+                      // ARRAY
+                      // $scope.pagination1._id = urlid1;
+                      $scope.pagination1._id = urlid1;
+                      NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
+                          if (data.data.nominee) {
+                              $scope.json.tableData = data.data;
+                              console.log("IF");
+                              console.log($scope.json.tableData);
+                          }
+                      }, function() {
+                          console.log("fail");
+                      });
+                  } else {
+                      console.log("ELSE");
+                      $scope.pagination._id = urlid1;
+                      NavigationService.sideMenu1($scope.api1, $scope.pagination, function(data) {
+                          $scope.json.tableData = data.data.data;
+                          console.log($scope.json.tableData);
+                      }, function() {
+                          console.log("fail");
+                      });
+                  }
+              }
+              // call api for view data
+              $scope.apiName = $scope.json.apiCall.url;
             $scope.pageInfo = {};
             $scope.getMoreResults = function() {
                 NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
-                    if (findData.value !== false) {
+                    console.log(findData);
+                    if (findData.value != false) {
                         if (findData.data && findData.data.data && findData.data.data.length > 0) {
                             $scope.pageInfo.lastpage = findData.data.totalpages;
                             $scope.pageInfo.pagenumber = findData.data.pagenumber;
@@ -325,8 +315,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.makeReadyForApi = function() {
-        $scope.urlid = $location.absUrl().split('%C2%A2')[1];
-        $scope.urlid2 = $location.absUrl().split('%C2%A2')[2];
+      console.log("Make Ready");
+      console.log($scope.formData);
+
         var data = {};
         if ($scope.json.pageType !== 'edit' && $scope.json.pageType !== 'tableview') {
             // CONVERT MODEL NAMES SAME AS FIELD NAMES
@@ -335,13 +326,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 data[n.tableRef] = n.model;
             });
             $scope.formData = data;
-            console.log($scope.formData);
+            if (jsonArr[1]) {
+                $scope.formData[$scope.json.urlFields[0]] = jsonArr[1];
+            }
         } else {
             $scope.formData = $scope.json.editData;
             console.log($scope.formData);
         }
 
         $scope.apiName = $scope.json.apiCall.url;
+
+        console.log($scope.formData);
 
         // CALL GENERAL API
         NavigationService.saveApi($scope.formData, $scope.apiName, function(data) {

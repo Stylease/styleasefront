@@ -1,0 +1,73 @@
+{
+    "title": "",
+    "desciption": "",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name",
+        "type": ""
+    }, {
+        "name": "Text1",
+        "isSort": "",
+        "tableRef": "text1",
+        "type": ""
+    }, {
+        "name": "Text2",
+        "isSort": "",
+        "tableRef": "text2",
+        "type": ""
+    }, {
+        "name": "Text3",
+        "isSort": "",
+        "tableRef": "text3",
+        "type": ""
+    }, {
+        "name": "Text4",
+        "isSort": "",
+        "tableRef": "text4",
+        "type": ""
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editSizes",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "product/saveSize"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete User",
+        "content": "Are you sure you want to delete product?",
+        "api": "product/deleteSize",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "apiCall": {
+        "url": "product/findSize",
+        "params": "_id"
+    },
+
+    "sidemenu": [{
+        "name": "Product Detail",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editProduct",
+        "fieldsToSend": [1],
+        "callFindOne": "product/getOne"
+    }, {
+        "name": "Size Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewSizes",
+        "fieldsToSend": [1],
+        "callFindOne": "product/findSize"
+    }],
+    "createButtonState": "page({jsonName:'createSizes'})"
+}
