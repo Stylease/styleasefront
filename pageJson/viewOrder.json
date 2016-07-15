@@ -2,19 +2,24 @@
     "title": "All Orders",
     "desciption": "",
     "pageType": "view",
+      "sortable": "order/sort",
     "fields": [{
-            "name": "User",
-            "isSort": "",
-            "tableRef": "user.name"
-        }, {
-            "name": "Email",
-            "isSort": "",
-            "tableRef": "email"
-        }, {
-            "name": "Mobile",
-            "isSort": "",
-            "tableRef": "mobile"
-        }],
+        "name": "Order",
+        "isSort": "",
+        "tableRef": "orderid"
+    }, {
+        "name": "User",
+        "isSort": "",
+        "tableRef": "user.name"
+    }, {
+        "name": "Email",
+        "isSort": "",
+        "tableRef": "email"
+    }, {
+        "name": "Mobile",
+        "isSort": "",
+        "tableRef": "mobile"
+    }],
     "action": [{
         "name": "edit",
         "icon": "mode_edit",
