@@ -7,6 +7,14 @@
     "tableFields": [{
         "name": "Product Name",
         "model": "productname"
+    },
+    {
+        "name": "Size",
+        "model": "sizename"
+    }
+    {
+        "name": "Price",
+        "model": "price"
     }, {
         "name": "Time From",
         "type": "date",
@@ -15,9 +23,12 @@
         "name": "Time To",
         "type": "date",
         "model": "timeTo"
+    },  {
+        "name": "Pickup Time",
+        "model": "pickupTime"
     }, {
-        "name": "Price",
-        "model": "price"
+        "name": "Delivery Time",
+        "model": "deliveryTime"
     }],
     "urlFields": ["_id"],
     "fields": [{
