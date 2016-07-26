@@ -25,10 +25,19 @@
       </div>
 
       <div ng-if="field.type=='image'">
-        <label for="">Upload Image</label>
-        <upload-image ng-model="json.editData[field.model]" no-view multiple inobj></upload-image>
-        <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">
-          <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
+        <label for=""></label>{{field.name}}
+        <div ng-if="field.option=='multiple'">
+          <upload-image ng-model="json.editData[field.model]" no-view multiple inobj></upload-image>
+          <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">
+            <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
+          </div>
+        </div>
+        <div ng-if="field.option=='single'">
+          <span class="img-holder-big">
+                      <img ng-src="{{json.editData[field.model] | uploadpath:250:250:'fill'}}">
+                  </span>
+          <span style="float: right;">{{field.size}}</span>
+          <upload-image ng-model="json.editData[field.model]" no-view></upload-image>
         </div>
       </div>
 

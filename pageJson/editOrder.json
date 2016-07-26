@@ -7,14 +7,12 @@
     "tableFields": [{
         "name": "Product Name",
         "model": "productname"
-    },
-    {
+    }, {
         "name": "Size",
         "model": "sizename"
-    }
-    {
+    }, {
         "name": "Price",
-        "model": "price"
+        "model": "productprice"
     }, {
         "name": "Time From",
         "type": "date",
@@ -23,7 +21,7 @@
         "name": "Time To",
         "type": "date",
         "model": "timeTo"
-    },  {
+    }, {
         "name": "Pickup Time",
         "model": "pickupTime"
     }, {

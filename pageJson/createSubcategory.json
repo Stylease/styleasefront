@@ -21,6 +21,15 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
+        "name": "Image",
+        "type": "image",
+        "option": "single",
+        "tableRef": "image",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+      "size": "930px X 620px OR 1600px X 539px"
+    },{
         "name": "Status",
         "type": "select",
         "tableRef": "status",

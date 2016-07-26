@@ -24,7 +24,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "subcategory/getAll",
         "model": "subcategory"
-    },{
+    }, {
         "name": "Designer Name",
         "type": "selectFromTable",
         "tableRef": "designer",
@@ -133,6 +133,7 @@
     }, {
         "name": "Image",
         "type": "image",
+        "option": "multiple",
         "tableRef": "images",
         "placeholder": "Enter image",
         "id": "input5",

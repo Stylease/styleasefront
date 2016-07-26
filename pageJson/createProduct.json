@@ -21,8 +21,7 @@
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "subcategory/getAll"
-    },
-    {
+    }, {
         "name": "Designer Name",
         "type": "selectFromTable",
         "tableRef": "designer",
@@ -31,7 +30,7 @@
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "designer/getAll"
-    },{
+    }, {
         "name": "Product Name",
         "type": "text",
         "tableRef": "name",
@@ -120,12 +119,14 @@
     }, {
         "name": "Image",
         "type": "image",
+        "option": "multiple",
         "tableRef": "images",
         "placeholder": "Enter Product Picture",
         "id": "input4",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "image"
+        "model": "image",
+        "size": "469px X 715px"
     }],
     "action": [{
         "name": "submit",
