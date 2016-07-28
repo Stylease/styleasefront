@@ -130,6 +130,16 @@
             "value": false,
             "name": "Disable"
         }]
+    },{
+        "name": "Suggested Products",
+        "type": "selectFromTable",
+        "option": "multiple",
+        "tableRef": "suggestedProduct",
+        "model": "suggestedProduct",
+        "placeholder": "Enter Suggested Products",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "product/getAll"
     }, {
         "name": "Image",
         "type": "image",
