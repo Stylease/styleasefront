@@ -33,6 +33,21 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "name"
+    }, {
+        "name": "Image Type",
+        "type": "select",
+        "tableRef": "imagetype",
+        "model": "imagetype",
+        "placeholder": "Enter Image Type",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "big",
+            "name": "Big"
+        }, {
+            "value": "small",
+            "name": "Small"
+        }]
     },{
         "name": "Image",
         "type": "image",

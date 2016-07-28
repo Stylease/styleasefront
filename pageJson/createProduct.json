@@ -7,7 +7,7 @@
         "name": "Category",
         "type": "selectFromTable",
         "tableRef": "category",
-        "option": "single",
+        "option": "multiple",
         "placeholder": "Enter category",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
@@ -15,7 +15,7 @@
     }, {
         "name": "Subategory",
         "type": "selectFromTable",
-        "option": "single",
+        "option": "multiple",
         "tableRef": "subcategory",
         "placeholder": "Enter subcategory",
         "id": "input1",

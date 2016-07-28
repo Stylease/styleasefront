@@ -28,6 +28,7 @@
             "name": "Image",
             "type": "image",
             "tableRef": "images",
+            "option":"multiple",
             "placeholder": "Enter image",
             "id": "input5",
             "model": "",

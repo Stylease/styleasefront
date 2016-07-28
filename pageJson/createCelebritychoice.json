@@ -24,6 +24,7 @@
         "name": "Image",
         "type": "image",
         "tableRef": "images",
+        "option":"multiple",
         "placeholder": "Enter Picture",
         "id": "input4",
         "validation": ["required", "trim", "unique"],

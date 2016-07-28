@@ -4,28 +4,18 @@
     "pageType": "view",
     "sortable": "product/sort",
     "fields": [{
-            "name": "Name",
-            "isSort": "",
-            "tableRef": "name"
-        }, {
-            "name": "Category",
-            "isSort": "",
-            "tableRef": "category.name"
-        }, {
-            "name": "Subcategory",
-            "isSort": "",
-            "tableRef": "subcategory.name"
-        }, {
-            "name": "Quantity",
-            "isSort": "",
-            "tableRef": "quantity"
-        }, {
-            "name": "Price",
-            "isSort": "",
-            "tableRef": "price"
-        }
-
-    ],
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Quantity",
+        "isSort": "",
+        "tableRef": "quantity"
+    }, {
+        "name": "Price",
+        "isSort": "",
+        "tableRef": "price"
+    }],
     "action": [{
         "name": "edit",
         "icon": "mode_edit",
