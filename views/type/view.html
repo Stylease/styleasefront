@@ -21,7 +21,6 @@
     </div>
 
     <!-- if Table Sortable -->
-
     <div ng-model="json.tableData" ui-sortable="sortableOptions" ng-if="json.sortable">
       <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
         <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
