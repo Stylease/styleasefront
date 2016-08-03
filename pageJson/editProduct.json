@@ -108,15 +108,6 @@
         "url": "",
         "model": "price"
     }, {
-        "name": "Quantity",
-        "type": "text",
-        "tableRef": "quantity",
-        "placeholder": "Enter quantity",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": "",
-        "model": "quantity"
-    }, {
         "name": "Rental Amount",
         "type": "text",
         "tableRef": "rentalamount",
@@ -169,7 +160,8 @@
         "model": "",
         "validation": [],
         "url": "",
-        "model": "images"
+        "model": "images",
+        "size": "469px X 715px"
     }],
     "action": [{
         "name": "submit",

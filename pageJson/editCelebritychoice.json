@@ -26,6 +26,7 @@
 
         }, {
             "name": "Image",
+            "size": "489px X 749px",
             "type": "image",
             "tableRef": "images",
             "option":"multiple",

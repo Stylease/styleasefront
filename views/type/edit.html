@@ -26,6 +26,7 @@
 
       <div ng-if="field.type=='image'">
         <label for=""></label>{{field.name}}
+        <span style="float: right;">{{field.size}}</span>
         <div ng-if="field.option=='multiple'">
           <upload-image ng-model="json.editData[field.model]" no-view multiple inobj></upload-image>
           <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">

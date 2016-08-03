@@ -96,14 +96,6 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Quantity",
-        "type": "text",
-        "tableRef": "quantity",
-        "placeholder": "Enter quantity",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
         "name": "Rental Amount",
         "type": "text",
         "tableRef": "rentalamount",
