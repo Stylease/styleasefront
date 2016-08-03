@@ -25,6 +25,16 @@
         "url": "subcategory/getAll",
         "model": "subcategory"
     }, {
+        "name": "Color",
+        "type": "selectFromTable",
+        "tableRef": "color",
+        "option": "multiple",
+        "placeholder": "Enter Color",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "color/getAll",
+        "model": "color"
+    }, {
         "name": "Designer Name",
         "type": "selectFromTable",
         "tableRef": "designer",
@@ -80,6 +90,15 @@
         "url": "",
         "model": "notes"
     }, {
+        "name": "Additional Notes",
+        "type": "textarea",
+        "tableRef": "additionalnotes",
+        "placeholder": "Enter Stylist Notes",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "additionalnotes"
+    }, {
         "name": "Retail Price",
         "type": "text",
         "tableRef": "price",
@@ -130,7 +149,7 @@
             "value": false,
             "name": "Disable"
         }]
-    },{
+    }, {
         "name": "Suggested Products",
         "type": "selectFromTable",
         "option": "multiple",

@@ -22,6 +22,15 @@
         "validation": ["required", "trim", "unique"],
         "url": "subcategory/getAll"
     }, {
+        "name": "Color",
+        "type": "selectFromTable",
+        "tableRef": "color",
+        "option": "multiple",
+        "placeholder": "Enter Color",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "color/getAll"
+    }, {
         "name": "Designer Name",
         "type": "selectFromTable",
         "tableRef": "designer",
@@ -66,6 +75,14 @@
         "name": "Stylist Notes",
         "type": "textarea",
         "tableRef": "notes",
+        "placeholder": "Enter Stylist Notes",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Additional Notes",
+        "type": "textarea",
+        "tableRef": "additionalnotes",
         "placeholder": "Enter Stylist Notes",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
