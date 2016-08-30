@@ -92,7 +92,7 @@
         "action": "sidemenuRedirect",
         "jsonPage": "viewCart",
         "fieldsToSend": [1],
-        "callFindOne": "user/getCart"
+        "callFindOne": "user/getCartBackend"
 
     }, {
         "name": "Wishlist",

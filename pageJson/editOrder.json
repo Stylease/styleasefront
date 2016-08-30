@@ -39,6 +39,16 @@
         "url": "",
         "model": "_id"
     }, {
+        "name": "User",
+        "type": "selectFromTable",
+        "tableRef": "user",
+        "option": "single",
+        "placeholder": "Enter User",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "user/getAll",
+        "model": "user"
+    }, {
         "name": "Order Number",
         "type": "text",
         "tableRef": "orderid",
