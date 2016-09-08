@@ -7,14 +7,14 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "Quantity",
-        "isSort": "",
-        "tableRef": "quantity"
-    }, {
+    },  {
         "name": "Price",
         "isSort": "",
         "tableRef": "price"
+    },{
+        "name": "Rental Amount",
+        "isSort": "",
+        "tableRef": "rentalamount"
     }],
     "action": [{
         "name": "edit",
