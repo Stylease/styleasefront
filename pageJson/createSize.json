@@ -12,6 +12,38 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     },{
+        "name": "Chest",
+        "type": "text",
+        "tableRef": "chest",
+        "placeholder": "Enter chest",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Waist",
+        "type": "text",
+        "tableRef": "waist",
+        "placeholder": "Enter waist",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Hips",
+        "type": "text",
+        "tableRef": "hips",
+        "placeholder": "Enter hips",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Length",
+        "type": "text",
+        "tableRef": "length",
+        "placeholder": "Enter length",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Status",
         "type": "select",
         "tableRef": "status",

@@ -30,6 +30,15 @@
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "color/getAll"
+    },{
+        "name": "Size",
+        "type": "selectFromTable",
+        "tableRef": "size",
+        "option": "multiple",
+        "placeholder": "Enter Size",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "size/getAll"
     }, {
         "name": "Designer Name",
         "type": "selectFromTable",

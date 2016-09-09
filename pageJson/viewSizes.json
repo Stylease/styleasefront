@@ -10,24 +10,24 @@
         "tableRef": "name",
         "type": ""
     }, {
-        "name": "Text1",
+        "name": "Chest",
         "isSort": "",
-        "tableRef": "text1",
+        "tableRef": "chest",
         "type": ""
     }, {
-        "name": "Text2",
+        "name": "Waist",
         "isSort": "",
-        "tableRef": "text2",
+        "tableRef": "waist",
         "type": ""
     }, {
-        "name": "Text3",
+        "name": "Hips",
         "isSort": "",
-        "tableRef": "text3",
+        "tableRef": "hips",
         "type": ""
     }, {
-        "name": "Text4",
+        "name": "Length",
         "isSort": "",
-        "tableRef": "text4",
+        "tableRef": "length",
         "type": ""
     }],
     "action": [{

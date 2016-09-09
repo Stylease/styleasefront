@@ -56,6 +56,7 @@
         <div ng-if="field.option=='single'">
           <md-select style="margin: 0 !important;" ng-model="json.editData[field.model]">
             <md-optgroup>
+              <md-option  value="" >SELECT</md-option>
               <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>
