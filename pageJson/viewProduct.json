@@ -7,14 +7,14 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    },  {
-        "name": "Price",
-        "isSort": "",
-        "tableRef": "price"
     },{
-        "name": "Rental Amount",
+        "name": "4 Day's Rental Amount",
         "isSort": "",
-        "tableRef": "rentalamount"
+        "tableRef": "fourdayrentalamount"
+    } , {
+        "name": "8 Day's Rental Amount",
+        "isSort": "",
+        "tableRef": "eightdayrentalamount"
     }],
     "action": [{
         "name": "edit",

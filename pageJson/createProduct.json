@@ -105,9 +105,17 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Rental Amount",
+        "name": "4 Day's Rental Amount",
         "type": "text",
-        "tableRef": "rentalamount",
+        "tableRef": "fourdayrentalamount",
+        "placeholder": "Enter rentalamount",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "8 Day's Rental Amount",
+        "type": "text",
+        "tableRef": "eightdayrentalamount",
         "placeholder": "Enter rentalamount",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
