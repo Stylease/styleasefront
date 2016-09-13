@@ -24,6 +24,17 @@
         "validation": ["required", "trim", "unique"],
         "url": "subcategory/getAll",
         "model": "subcategory"
+    },
+    {
+        "name": "size",
+        "type": "selectFromTable",
+        "tableRef": "size",
+        "option": "multiple",
+        "placeholder": "Enter size",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "size/getAll",
+        "model": "size"
     }, {
         "name": "Color",
         "type": "selectFromTable",
@@ -35,16 +46,6 @@
         "url": "color/getAll",
         "model": "color"
     },{
-        "name": "Size",
-        "type": "selectFromTable",
-        "tableRef": "size",
-        "option": "multiple",
-        "placeholder": "Enter Size",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "size/getAll",
-        "model": "size"
-    }, {
         "name": "Designer Name",
         "type": "selectFromTable",
         "tableRef": "designer",
