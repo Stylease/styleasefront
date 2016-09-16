@@ -10,7 +10,13 @@
     <md-divider></md-divider>
 
     <md-list-item class="ls-head secondary-button-padding padlr16">
-      <p ng-repeat="field in json.fields">{{field.name}}</p>
+      <p ng-repeat="field in json.fields" class="word-b" >
+                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type!=''">{{result|getValue:field.tableRef:field.type}}</span>
+                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
+                     <span class="img-holder" ng-if="field.type=='image'">
+                         <img ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
+                     </span>
+                 </p>
       <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
         <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
       </md-button>
@@ -23,7 +29,13 @@
     <!-- if Table Sortable -->
     <div ng-model="json.tableData" ui-sortable="sortableOptions" ng-if="json.sortable">
       <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
-        <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
+        <p ng-repeat="field in json.fields" class="word-b" >
+                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type!=''">{{result|getValue:field.tableRef:field.type}}</span>
+                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
+                     <span class="img-holder" ng-if="field.type=='image'">
+                         <img width="200" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
+                     </span>
+                 </p>
         <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
           <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
         </md-button>
@@ -34,7 +46,13 @@
 
     <div no-sortable ng-if="!json.sortable">
       <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
-        <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
+        <p ng-repeat="field in json.fields" class="word-b" >
+                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type!=''">{{result|getValue:field.tableRef:field.type}}</span>
+                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
+                     <span class="img-holder" ng-if="field.type=='image'">
+                         <img width="200" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
+                     </span>
+                 </p>
         <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
           <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
         </md-button>

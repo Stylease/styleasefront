@@ -120,15 +120,23 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    }, {
-        "name": "Refundable Security Deposit",
+    },{
+        "name": "4 Day's Refundable Security Deposit",
         "type": "text",
-        "tableRef": "securitydeposit",
-        "placeholder": "Enter securitydeposit",
+        "tableRef": "fourdaysecuritydeposit",
+        "placeholder": "Enter 4 Day's Refundable Security Deposit",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
+        "name": "8 Day's Refundable Security Deposit",
+        "type": "text",
+        "tableRef": "eightdaysecuritydeposit",
+        "placeholder": "Enter 8 Day's Refundable Security Deposit",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Status",
         "type": "select",
         "tableRef": "status",

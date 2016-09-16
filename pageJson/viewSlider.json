@@ -1,0 +1,56 @@
+{
+    "title": "All Sliders",
+    "desciption": "",
+    "pageType": "view",
+    "sortable": "slider/sort",
+    "fields": [{
+            "name": "Image",
+            "isSort": "",
+            "type": "image",
+            "tableRef": "image"
+        }, {
+            "name": "Status",
+            "isSort": "",
+            "tableRef": "status"
+        }
+
+    ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editSlider",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "slider/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete Slider",
+        "content": "Are you sure you want to delete slider?",
+        "api": "slider/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+
+    "apiCall": {
+        "url": "slider/getLimited",
+        "params": ""
+    },
+    "createButtonState": "page({jsonName:'createSlider'})"
+}

@@ -1,0 +1,43 @@
+{
+    "title": "Create Slider",
+    "jsonPage": "viewSlider",
+    "desciption": "",
+    "pageType": "create",
+    "fields": [ {
+        "name": "Image",
+        "type": "image",
+        "option": "single",
+        "tableRef": "image",
+        "placeholder": "Enter Product Picture",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "image",
+        "size": "1600px X 901px"
+    },{
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": true,
+            "name": "Enable"
+        }, {
+            "value": false,
+            "name": "Disable"
+        }]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSlider"
+    }, {
+        "name": "cancel",
+        "stateName": "page({jsonName:'viewSlider'})"
+    }],
+
+    "apiCall": {
+        "url": "slider/save"
+    }
+}
