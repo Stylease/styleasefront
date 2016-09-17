@@ -1,5 +1,5 @@
-var adminurl = "http://localhost:81/";
-// var adminurl = "http://104.154.89.21:81/";
+// var adminurl = "http://localhost:81/";
+var adminurl = "http://104.154.89.21:81/";
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var imgpath = imgurl + "readFile";
@@ -47,6 +47,11 @@ var navigationservice = angular.module('navigationservice', [])
         link: "#/page/viewColor",
         subnav: []
     }, {
+        name: "Size",
+        classis: "active",
+        link: "#/page/viewSize",
+        subnav: []
+    }, {
         name: "Designer",
         classis: "active",
         link: "#/page/viewDesigner",
@@ -60,11 +65,6 @@ var navigationservice = angular.module('navigationservice', [])
         name: "Testimonial",
         classis: "active",
         link: "#/page/viewTestimonial",
-        subnav: []
-    }, {
-        name: "Delivery Time",
-        classis: "active",
-        link: "#/page/viewProducttime",
         subnav: []
     }];
 
