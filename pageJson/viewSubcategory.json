@@ -14,7 +14,12 @@
         "isSort":"",
         "tableRef":"name"
       },
-    
+      {
+        "name":"Image Type",
+        "isSort":"",
+        "tableRef":"imagetype"
+      },
+
       {
         "name":"Status",
         "isSort":"",

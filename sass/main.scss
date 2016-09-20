@@ -127,6 +127,14 @@ border-radius: .25rem;
 .clearfix:after {
     clear:both;
 }
+.word-b{
+  display: inline-block;
+    width: 38px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
 .all-user {
   width: 50%;
   float: left;
@@ -137,4 +145,18 @@ border-radius: .25rem;
   .layout-row {
     width: 100%;
   }
+}
+.min-w{
+ .md-no-style {
+   position: relative;
+   padding: 0px 0px;
+   flex: 1 1 auto;
+   position: absolute;
+   min-height: 48px !important;
+}
+.md-list-item-inner{
+ &:before{
+       padding: 0px 12px;
+ }
+}
 }

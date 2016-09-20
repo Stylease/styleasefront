@@ -42,10 +42,13 @@
         "id": "input3",
         "validation": ["required", "trim", "unique"],
         "url": [{
-            "value": "big",
+            "value": "Hide",
+            "name": "Hide"
+        },{
+            "value": "Big",
             "name": "Big"
         }, {
-            "value": "small",
+            "value": "Small",
             "name": "Small"
         }]
     },{
