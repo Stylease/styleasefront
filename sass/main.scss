@@ -134,7 +134,11 @@ border-radius: .25rem;
     overflow: hidden !important;
     text-overflow: ellipsis;
 }
-
+.firstpro{
+  p:first-child {
+    min-width: 400px !important;
+}
+}
 .all-user {
   width: 50%;
   float: left;

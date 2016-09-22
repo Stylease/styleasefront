@@ -4,13 +4,15 @@
     "pageType": "orderview",
     "tableFields": [{
         "name": "Product Name",
-        "model": "product.name"
+        "type": "product",
+        "model": "name"
+    }, {
+        "name": "Price",
+        "type": "price",
+        "model": "fourdayrentalamount"
     }, {
         "name": "Size",
         "model": "size"
-    }, {
-        "name": "Price",
-        "model": "fourdayrentalamount"
     }, {
         "name": "Rental Date",
         "type": "date",
@@ -29,16 +31,20 @@
         "isSort": "",
         "tableRef": "date"
     }, {
-        "name": "Email",
+        "name": "Name",
         "isSort": "",
-        "tableRef": "email"
+        "tableRef": "firstname"
     }, {
-        "name": "Mobile",
+        "name": "Mode",
         "isSort": "",
-        "tableRef": "mobile"
+        "tableRef": "paymentmode"
     }, {
-        "name": "Products",
-        "type": "table"
+        "name": "Status",
+        "isSort": "",
+        "tableRef": "orderstatus"
+    }, {
+        "display": "table",
+        "type": ""
     }],
     "action": [{
         "name": "edit",

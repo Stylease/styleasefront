@@ -8,14 +8,10 @@
       </div>
     </div>
     <md-divider></md-divider>
-
-
-
-
     <md-content flex="" ng-show="json.tableData.length>=0 " layout-padding="">
       <md-card ng-repeat="result in json.tableData">
         <md-list-item class="ls-head secondary-button-padding padlr16">
-          <p ng-repeat="field in json.fields">{{field.name}}</p>
+          <p ng-repeat="field in json.fields" ng-if="field.type!==''">{{field.name}}</p>
           <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
             <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
           </md-button>
@@ -24,7 +20,7 @@
           Loading...
         </div>
         <md-list-item class="secondary-button-padding padlr16">
-          <p ng-repeat="field in json.fields" class="word-b">
+          <p ng-repeat="field in json.fields" ng-if="field.type !==''" class="word-b">
             <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type!=''">{{result|getValue:field.tableRef:field.type}}</span>
             <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
             <span class="img-holder" ng-if="field.type=='image'">
@@ -35,14 +31,16 @@
             <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
           </md-button>
         </md-list-item>
-        <md-list ng-cloak ng-repeat="field in json.fields " ng-if="field.type=='table'">
-          <md-list-item class="ls-head secondary-button-padding padlr16">
+        <md-list ng-cloak ng-repeat="field in json.fields " ng-if="field.display=='table'">
+          <md-list-item style="border-bottom: 1px solid #CBCACA;" class=" firstpro secondary-button-padding padlr16">
+
             <p ng-repeat="heading in json.tableFields">{{heading.name}}</p>
           </md-list-item>
 
-          <md-list-item ng-repeat="cartpro in result.cartproduct" class="secondary-button-padding padlr16">
-            <!-- {{cartpro.product.name}} -->
+          <md-list-item ng-repeat="cartpro in result.cartproduct" class="firstpro secondary-button-padding padlr16">
             <p ng-repeat="values in json.tableFields">
+              <span ng-if="values.type==='product'">{{cartpro.product.name}}</span>
+              <span ng-if="values.type==='price'"><span ng-if="cartpro.duration==='4'">{{cartpro.product.fourdayrentalamount}}</span><span ng-if="cartpro.duration==='8'">{{cartpro.product.eightdayrentalamount}}</span></span>
               <span ng-if="values.type!='date'">{{cartpro[values.model]}}</span>
               <span ng-if="values.type=='date'">{{cartpro[values.model] | date:'dd-MM-yyyy'}}</span>
             </p>
