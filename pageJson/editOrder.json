@@ -6,10 +6,10 @@
     "urlFields": ["_id"],
     "tableFields": [{
         "name": "Product Name",
-        "model": "productname"
+        "model": "product"
     }, {
         "name": "Size",
-        "model": "sizename"
+        "model": "size"
     }, {
         "name": "Price",
         "model": "productprice"

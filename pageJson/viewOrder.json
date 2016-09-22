@@ -1,16 +1,33 @@
 {
     "title": "All Orders",
     "desciption": "",
-    "pageType": "view",
-      "sortable": "order/sort",
+    "pageType": "orderview",
+    "tableFields": [{
+        "name": "Product Name",
+        "model": "product.name"
+    }, {
+        "name": "Size",
+        "model": "size"
+    }, {
+        "name": "Price",
+        "model": "fourdayrentalamount"
+    }, {
+        "name": "Rental Date",
+        "type": "date",
+        "model": "timeFrom"
+    }, {
+        "name": "Duration",
+        "model": "duration"
+    }],
     "fields": [{
         "name": "Order",
         "isSort": "",
         "tableRef": "orderid"
     }, {
-        "name": "User",
+        "name": "Date",
+        "type": "date",
         "isSort": "",
-        "tableRef": "user.name"
+        "tableRef": "date"
     }, {
         "name": "Email",
         "isSort": "",
@@ -19,6 +36,9 @@
         "name": "Mobile",
         "isSort": "",
         "tableRef": "mobile"
+    }, {
+        "name": "Products",
+        "type": "table"
     }],
     "action": [{
         "name": "edit",

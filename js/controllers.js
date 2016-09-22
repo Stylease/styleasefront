@@ -119,7 +119,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
 
         }
-        if (data.pageType == "create") {
+        if (data.pageType == "orderview") {
+          $scope.apiName = $scope.json.apiCall.url;
+          console.log("in orderview",$scope.apiName);
+
+          $scope.pagination = {
+              "search": "",
+              "pagenumber": 1,
+              "pagesize": 10
+          };
+          $scope.pageInfo = {};
+          NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
+              console.log(findData.data);
+              if (findData.value != false) {
+                  if (findData.data && findData.data.data && findData.data.data.length > 0) {
+                      $scope.pageInfo.lastpage = findData.data.totalpages;
+                      $scope.pageInfo.pagenumber = findData.data.pagenumber;
+                      $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
+                      $scope.json.tableData = findData.data.data;
+                      console.log("new log ", $scope.json.tableData);
+                  } else {
+                      $scope.json.tableData = [];
+                  }
+              } else {
+                  $scope.json.tableData = [];
+              }
+          }, function() {
+              console.log("Fail");
+          });
+
+        }
+
+        else if (data.pageType == "create") {
             $scope.goToCancelPageCreate = function() {
                 $location.url("/page/" + $scope.json.action[1].url + idForCreate);
             };
@@ -262,6 +293,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             $scope.pageInfo.pagenumber = findData.data.pagenumber;
                             $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
                             $scope.json.tableData = findData.data.data;
+                            // console.log("new log ", $scope.json.tableData);
+
                         } else {
                             $scope.json.tableData = [];
                         }
