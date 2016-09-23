@@ -1,23 +1,23 @@
 <section class="md-whiteframe-z1 users">
   <md-list ng-cloak>
-  <div class="clearfix">
+    <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
-    <div class="flex search-bar" flex="33">
+      <div class="flex search-bar" flex="33">
         <md-autocomplete md-search-text="pagination.search" md-items="result in json.tableData track by $index" md-min-length="0" md-search-text-change="getMoreResults();" placeholder="Search" class="layout-lg">
         </md-autocomplete>
+      </div>
     </div>
-  </div>
     <md-divider></md-divider>
 
 
     <md-list-item class="ls-head secondary-button-padding padlr16">
-         <p ng-repeat="field in json.fields">{{field.name}}</p>
-         <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
-             <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
-         </md-button>
-     </md-list-item>
-         <!-- <a ui-sref="{{json.create.createButtonState}}" ng-if="json.create"> -->
-         <!-- <md-button class="md-fab md-fab-bottom-right md-primary positioning" aria-label="Add Users">
+      <p ng-repeat="field in json.fields">{{field.name}}</p>
+      <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
+        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
+      </md-button>
+    </md-list-item>
+    <!-- <a ui-sref="{{json.create.createButtonState}}" ng-if="json.create"> -->
+    <!-- <md-button class="md-fab md-fab-bottom-right md-primary positioning" aria-label="Add Users">
              <md-icon class="fa fa-plus plus-icon"></md-icon>
          </md-button> -->
     <div ng-hide="json.tableData.length>=0 || json.tableData.cart.length>=0" class="loadingbox">
@@ -27,13 +27,15 @@
     <!-- if Table Sortable -->
     <div ng-model="json.tableData" ui-sortable="sortableOptions" ng-if="json.sortable">
       <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
-        <p ng-repeat="field in json.fields" class="word-b" >
-                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type!=''">{{result|getValue:field.tableRef:field.type}}</span>
-                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
-                     <span class="img-holder" ng-if="field.type=='image'">
+
+        <p ng-repeat="field in json.fields" class="word-b">
+          <span ng-if="field.tableRef==='status'"><span ng-if="result.status==true">Enabled</span><span ng-if="result.status==false">Disabled</span></span>
+          <span ng-if="field.type!=='image' && field.tableRef!=='status'">{{result|getValue:field.tableRef:field.type}}</span>
+          <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
+          <span class="img-holder" ng-if="field.type==='image'">
                          <img width="200" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
                      </span>
-                 </p>
+        </p>
         <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
           <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
         </md-button>
@@ -44,13 +46,14 @@
 
     <div no-sortable ng-if="!json.sortable">
       <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
-        <p ng-repeat="field in json.fields" class="word-b" >
-                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type!=''">{{result|getValue:field.tableRef:field.type}}</span>
-                     <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
-                     <span class="img-holder" ng-if="field.type=='image'">
-                         <img width="200" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
-                     </span>
-                 </p>
+        <p ng-repeat="field in json.fields" class="word-b">
+          <span ng-if="field.tableRef==='status'"><span ng-if="result.status==true">Enabled</span><span ng-if="result.status==false">Disabled</span></span>
+          <span ng-if="field.type!=='image' && field.tableRef!=='status'">{{result|getValue:field.tableRef:field.type}}</span>
+          <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
+          <span class="img-holder" ng-if="field.type==='image'">
+                <img width="200" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
+            </span>
+        </p>
         <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
           <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
         </md-button>

@@ -21,8 +21,8 @@
     </div>
     <md-divider></md-divider>
     <md-content flex="" ng-show="json.tableData.length>=0 " layout-padding="">
-      <md-card ng-repeat="result in json.tableData">
-        <md-list-item class="ls-head secondary-button-padding padlr16">
+      <md-card style="box-shadow:0 2px 3px 0 rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.14),0 5px 1px -1px rgba(0,0,0,.12);" ng-repeat="result in json.tableData">
+        <md-list-item style="border-bottom:1px solid #797272;" class="ls-head secondary-button-padding padlr16">
           <p ng-repeat="field in json.fields" ng-if="field.type!==''">{{field.name}}</p>
           <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
             <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
@@ -44,7 +44,7 @@
           </md-button>
         </md-list-item>
         <md-list ng-cloak ng-repeat="field in json.fields " ng-if="field.display=='table'">
-          <md-list-item style="border-bottom: 1px solid #CBCACA;" class=" firstpro secondary-button-padding padlr16">
+          <md-list-item style="border-bottom: 1px solid #CBCACA;" class="ls-head firstpro secondary-button-padding padlr16">
 
             <p ng-repeat="heading in json.tableFields">{{heading.name}}</p>
           </md-list-item>
