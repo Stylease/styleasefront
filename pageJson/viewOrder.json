@@ -22,7 +22,7 @@
         "model": "duration"
     }],
     "fields": [{
-        "name": "Order",
+        "name": "Order ID",
         "isSort": "",
         "tableRef": "orderid"
     }, {
@@ -35,13 +35,17 @@
         "isSort": "",
         "tableRef": "firstname"
     }, {
-        "name": "Mode",
+        "name": "Payment Mode",
         "isSort": "",
         "tableRef": "paymentmode"
     }, {
-        "name": "Status",
+        "name": "Order Status",
         "isSort": "",
         "tableRef": "orderstatus"
+    }, {
+        "name": "Grand Total",
+        "isSort": "",
+        "tableRef": "total"
     }, {
         "display": "table",
         "type": ""

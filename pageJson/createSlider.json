@@ -15,6 +15,25 @@
         "model": "image",
         "size": "1600px X 901px"
     },{
+        "name": "Mobile Image",
+        "type": "image",
+        "option": "single",
+        "tableRef": "mobileimage",
+        "placeholder": "Enter Product Picture",
+        "id": "input4",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "mobileimage",
+        "size": "---px X ---px"
+    },{
+        "name": "Url",
+        "type": "text",
+        "tableRef": "url",
+        "placeholder": "Enter url",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Status",
         "type": "select",
         "tableRef": "status",

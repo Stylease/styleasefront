@@ -2,9 +2,21 @@
   <md-list ng-cloak>
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
-      <div class="flex search-bar" flex="33">
-        <md-autocomplete md-search-text="pagination.search" md-items="result in json.tableData track by $index" md-min-length="0" md-search-text-change="getMoreResults();" placeholder="Search" class="layout-lg">
-        </md-autocomplete>
+      <div class="flex search-bar" flex="20">
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="json.editData[field.model]">
+          <md-optgroup style="z-index:111 !important;" >
+            <md-option  value="" >All</md-option>
+            <md-option  value="Processing" >Processing</md-option>
+            <md-option  value="Order Confirmed" >Order Confirmed</md-option>
+            <md-option  value="Out for Delivery" >Out for Delivery</md-option>
+            <md-option  value="Delivered" >Delivered</md-option>
+            <md-option  value="Pick-up" >Pick-up</md-option>
+            <md-option  value="Received" >Received</md-option>
+            <md-option  value="Refund" >Refund</md-option>
+            <md-option  value="Completed" >Completed</md-option>
+            <md-option  value="Cancelled" >Cancelled</md-option>
+            </md-optgroup>
+        </md-select>
       </div>
     </div>
     <md-divider></md-divider>

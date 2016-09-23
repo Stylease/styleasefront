@@ -9,6 +9,10 @@
             "type": "image",
             "tableRef": "image"
         }, {
+            "name": "Url",
+            "isSort": "",
+            "tableRef": "url"
+        }, {
             "name": "Status",
             "isSort": "",
             "tableRef": "status"

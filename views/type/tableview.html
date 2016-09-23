@@ -54,12 +54,14 @@
     </md-input-container>
 
     <md-list ng-cloak ng-repeat="field in json.fields" ng-if="field.type=='table'">
-      <md-list-item class="ls-head secondary-button-padding padlr16">
+      <md-list-item class="firstpro ls-head secondary-button-padding padlr16">
         <p ng-repeat="heading in json.tableFields">{{heading.name}}</p>
       </md-list-item>
 
-      <md-list-item ng-repeat="result in subTableData" class="secondary-button-padding padlr16">
+      <md-list-item ng-repeat="result in subTableData" class="firstpro secondary-button-padding padlr16">
         <p ng-repeat="values in json.tableFields">
+          <span ng-if="values.type==='product'">{{result.product.name}}</span>
+          <span ng-if="values.type==='price'"><span ng-if="result.duration==='4'">{{result.product.fourdayrentalamount}}</span><span ng-if="result.duration==='8'">{{result.product.eightdayrentalamount}}</span></span>
           <span ng-if="values.type!='date'">{{result[values.model]}}</span>
           <span ng-if="values.type=='date'">{{result[values.model] | date:'dd-MM-yyyy'}}</span>
         </p>

@@ -6,22 +6,23 @@
     "urlFields": ["_id"],
     "tableFields": [{
         "name": "Product Name",
-        "model": "product"
+        "type": "product",
+        "model": "name"
     }, {
         "name": "Size",
         "model": "size"
     }, {
         "name": "Price",
-        "model": "productprice"
+        "type": "price",
+        "model": "price"
     }, {
-        "name": "Time From",
+        "name": "Rental Date",
         "type": "date",
         "model": "timeFrom"
     }, {
-        "name": "Time To",
-        "type": "date",
-        "model": "timeTo"
-    }, {
+        "name": "Duration",
+        "model": "duration"
+    } ,{
         "name": "Pickup Time",
         "model": "pickupTime"
     }, {
@@ -50,7 +51,7 @@
         "model": "user"
     }, {
         "name": "Order Number",
-        "type": "text",
+        "type": "readonly",
         "tableRef": "orderid",
         "placeholder": "Enter Order Number",
         "id": "input2",
@@ -94,134 +95,134 @@
         "url": "",
         "model": "mobile"
     }, {
-        "name": "Billing Address Line 1",
+        "name": "Billing Address Flat",
         "type": "text",
-        "tableRef": "billingaddressflat",
+        "tableRef": "billingAddressFlat",
         "placeholder": "Enter billingaddress",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "billingaddressflat"
+        "model": "billingAddressFlat"
     }, {
         "name": "Billing Street address",
         "type": "text",
-        "tableRef": "billingaddressstreet",
+        "tableRef": "billingAddressStreet",
         "placeholder": "Enter Street address",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "billingaddressstreet"
+        "model": "billingAddressStreet"
     }, {
         "name": "Billing Nearest Landmark",
         "type": "text",
-        "tableRef": "billingaddresslandmark",
+        "tableRef": "billingAddressLandmark",
         "placeholder": "Enter Nearest Landmark",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "billingaddresslandmark"
+        "model": "billingAddressLandmark"
     }, {
         "name": "Billing Pin Code",
         "type": "text",
-        "tableRef": "billingaddresspin",
+        "tableRef": "billingAddressPin",
         "placeholder": "Enter Pin Code",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "billingaddresspin"
+        "model": "billingAddressPin"
     }, {
         "name": "Billing City",
         "type": "text",
-        "tableRef": "billingaddresscity",
+        "tableRef": "billingAddressCity",
         "placeholder": "Enter City",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "billingaddresscity"
+        "model": "billingAddressCity"
     }, {
         "name": "Billing State",
         "type": "text",
-        "tableRef": "billingaddressstate",
+        "tableRef": "billingAddressState",
         "placeholder": "Enter State",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "billingaddressstate"
+        "model": "billingAddressState"
     }, {
         "name": "Billing Country",
         "type": "text",
-        "tableRef": "billingaddresscountry",
+        "tableRef": "billingAddressCountry",
         "placeholder": "Enter Country",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "billingaddresscountry"
+        "model": "billingAddressCountry"
     }, {
-        "name": "Shipping Address Line 1",
+        "name": "Shipping Address Flat",
         "type": "text",
-        "tableRef": "shippingaddressflat",
+        "tableRef": "shippingAddressFlat",
         "placeholder": "Enter shippingaddress",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "shippingaddressflat"
+        "model": "shippingAddressFlat"
     }, {
         "name": "Shipping Street address",
         "type": "text",
-        "tableRef": "shippingaddressstreet",
+        "tableRef": "shippingAddressStreet",
         "placeholder": "Enter Street address",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "shippingaddressstreet"
+        "model": "shippingAddressStreet"
     }, {
         "name": "Shipping Nearest Landmark",
         "type": "text",
-        "tableRef": "shippingaddresslandmark",
+        "tableRef": "shippingAddressLandmark",
         "placeholder": "Enter Nearest Landmark",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "shippingaddresslandmark"
+        "model": "shippingAddressLandmark"
     }, {
         "name": "Shipping Pin Code",
         "type": "text",
-        "tableRef": "shippingaddresspin",
+        "tableRef": "shippingAddressPin",
         "placeholder": "Enter Pin Code",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "shippingaddresspin"
+        "model": "shippingAddressPin"
     }, {
         "name": "Shipping City",
         "type": "text",
-        "tableRef": "shippingaddresscity",
+        "tableRef": "shippingAddressCity",
         "placeholder": "Enter City",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "shippingaddresscity"
+        "model": "shippingAddressCity"
     }, {
         "name": "Shipping State",
         "type": "text",
-        "tableRef": "shippingaddressstate",
+        "tableRef": "shippingAddressState",
         "placeholder": "Enter State",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "shippingaddressstate"
+        "model": "shippingAddressState"
     }, {
         "name": "Shipping Country",
         "type": "text",
-        "tableRef": "shippingaddresscountry",
+        "tableRef": "shippingAddressCountry",
         "placeholder": "Enter Country",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "shippingaddresscountry"
+        "model": "shippingAddressCountry"
     }, {
         "name": "Sub Total",
-        "type": "text",
+        "type": "readonly",
         "tableRef": "subtotal",
         "placeholder": "Enter subtotal",
         "id": "input2",
@@ -230,7 +231,7 @@
         "model": "subtotal"
     }, {
         "name": "Service Tax",
-        "type": "text",
+        "type": "readonly",
         "tableRef": "servicetax",
         "placeholder": "Enter service tax",
         "id": "input2",
@@ -239,7 +240,7 @@
         "model": "servicetax"
     }, {
         "name": "Refundable Deposit",
-        "type": "text",
+        "type": "readonly",
         "tableRef": "refundabledeposit",
         "placeholder": "Enter refundable deposit",
         "id": "input2",
@@ -248,7 +249,7 @@
         "model": "refundabledeposit"
     }, {
         "name": "Delivery Charge",
-        "type": "text",
+        "type": "readonly",
         "tableRef": "deliverycharge",
         "placeholder": "Enter deliverycharge",
         "id": "input2",
@@ -257,7 +258,7 @@
         "model": "deliverycharge"
     }, {
         "name": "Total",
-        "type": "text",
+        "type": "readonly",
         "tableRef": "total",
         "placeholder": "Enter total",
         "id": "input2",
@@ -265,27 +266,69 @@
         "url": "",
         "model": "total"
     }, {
-        "name": "Order Status",
+        "name": "Payment Mode",
         "type": "select",
-        "tableRef": "status",
-        "placeholder": "Enter orderstatus",
+        "tableRef": "paymentmode",
+        "placeholder": "Enter paymentmode",
         "id": "input3",
-        "model": "status",
+        "model": "paymentmode",
         "validation": ["required", "trim", "unique"],
         "url": [{
-            "value": "Pending",
-            "name": "Pending"
+            "value": "",
+            "name": "Select Payment Mode"
         }, {
+            "value": "Cash On Delivery",
+            "name": "Cash On Delivery"
+        }, {
+            "value": "Credit Card",
+            "name": "Credit Card"
+        }, {
+            "value": "Debit Card",
+            "name": "Debit Card"
+        }, {
+            "value": "Net Banking",
+            "name": "Net Banking"
+        }]
+    }, {
+        "name": "Order Status",
+        "type": "select",
+        "tableRef": "orderstatus",
+        "placeholder": "Enter orderstatus",
+        "id": "input3",
+        "model": "orderstatus",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
             "value": "Processing",
             "name": "Processing"
         }, {
+            "value": "Order Confirmed",
+            "name": "Order Confirmed"
+        }, {
+            "value": "Out for Delivery",
+            "name": "Out for Delivery"
+        }, {
+            "value": "Delivered",
+            "name": "Delivered"
+        }, {
+            "value": "Pick-up",
+            "name": "Pick-up"
+        }, {
+            "value": "Received",
+            "name": "Received"
+        }, {
+            "value": "Refund",
+            "name": "Refund"
+        }, {
             "value": "Completed",
             "name": "Completed"
+        }, {
+            "value": "Cancelled",
+            "name": "Cancelled"
         }]
     }, {
-        "name": "Products",
+        "name": "Cart Product",
         "type": "table",
-        "model": "products"
+        "model": "cartproduct"
     }],
     "action": [{
         "name": "submit",
