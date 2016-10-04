@@ -1,0 +1,28 @@
+{
+    "title": "All Sorting",
+    "desciption": "",
+    "sortable": "Productsort/sort",
+    "pageType": "view",
+    "fields": [{
+            "name": "Name",
+            "isSort": "",
+            "tableRef": "name"
+        }],
+
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+
+    "apiCall": {
+        "url": "Productsort/getLimited",
+        "params": ""
+    }
+}

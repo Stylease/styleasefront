@@ -1,5 +1,6 @@
-// var adminurl = "http://localhost:81/";
-var adminurl = "http://104.155.129.33:81/";
+var adminurl = "http://192.168.0.110:81/";
+// var adminurl = "http://104.155.129.33:81/";
+// var adminurl = "http://130.211.245.224:81/";
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var imgpath = imgurl + "readFile";
@@ -65,6 +66,11 @@ var navigationservice = angular.module('navigationservice', [])
         name: "Testimonial",
         classis: "active",
         link: "#/page/viewTestimonial",
+        subnav: []
+    },{
+        name: "Filter Sorting",
+        classis: "active",
+        link: "#/page/viewProductsort",
         subnav: []
     }];
 

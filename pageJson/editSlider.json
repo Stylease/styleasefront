@@ -35,7 +35,7 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "mobileimage",
-        "size": "---px X ---px"
+        "size": "705px X 1087px"
     }, {
         "name": "Url",
         "type": "text",
