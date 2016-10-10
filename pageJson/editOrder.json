@@ -22,7 +22,7 @@
     }, {
         "name": "Duration",
         "model": "duration"
-    } ,{
+    }, {
         "name": "Pickup Time",
         "model": "pickupTime"
     }, {
@@ -309,6 +309,12 @@
         }, {
             "value": "Delivered",
             "name": "Delivered"
+        }, {
+            "value": "Pickup reminder",
+            "name": "Pickup reminder"
+        }, {
+            "value": "Out for pick-up",
+            "name": "Out for pick-up"
         }, {
             "value": "Pick-up",
             "name": "Pick-up"

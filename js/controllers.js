@@ -120,76 +120,79 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         if (data.pageType == "orderview") {
-          $scope.apiName = $scope.json.apiCall.url;
-          console.log("in orderview",$scope.apiName);
+            $scope.apiName = $scope.json.apiCall.url;
+            console.log("in orderview", $scope.apiName);
 
-          $scope.pagination = {
-              "search": "",
-              "pagenumber": 1,
-              "pagesize": 10
-          };
+            $scope.pagination = {
+                "search": "",
+                "pagenumber": 1,
+                "pagesize": 10
+            };
 
-          // SIDE MENU DATA
-          var urlid1 = $location.absUrl().split('%C2%A2')[1];
-          console.log(urlid1);
-          // var urlid2 = $location.absUrl().split('%C2%A2')[2];
-          $scope.pagination1 = {};
-          if (urlid1) {
-              console.log('urlid1', urlid1);
-              if ($scope.json.sendIdWithCreate) {
-                  $scope.json.createButtonState = $scope.json.createButtonState.split("'" + "})").join("¢" + urlid1 + "'" + "})");
-                  // $scope.json.createButtonState = $scope.json.createButtonState.split("%25C2%").join("%C2%");
-                  // $scope.json.createButtonState = $scope.json.createButtonState.split("%25A2").join("%A2");
-              }
-              console.log($scope.json.createButtonState);
-              $scope.api1 = $scope.json.sidemenu[1].callFindOne;
-              if ($scope.json.sidemenu[1].sendParam && $scope.json.sidemenu[1].sendParam !== '') {
-                  // ARRAY
-                  // $scope.pagination1._id = urlid1;
-                  $scope.pagination1._id = urlid1;
-                  NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
-                      if (data.data.nominee) {
-                          $scope.json.tableData = data.data;
-                          console.log("IF");
-                          console.log($scope.json.tableData);
-                      }
-                  }, function() {
-                      console.log("fail");
-                  });
-              } else {
-                  console.log("ELSE");
-                  $scope.pagination._id = urlid1;
-                  NavigationService.sideMenu1($scope.api1, $scope.pagination, function(data) {
-                      $scope.json.tableData = data.data.data;
-                      console.log($scope.json.tableData);
-                  }, function() {
-                      console.log("fail");
-                  });
-              }
+            // SIDE MENU DATA
+            var urlid1 = $location.absUrl().split('%C2%A2')[1];
+            console.log(urlid1);
+            // var urlid2 = $location.absUrl().split('%C2%A2')[2];
+            $scope.pagination1 = {};
+            if (urlid1) {
+                console.log('urlid1', urlid1);
+                if ($scope.json.sendIdWithCreate) {
+                    $scope.json.createButtonState = $scope.json.createButtonState.split("'" + "})").join("¢" + urlid1 + "'" + "})");
+                    // $scope.json.createButtonState = $scope.json.createButtonState.split("%25C2%").join("%C2%");
+                    // $scope.json.createButtonState = $scope.json.createButtonState.split("%25A2").join("%A2");
+                }
+                console.log($scope.json.createButtonState);
+                $scope.api1 = $scope.json.sidemenu[1].callFindOne;
+                if ($scope.json.sidemenu[1].sendParam && $scope.json.sidemenu[1].sendParam !== '') {
+                    // ARRAY
+                    // $scope.pagination1._id = urlid1;
+                    $scope.pagination1._id = urlid1;
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
+                        if (data.data.nominee) {
+                            $scope.json.tableData = data.data;
+                            console.log("IF");
+                            console.log($scope.json.tableData);
+                        }
+                    }, function() {
+                        console.log("fail");
+                    });
+                } else {
+                    console.log("ELSE");
+                    $scope.pagination._id = urlid1;
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination, function(data) {
+                        $scope.json.tableData = data.data.data;
+                        console.log($scope.json.tableData);
+                    }, function() {
+                        console.log("fail");
+                    });
+                }
+            }
+            // call api for view data
+            $scope.apiName = $scope.json.apiCall.url;
+            $scope.pageInfo = {};
+            $scope.getMoreResults = function() {
+            NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
+                console.log(findData.data);
+                if (findData.value != false) {
+                    if (findData.data && findData.data.data && findData.data.data.length > 0) {
+                        $scope.pageInfo.lastpage = findData.data.totalpages;
+                        $scope.pageInfo.pagenumber = findData.data.pagenumber;
+                        $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
+                        $scope.json.tableData = findData.data.data;
+                        console.log("new log ", $scope.json.tableData);
+                    } else {
+                        $scope.json.tableData = [];
+                    }
+                } else {
+                    $scope.json.tableData = [];
+                }
+            }, function() {
+                console.log("Fail");
+            });
           }
-          $scope.pageInfo = {};
-          NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
-              console.log(findData.data);
-              if (findData.value != false) {
-                  if (findData.data && findData.data.data && findData.data.data.length > 0) {
-                      $scope.pageInfo.lastpage = findData.data.totalpages;
-                      $scope.pageInfo.pagenumber = findData.data.pagenumber;
-                      $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
-                      $scope.json.tableData = findData.data.data;
-                      console.log("new log ", $scope.json.tableData);
-                  } else {
-                      $scope.json.tableData = [];
-                  }
-              } else {
-                  $scope.json.tableData = [];
-              }
-          }, function() {
-              console.log("Fail");
-          });
+          $scope.getMoreResults();
 
-        }
-
-        else if (data.pageType == "create") {
+        } else if (data.pageType == "create") {
             $scope.goToCancelPageCreate = function() {
                 $location.url("/page/" + $scope.json.action[1].url + idForCreate);
             };

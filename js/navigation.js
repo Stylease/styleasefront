@@ -1,12 +1,13 @@
-var adminurl = "http://192.168.0.110:81/";
+// var adminurl = "http://admin.thestylease.com";
 // var adminurl = "http://104.155.129.33:81/";
-// var adminurl = "http://130.211.245.224:81/";
+var adminurl = "http://130.211.245.224:81/";
+// var adminurl = "http://localhost:81/";
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var imgpath = imgurl + "readFile";
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function($http) {
+.factory('NavigationService', function ($http) {
     var navigation = [{
         name: "Users",
         classis: "active",
@@ -17,7 +18,7 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewSlider",
         subnav: []
-    },{
+    }, {
         name: "Category",
         classis: "active",
         link: "#/page/viewCategory",
@@ -57,17 +58,17 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewDesigner",
         subnav: []
-    },  {
+    }, {
         name: "Config",
         classis: "active",
         link: "#/page/viewConfig",
         subnav: []
-    },{
+    }, {
         name: "Testimonial",
         classis: "active",
         link: "#/page/viewTestimonial",
         subnav: []
-    },{
+    }, {
         name: "Filter Sorting",
         classis: "active",
         link: "#/page/viewProductsort",
@@ -75,10 +76,10 @@ var navigationservice = angular.module('navigationservice', [])
     }];
 
     return {
-        getnav: function() {
+        getnav: function () {
             return navigation;
         },
-        makeactive: function(menuname) {
+        makeactive: function (menuname) {
             for (var i = 0; i < navigation.length; i++) {
                 if (navigation[i].name == menuname) {
                     navigation[i].classis = "active";
@@ -88,33 +89,33 @@ var navigationservice = angular.module('navigationservice', [])
             }
             return menuname;
         },
-        saveApi: function(data, apiName, successCallback, errorCallback) {
+        saveApi: function (data, apiName, successCallback, errorCallback) {
             $http.post(adminurl + apiName, data).success(successCallback).error(errorCallback);
         },
-        deleteProject: function(data, successCallback, errorCallback) {
+        deleteProject: function (data, successCallback, errorCallback) {
             $http.post(adminURL + "project/delete", data).success(successCallback).error(errorCallback);
         },
-        findProjects: function(apiName, pagination, successCallback, errorCallback) {
+        findProjects: function (apiName, pagination, successCallback, errorCallback) {
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
-        findOneProject: function(apiName, urlParams, successCallback, errorCallback) {
+        findOneProject: function (apiName, urlParams, successCallback, errorCallback) {
             console.log(adminurl + apiName);
             $http.post(adminurl + apiName, urlParams).success(successCallback).error(errorCallback);
         },
 
-        getDropDown: function(apiName, successCallback, errorCallback) {
+        getDropDown: function (apiName, successCallback, errorCallback) {
             $http.post(adminurl + apiName).success(successCallback).error(errorCallback);
         },
-        submitLogin: function(data, successCallback, errorCallback) {
-          $http.post(adminurl + "register/login", data).success(successCallback).error(errorCallback);
+        submitLogin: function (data, successCallback, errorCallback) {
+            $http.post(adminurl + "register/login", data).success(successCallback).error(errorCallback);
         },
-        deleteApi: function(data, successCallback, errorCallback) {
-          $http.post(adminURL + "api/delete", data).success(successCallback).error(errorCallback);
+        deleteApi: function (data, successCallback, errorCallback) {
+            $http.post(adminURL + "api/delete", data).success(successCallback).error(errorCallback);
         },
-        logout: function( successCallback, errorCallback) {
-          $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);
+        logout: function (successCallback, errorCallback) {
+            $http.post(adminurl + "register/logout").success(successCallback).error(errorCallback);
         },
-        sideMenu1: function(apiName, pagination, successCallback, errorCallback) {
+        sideMenu1: function (apiName, pagination, successCallback, errorCallback) {
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
 
