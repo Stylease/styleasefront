@@ -3,22 +3,20 @@
     "desciption": "",
     "pageType": "view",
     "fields": [{
-            "name": "Delivery",
-            "isSort": "",
-            "tableRef": "delivery"
-        }, {
-            "name": "Pickup Time",
-            "isSort": "",
-            "tableRef": "pickupTime"
-        }, {
-            "name": "Delivery Time",
-            "isSort": "",
-            "tableRef": "deliveryTime"
-        }, {
-            "name": "Status",
-            "isSort": "",
-            "tableRef": "status"
-        }],
+        "name": "Product",
+        "isSort": "",
+        "tableRef": "product.name"
+    }, {
+        "name": "Time From",
+        "type": "date",
+        "isSort": "",
+        "tableRef": "timeFrom"
+    }, {
+        "name": "Time To",
+        "type": "date",
+        "isSort": "",
+        "tableRef": "timeTo"
+    }],
     "action": [{
         "name": "edit",
         "icon": "mode_edit",
@@ -55,6 +53,5 @@
     "apiCall": {
         "url": "producttime/getLimited",
         "params": ""
-    },
-    "createButtonState": "page({jsonName:'createProducttime'})"
+    }
 }

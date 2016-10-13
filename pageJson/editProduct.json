@@ -206,6 +206,19 @@
     "preApi": {
         "url": "product/getOne",
         "params": "_id"
-    }
+    },
+    "sidemenu": [{
+        "name": "Product Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editProduct",
+        "fieldsToSend": [1],
+        "callFindOne": "product/getOne"
+    }, {
+        "name": "Gallery Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewGallery",
+        "fieldsToSend": [1],
+        "callFindOne": "product/findGallery"
+    }]
 
 }

@@ -14,47 +14,33 @@
         "url": "",
         "model": "_id"
     }, {
-        "name": "Delivery",
-        "type": "text",
-        "tableRef": "delivery",
-        "placeholder": "Enter Delivery",
-        "id": "input2",
+        "name": "product",
+        "type": "selectFromTable",
+        "tableRef": "product",
+        "option": "single",
+        "placeholder": "Enter product",
+        "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
-        "model":"delivery"
+        "url": "product/getAll",
+        "model": "product"
     }, {
-        "name": "Pickup Time",
+        "name": "Time From",
         "type": "text",
-        "tableRef": "pickupTime",
-        "placeholder": "Enter pickupTime",
+        "tableRef": "timeFrom",
+        "placeholder": "Enter Time From",
         "id": "input4",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model":"pickupTime"
+        "model": "timeFrom"
     }, {
-        "name": "Delivery Time",
+        "name": "Time To",
         "type": "text",
-        "tableRef": "deliveryTime",
-        "placeholder": "Enter deliveryTime",
+        "tableRef": "timeTo",
+        "placeholder": "Enter timeTo",
         "id": "input4",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model":"deliveryTime"
-    },{
-        "name": "Status",
-        "type": "select",
-        "tableRef": "status",
-        "placeholder": "Enter status",
-        "id": "input3",
-        "model": "status",
-        "validation": ["required", "trim", "unique"],
-        "url": [{
-            "value": "Enable",
-            "name": "Enable"
-        }, {
-            "value": "Disable",
-            "name": "Disable"
-        }]
+        "model": "timeTo"
     }],
     "action": [{
         "name": "submit",
