@@ -41,11 +41,11 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Hips",
+        "name": "Date",
         "type": "text",
-        "tableRef": "hips",
-        "model": "hips",
-        "placeholder": "Enter hips",
+        "tableRef": "date",
+        "model": "date",
+        "placeholder": "Enter Date",
         "id": "input5",
         "validation": ["required", "trim", "unique"],
         "url": ""

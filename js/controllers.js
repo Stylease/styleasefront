@@ -434,21 +434,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // CALL GENERAL API
         NavigationService.saveApi($scope.formData, $scope.apiName, function (data) {
-
             console.log($scope.json.jsonPage);
-
+            window.history.back();
             // showToast("Project Saved Successfully");
-            console.log("Success");
-            if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {
-                $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid);
+            // console.log("Success");
+            // if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {
+            //     $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid);
 
-            } else if ($scope.json.action[0].submitUrl && $scope.urlid2) {
-                $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid2);
-            } else {
-                $state.go("page", {
-                    jsonName: $scope.json.jsonPage
-                });
-            }
+            // } else if ($scope.json.action[0].submitUrl && $scope.urlid2) {
+            //     $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid2);
+            // } else {
+            //     $state.go("page", {
+            //         jsonName: $scope.json.jsonPage
+            //     });
+            // }
 
         }, function () {
             // showToast("Error saving the Project");
