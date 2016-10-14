@@ -1,0 +1,48 @@
+{
+    "title": "All Contact Submission",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Email",
+        "isSort": "",
+        "tableRef": "email"
+    }, {
+        "name": "Mobile",
+        "isSort": "",
+        "tableRef": "mobile"
+    }, {
+        "name": "Date",
+        "isSort": "",
+        "type": "date",
+        "tableRef": "date"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editContact",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "Contact/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete Contact",
+        "content": "Are you sure you want to delete Contact?",
+        "api": "Contact/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "apiCall": {
+        "url": "Contact/getLimited",
+        "params": ""
+    }
+}

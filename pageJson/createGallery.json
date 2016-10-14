@@ -1,6 +1,6 @@
 {
     "title": "Create Gallery",
-    "jsonPage": "viewGallery",
+    "jsonPage": "viewProduct",
     "desciption": "",
     "pageType": "create",
     "urlFields": ["product"],
