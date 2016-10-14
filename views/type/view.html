@@ -3,7 +3,8 @@
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
       <div class="flex search-bar" flex="33">
-        <md-autocomplete md-search-text="pagination.search" md-items="result in json.tableData track by $index" md-min-length="0" md-search-text-change="getMoreResults();" placeholder="Search" class="layout-lg">
+        <md-autocomplete md-search-text="pagination.search" md-items="result in json.tableData track by $index" md-min-length="0"
+          md-search-text-change="getMoreResults();" placeholder="Search" class="layout-lg">
         </md-autocomplete>
       </div>
     </div>
@@ -33,7 +34,7 @@
           <span ng-if="field.type!=='image' && field.tableRef!=='status'">{{result|getValue:field.tableRef:field.type}}</span>
           <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
           <span class="img-holder" ng-if="field.type==='image'">
-                         <img width="200" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
+                         <img width="100" height="100" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
                      </span>
         </p>
         <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
@@ -51,7 +52,7 @@
           <span ng-if="field.type!=='image' && field.tableRef!=='status'">{{result|getValue:field.tableRef:field.type}}</span>
           <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type ==''"></span>
           <span class="img-holder" ng-if="field.type==='image'">
-                <img width="200" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
+                <img width="100" height="100" ng-src="{{result|getValue:field.tableRef:field.type}}" alt="" >
             </span>
         </p>
         <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
@@ -60,7 +61,8 @@
       </md-list-item>
     </div>
 
-    <uib-pagination ng-if="json.tableData.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
+    <uib-pagination ng-if="json.tableData.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm"
+      boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
       ng-hide="pageInfo.lastpage==1"></uib-pagination>
 
 

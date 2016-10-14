@@ -4,15 +4,15 @@ var mockURL = adminURL + "callApi/";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload', 'ui.bootstrap'])
 
-.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('LoginCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
     $scope.menutitle = NavigationService.makeactive("Login");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.successmsg = "";
 
     $scope.user = '';
-    $scope.submitLogin = function(user) {
-        NavigationService.submitLogin(user, function(data) {
+    $scope.submitLogin = function (user) {
+        NavigationService.submitLogin(user, function (data) {
             console.log(data);
             if (data.value === true) {
                 $state.go("page", {
@@ -22,26 +22,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else if (data.value === false) {
                 $scope.successmsg = "Email or Password is wrong";
             }
-        }, function() {
+        }, function () {
             console.log("Fail");
         });
     };
 })
 
-.controller('UsersCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('UsersCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("users");
     $scope.menutitle = NavigationService.makeactive("Users");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.field = {};
-    $scope.onimageupload = function(data) {
+    $scope.onimageupload = function (data) {
         console.log(data);
     };
 })
 
-.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
+.controller('jsonViewCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
     //Used to name the .html file
+    $scope.back = function () {
+        window.history.back();
+    };
     $scope.template = TemplateService.changecontent("users");
     $scope.menutitle = NavigationService.makeactive("Users");
     TemplateService.title = $scope.menutitle;
@@ -64,14 +67,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // console.log(jsonArr);
 
     $scope.sortableOptions = {
-        stop: function(e, ui) {
+        stop: function (e, ui) {
             console.log($scope.json.tableData);
             var ids = _.map($scope.json.tableData, "_id");
             var names = _.map($scope.json.tableData, "name");
             console.log(names);
-            $http.post(adminurl + $scope.json.sortable, ids).success(function(data) {
+            $http.post(adminurl + $scope.json.sortable, ids).success(function (data) {
                 showToast("Sorted Successfully");
-            }, function() {
+            }, function () {
                 showToast("Error Sorting");
             });
         }
@@ -80,26 +83,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    $scope.confirm = function(title, content, api, data) {
+    $scope.confirm = function (title, content, api, data) {
         var confirm = $mdDialog.confirm()
             .title(title)
             .textContent(content)
             .ok('Confirm')
             .cancel('Cancel');
-        $mdDialog.show(confirm).then(function() {
-            $http.post(api, data).success(function(data) {
+        $mdDialog.show(confirm).then(function () {
+            $http.post(api, data).success(function (data) {
                 $state.reload();
                 showToast("Deleted Successfully");
-            }, function() {
+            }, function () {
                 showToast("Error Deleting");
             });
-        }, function() {
+        }, function () {
 
         });
     };
 
-    $http.get("./pageJson/" + jsonName + ".json").success(function(data) {
-        _.each(data.urlFields, function(n, key) {
+    $http.get("./pageJson/" + jsonName + ".json").success(function (data) {
+        _.each(data.urlFields, function (n, key) {
             urlParams[n] = jsonArr[key + 1];
         });
         console.log(urlParams);
@@ -113,7 +116,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(idForCreate);
         $scope.idForCreate = idForCreate;
         if (idForCreate) {
-            $scope.goToCreatePage = function() {
+            $scope.goToCreatePage = function () {
                 console.log("In create");
                 $location.url("/page/" + $scope.json.createButtonUrl + idForCreate);
             };
@@ -147,22 +150,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     // ARRAY
                     // $scope.pagination1._id = urlid1;
                     $scope.pagination1._id = urlid1;
-                    NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination1, function (data) {
                         if (data.data.nominee) {
                             $scope.json.tableData = data.data;
                             console.log("IF");
                             console.log($scope.json.tableData);
                         }
-                    }, function() {
+                    }, function () {
                         console.log("fail");
                     });
                 } else {
                     console.log("ELSE");
                     $scope.pagination._id = urlid1;
-                    NavigationService.sideMenu1($scope.api1, $scope.pagination, function(data) {
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination, function (data) {
                         $scope.json.tableData = data.data.data;
                         console.log($scope.json.tableData);
-                    }, function() {
+                    }, function () {
                         console.log("fail");
                     });
                 }
@@ -170,33 +173,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // call api for view data
             $scope.apiName = $scope.json.apiCall.url;
             $scope.pageInfo = {};
-            $scope.getMoreResults = function() {
-            NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
-                console.log(findData.data);
-                if (findData.value != false) {
-                    if (findData.data && findData.data.data && findData.data.data.length > 0) {
-                        $scope.pageInfo.lastpage = findData.data.totalpages;
-                        $scope.pageInfo.pagenumber = findData.data.pagenumber;
-                        $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
-                        $scope.json.tableData = findData.data.data;
-                        console.log("new log ", $scope.json.tableData);
+            $scope.getMoreResults = function () {
+                NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
+                    console.log(findData.data);
+                    if (findData.value != false) {
+                        if (findData.data && findData.data.data && findData.data.data.length > 0) {
+                            $scope.pageInfo.lastpage = findData.data.totalpages;
+                            $scope.pageInfo.pagenumber = findData.data.pagenumber;
+                            $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
+                            $scope.json.tableData = findData.data.data;
+                            console.log("new log ", $scope.json.tableData);
+                        } else {
+                            $scope.json.tableData = [];
+                        }
                     } else {
                         $scope.json.tableData = [];
                     }
-                } else {
-                    $scope.json.tableData = [];
-                }
-            }, function() {
-                console.log("Fail");
-            });
-          }
-          $scope.getMoreResults();
+                }, function () {
+                    console.log("Fail");
+                });
+            }
+            $scope.getMoreResults();
 
         } else if (data.pageType == "create") {
-            $scope.goToCancelPageCreate = function() {
+            $scope.goToCancelPageCreate = function () {
                 $location.url("/page/" + $scope.json.action[1].url + idForCreate);
             };
-            _.each($scope.json.fields, function(n) {
+            _.each($scope.json.fields, function (n) {
                 if (n.type == "select") {
                     n.model = "";
                     n.url.unshift({
@@ -211,9 +214,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
             // get select fields dropdown
-            _.each($scope.json.fields, function(n) {
+            _.each($scope.json.fields, function (n) {
                 if (n.type == "selectFromTable") {
-                    NavigationService.getDropDown(n.url, function(data) {
+                    NavigationService.getDropDown(n.url, function (data) {
                         console.log(data);
                         n.dropdownvalues = [];
                         if (data) {
@@ -228,7 +231,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 n.dropdownvalues.push(dropdown);
                             }
                         }
-                    }, function() {
+                    }, function () {
                         console.log("Fail");
                     });
                 }
@@ -237,11 +240,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
             var urlid2 = $location.absUrl().split('%C2%A2')[2];
             console.log(urlParams);
-            NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
+            NavigationService.findOneProject($scope.json.preApi.url, urlParams, function (data) {
                 console.log(data);
                 $scope.json.editData = data.data;
                 console.log($scope.json.editData);
-                _.each($scope.json.fields, function(n) {
+                _.each($scope.json.fields, function (n) {
                     if (n.type == "table") {
                         $scope.subTableData = $scope.json.editData[n.model];
                     }
@@ -250,13 +253,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
 
                 })
-            }, function() {
+            }, function () {
                 console.log("Fail");
             });
             // get select fields dropdown
-            _.each($scope.json.fields, function(n) {
+            _.each($scope.json.fields, function (n) {
                 if (n.type == "selectFromTable") {
-                    NavigationService.getDropDown(n.url, function(data) {
+                    NavigationService.getDropDown(n.url, function (data) {
                         console.log(data);
                         n.dropdownvalues = [];
                         if (data) {
@@ -271,7 +274,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 n.dropdownvalues.push(dropdown);
                             }
                         }
-                    }, function() {
+                    }, function () {
                         console.log("Fail");
                     });
                 }
@@ -303,22 +306,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     // ARRAY
                     // $scope.pagination1._id = urlid1;
                     $scope.pagination1._id = urlid1;
-                    NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination1, function (data) {
                         if (data.data.nominee) {
                             $scope.json.tableData = data.data;
                             console.log("IF");
                             console.log($scope.json.tableData);
                         }
-                    }, function() {
+                    }, function () {
                         console.log("fail");
                     });
                 } else {
                     console.log("ELSE");
                     $scope.pagination._id = urlid1;
-                    NavigationService.sideMenu1($scope.api1, $scope.pagination, function(data) {
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination, function (data) {
                         $scope.json.tableData = data.data.data;
                         console.log($scope.json.tableData);
-                    }, function() {
+                    }, function () {
                         console.log("fail");
                     });
                 }
@@ -326,8 +329,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // call api for view data
             $scope.apiName = $scope.json.apiCall.url;
             $scope.pageInfo = {};
-            $scope.getMoreResults = function() {
-                NavigationService.findProjects($scope.apiName, $scope.pagination, function(findData) {
+            $scope.getMoreResults = function () {
+                NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
                     console.log(findData);
                     if (findData.value != false) {
                         if (findData.data && findData.data.data && findData.data.data.length > 0) {
@@ -343,7 +346,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     } else {
                         $scope.json.tableData = [];
                     }
-                }, function() {
+                }, function () {
                     console.log("Fail");
                 });
             };
@@ -353,14 +356,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
     // ACTION
-    $scope.performAction = function(action, result) {
+    $scope.performAction = function (action, result) {
         console.log(action, result);
         console.log("in pa");
         var pageURL = "";
         if (action.type == "onlyView") {
             console.log("onlyView");
             if (action.fieldsToSend) {
-                _.each(action.fieldsToSend, function(n) {
+                _.each(action.fieldsToSend, function (n) {
                     pageURL += $filter("getValue")(result, n);
                 });
             }
@@ -374,7 +377,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("redirect");
             pageURL = action.jsonPage;
             if (action.fieldsToSend) {
-                _.each(action.fieldsToSend, function(n) {
+                _.each(action.fieldsToSend, function (n) {
                     pageURL += "¢" + $filter("getValue")(result, n);
                 });
             }
@@ -385,7 +388,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             pageURL = adminurl + action.api;
             var data = {};
             if (action.fieldsToSend) {
-                _.each(action.fieldsToSend, function(n) {
+                _.each(action.fieldsToSend, function (n) {
                     data[n.name] = $filter("getValue")(result, n.value);
                 });
             }
@@ -393,7 +396,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if (action.action == 'sidemenuRedirect') {
             pageURL = action.jsonPage;
             if (action.fieldsToSend) {
-                _.each(action.fieldsToSend, function(n) {
+                _.each(action.fieldsToSend, function (n) {
                     pageURL += "¢" + jsonArr[n];
                 });
             }
@@ -405,14 +408,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.makeReadyForApi = function() {
+    $scope.makeReadyForApi = function () {
         console.log("Make Ready");
         console.log($scope.formData);
 
         var data = {};
         if ($scope.json.pageType !== 'edit' && $scope.json.pageType !== 'tableview') {
             // CONVERT MODEL NAMES SAME AS FIELD NAMES
-            _.each($scope.json.fields, function(n) {
+            _.each($scope.json.fields, function (n) {
                 console.log(n);
                 data[n.tableRef] = n.model;
             });
@@ -430,7 +433,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log($scope.formData);
 
         // CALL GENERAL API
-        NavigationService.saveApi($scope.formData, $scope.apiName, function(data) {
+        NavigationService.saveApi($scope.formData, $scope.apiName, function (data) {
 
             console.log($scope.json.jsonPage);
 
@@ -447,7 +450,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             }
 
-        }, function() {
+        }, function () {
             // showToast("Error saving the Project");
             console.log("Fail");
         });
@@ -455,13 +458,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-    $scope.changeit = function(image) {
+    $scope.changeit = function (image) {
         console.log(image);
     };
 
 })
 
-.controller('ProjectsCtrl', function($scope, $mdDialog, $mdToast, TemplateService, NavigationService, $timeout, clipboard) {
+.controller('ProjectsCtrl', function ($scope, $mdDialog, $mdToast, TemplateService, NavigationService, $timeout, clipboard) {
 
     $scope.isSearch = true;
     $scope.searchForm = {
@@ -469,7 +472,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.mockURL = mockURL;
 
-    $scope.makeSearch = function(val) {
+    $scope.makeSearch = function (val) {
         $scope.searchForm.name = val;
     };
 
@@ -487,10 +490,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Projects");
 
 
-    $scope.copyMockUrl = function(project) {
+    $scope.copyMockUrl = function (project) {
         clipboard.copyText(mockURL + project.alias);
     };
-    $scope.copyLiveUrl = function(project) {
+    $scope.copyLiveUrl = function (project) {
         clipboard.copyText(project.url);
     };
 
@@ -505,39 +508,39 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
-    $scope.saveProject = function(project) {
-        NavigationService.saveProject(project, function(data) {
+    $scope.saveProject = function (project) {
+        NavigationService.saveProject(project, function (data) {
             project._id = data.data._id;
             showToast("Project Saved Successfully");
-        }, function() {
+        }, function () {
             showToast("Error saving the Project");
         });
     };
-    $scope.deleteProject = function(project) {
+    $scope.deleteProject = function (project) {
         var confirm = $mdDialog.confirm()
             .title('Would you like to delete your Project?')
             .textContent('The data for the Project will also be deleted')
             .ok('Confirm')
             .cancel('Cancel');
-        $mdDialog.show(confirm).then(function() {
-            NavigationService.deleteProject(project, function(data) {
-                _.remove($scope.projects, function(n) {
+        $mdDialog.show(confirm).then(function () {
+            NavigationService.deleteProject(project, function (data) {
+                _.remove($scope.projects, function (n) {
                     return n._id == project._id;
                 });
                 showToast("Project Deleted Successfully");
-            }, function() {
+            }, function () {
                 showToast("Error Deleting Project");
             });
 
-        }, function() {
+        }, function () {
 
         });
 
     };
 
-    $scope.expandProject = function(project) {
+    $scope.expandProject = function (project) {
         if (!project.expand) {
-            _.each($scope.projects, function(n) {
+            _.each($scope.projects, function (n) {
                 n.expand = false;
             });
         }
@@ -546,7 +549,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     function errorCallback(err) {}
 
-    $scope.createProject = function() {
+    $scope.createProject = function () {
         $scope.projects.push({
             expand: true,
             name: "",
@@ -560,29 +563,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('APICtrl', function($scope, $mdDialog, $mdToast, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('APICtrl', function ($scope, $mdDialog, $mdToast, TemplateService, NavigationService, $timeout, $stateParams) {
 
 })
 
-.controller('onlyViewPageCtrl', function($scope, TemplateService, NavigationService, $stateParams, $http) {
+.controller('onlyViewPageCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $http) {
     $scope.template = TemplateService.changecontent("onlyView");
     $scope.menutitle = NavigationService.makeactive("Users");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     console.log($stateParams.id);
-    $http.get("./pageJson/onlyView.json").success(function(data) {
+    $http.get("./pageJson/onlyView.json").success(function (data) {
         console.log(data);
         $scope.json = data;
         urlParams = {
             "_id": $stateParams.id
         };
-        NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
+        NavigationService.findOneProject($scope.json.preApi.url, urlParams, function (data) {
 
             $scope.json.editData = data.data;
             console.log($scope.json.editData);
             $scope.armyName = $scope.json.editData.user.armyName;
             console.log($scope.armyName);
-        }, function() {
+        }, function () {
             console.log("Fail");
         });
     });
@@ -591,16 +594,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // };
 })
 
-.controller('HeaderCtrl', function($scope, TemplateService, NavigationService, $state) {
+.controller('HeaderCtrl', function ($scope, TemplateService, NavigationService, $state) {
     $scope.template = TemplateService;
-    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
     if ($.jStorage.get("user") === null) {
         $state.go("login");
     }
-    $scope.logOut = function() {
-        NavigationService.logout(function(data) {
+    $scope.logOut = function () {
+        NavigationService.logout(function (data) {
             console.log(data);
             if (data.value === true) {
                 $.jStorage.flush();
@@ -609,7 +612,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else if (data.value === false) {
                 $window.location.reload();
             }
-        }, function() {
+        }, function () {
             console.log("Fail");
         });
     };

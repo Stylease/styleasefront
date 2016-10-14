@@ -56,7 +56,7 @@
         <div ng-if="field.option=='single'">
           <md-select style="margin: 0 !important;" ng-model="json.editData[field.model]">
             <md-optgroup>
-              <md-option  value="" >SELECT</md-option>
+              <md-option value="">SELECT</md-option>
               <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>
@@ -68,7 +68,8 @@
       <div ng-if="field.type=='select'">
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
-        <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model]" ng-options="item.value as item.name for item in field.url">
+        <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;"
+          ng-model="json.editData[field.model]" ng-options="item.value as item.name for item in field.url">
         </select>
         <br>
       </div>
@@ -76,7 +77,7 @@
 
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
       <md-button class="md-raised md-primary" ng-click="makeReadyForApi()" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
-      <md-button class="md-raised md-warn" ui-sref="{{json.action[1].stateName}}">Cancel</md-button>
+      <md-button class="md-raised md-warn" ng-click="back()">Cancel</md-button>
     </section>
 
   </form>
