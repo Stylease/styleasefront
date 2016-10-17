@@ -170,28 +170,81 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     });
                 }
             }
+            $scope.search = '';
+            $scope.searchClick = function (search) {
+
+                $scope.search = search;
+                console.log($scope.search);
+                search = $scope.search;
+                $scope.getMoreResults(undefined, $scope.search);
+            };
+            $scope.search = '';
             // call api for view data
             $scope.apiName = $scope.json.apiCall.url;
             $scope.pageInfo = {};
-            $scope.getMoreResults = function () {
-                NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
-                    console.log(findData.data);
-                    if (findData.value != false) {
-                        if (findData.data && findData.data.data && findData.data.data.length > 0) {
-                            $scope.pageInfo.lastpage = findData.data.totalpages;
-                            $scope.pageInfo.pagenumber = findData.data.pagenumber;
-                            $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
-                            $scope.json.tableData = findData.data.data;
-                            console.log("new log ", $scope.json.tableData);
+            $scope.getMoreResults = function (value, search) {
+                // NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
+                //     console.log(findData.data);
+                //     if (findData.value != false) {
+                //         if (findData.data && findData.data.data && findData.data.data.length > 0) {
+                //             $scope.pageInfo.lastpage = findData.data.totalpages;
+                //             $scope.pageInfo.pagenumber = findData.data.pagenumber;
+                //             $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
+                //             $scope.json.tableData = findData.data.data;
+                //             console.log("new log ", $scope.json.tableData);
+                //         } else {
+                //             $scope.json.tableData = [];
+                //         }
+                //     } else {
+                //         $scope.json.tableData = [];
+                //     }
+                // }, function () {
+                //     console.log("Fail");
+                // });
+
+                $scope.search = search;
+                $scope.value = value;
+                if (value) {
+                    console.log($scope.search);
+                    if ($scope.search === undefined) {
+                        $scope.search = $stateParams.search;
+                        console.log($scope.search);
+                    }
+                    $state.go("pageno", {
+                        no: $scope.pagination.pagenumber,
+                        jsonName: $stateParams.jsonName,
+                        search: $scope.search
+                    });
+                } else {
+                    if ($scope.search) {
+                        $scope.pagination.search = $scope.search;
+                    } else if ($scope.pagination.search) {
+                        $scope.pagination.search = $scope.pagination.search;
+                    } else {
+                        $scope.pagination.search = '';
+                    }
+                    console.log($scope.pagination);
+                    NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
+                        console.log(findData);
+                        if (findData.value !== false) {
+                            if (findData.data && findData.data.data && findData.data.data.length > 0) {
+                                $scope.pageInfo.lastpage = findData.data.totalpages;
+                                $scope.pageInfo.pagenumber = findData.data.pagenumber;
+                                $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
+                                $scope.json.tableData = findData.data.data;
+                            } else {
+                                $scope.json.tableData = [];
+                                $scope.pageInfo.totalitems = 0;
+                            }
                         } else {
                             $scope.json.tableData = [];
+                            $scope.pageInfo.totalitems = 0;
                         }
-                    } else {
-                        $scope.json.tableData = [];
-                    }
-                }, function () {
-                    console.log("Fail");
-                });
+                        console.log($scope.pagination);
+                    }, function () {
+                        console.log("Fail");
+                    });
+                }
             }
             $scope.getMoreResults();
 

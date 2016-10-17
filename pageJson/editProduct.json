@@ -73,6 +73,15 @@
         "url": "",
         "model": "sku"
     }, {
+        "name": "Order",
+        "type": "text",
+        "tableRef": "order",
+        "placeholder": "Enter order",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "order"
+    }, {
         "name": "Details",
         "type": "textarea",
         "tableRef": "details",

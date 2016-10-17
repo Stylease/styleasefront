@@ -3,19 +3,19 @@
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
       <div class="flex search-bar" flex="20">
-        <md-select style="margin: 0 !important; z-index:999;" ng-model="json.editData[field.model]">
-          <md-optgroup style="z-index:111 !important;" >
-            <md-option  value="" >All</md-option>
-            <md-option  value="Processing" >Processing</md-option>
-            <md-option  value="Order Confirmed" >Order Confirmed</md-option>
-            <md-option  value="Out for Delivery" >Out for Delivery</md-option>
-            <md-option  value="Delivered" >Delivered</md-option>
-            <md-option  value="Pick-up" >Pick-up</md-option>
-            <md-option  value="Received" >Received</md-option>
-            <md-option  value="Refund" >Refund</md-option>
-            <md-option  value="Completed" >Completed</md-option>
-            <md-option  value="Cancelled" >Cancelled</md-option>
-            </md-optgroup>
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="search" ng-change="searchClick(search);">
+          <md-optgroup style="z-index:111 !important;">
+            <md-option value="">All</md-option>
+            <md-option value="Processing">Processing</md-option>
+            <md-option value="Order Confirmed">Order Confirmed</md-option>
+            <md-option value="Out for Delivery">Out for Delivery</md-option>
+            <md-option value="Delivered">Delivered</md-option>
+            <md-option value="Pick-up">Pick-up</md-option>
+            <md-option value="Received">Received</md-option>
+            <md-option value="Refund">Refund</md-option>
+            <md-option value="Completed">Completed</md-option>
+            <md-option value="Cancelled">Cancelled</md-option>
+          </md-optgroup>
         </md-select>
       </div>
     </div>
@@ -52,7 +52,9 @@
           <md-list-item ng-repeat="cartpro in result.cartproduct" class="firstpro secondary-button-padding padlr16">
             <p ng-repeat="values in json.tableFields">
               <span ng-if="values.type==='product'">{{cartpro.product.name}}</span>
-              <span ng-if="values.type==='price'"><span ng-if="cartpro.duration==='4'">{{cartpro.product.fourdayrentalamount}}</span><span ng-if="cartpro.duration==='8'">{{cartpro.product.eightdayrentalamount}}</span></span>
+              <span ng-if="values.type==='price'"><span ng-if="cartpro.duration==='4'">{{cartpro.product.fourdayrentalamount}}</span>
+              <span ng-if="cartpro.duration==='8'">{{cartpro.product.eightdayrentalamount}}</span>
+              </span>
               <span ng-if="values.type!='date'">{{cartpro[values.model]}}</span>
               <span ng-if="values.type=='date'">{{cartpro[values.model] | date:'dd-MM-yyyy'}}</span>
             </p>
@@ -62,7 +64,8 @@
     </md-content>
 
 
-    <uib-pagination ng-if="json.tableData.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
+    <uib-pagination ng-if="json.tableData.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm"
+      boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
       ng-hide="pageInfo.lastpage==1"></uib-pagination>
 
 
