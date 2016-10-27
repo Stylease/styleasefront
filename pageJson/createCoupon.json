@@ -1,0 +1,71 @@
+{
+    "title": "Create Coupon",
+    "jsonPage": "viewCoupon",
+    "desciption": "",
+    "pageType": "create",
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Discount",
+        "type": "text",
+        "tableRef": "discount",
+        "placeholder": "Enter discount",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Minimum Amount",
+        "type": "text",
+        "tableRef": "minamt",
+        "placeholder": "Enter Minimum Amount",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Maximum Amount",
+        "type": "text",
+        "tableRef": "maxamt",
+        "placeholder": "Enter Maximum Amount",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": true,
+            "name": "Enable"
+        }, {
+            "value": false,
+            "name": "Disable"
+        }]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitcoupon"
+    }, {
+        "name": "cancel",
+        "stateName": "page({jsonName:'viewcoupon'})"
+    }],
+
+    "apiCall": {
+        "url": "coupon/save"
+    },
+
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}

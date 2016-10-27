@@ -1,0 +1,67 @@
+{
+    "title": "All Coupons",
+    "desciption": "",
+    "pageType": "view",
+    "sortable": "Coupon/sort",
+    "fields": [{
+            "name": "Name",
+            "isSort": "",
+            "tableRef": "name"
+        }, {
+            "name": "Discount",
+            "isSort": "",
+            "tableRef": "discount"
+        },{
+            "name": "Minimum Amount",
+            "isSort": "",
+            "tableRef": "minamt"
+        },{
+            "name": "Maximum Amount",
+            "isSort": "",
+            "tableRef": "maxamt"
+        },{
+            "name": "Status",
+            "isSort": "",
+            "tableRef": "status"
+        }
+
+    ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editCoupon",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "coupon/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete coupon",
+        "content": "Are you sure you want to delete coupon?",
+        "api": "coupon/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+
+    "apiCall": {
+        "url": "coupon/getLimited",
+        "params": ""
+    },
+    "createButtonState": "page({jsonName:'createCoupon'})"
+}
