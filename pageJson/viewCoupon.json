@@ -12,11 +12,11 @@
             "isSort": "",
             "tableRef": "discount"
         },{
-            "name": "Minimum Amount",
+            "name": "Min. Rental Val",
             "isSort": "",
             "tableRef": "minamt"
         },{
-            "name": "Maximum Amount",
+            "name": "Max. Discount Val",
             "isSort": "",
             "tableRef": "maxamt"
         },{

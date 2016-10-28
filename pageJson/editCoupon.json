@@ -32,19 +32,19 @@
         "url": "",
          "model": "discount"
     }, {
-        "name": "Minimum Amount",
+        "name": "Min. Rental Val",
         "type": "text",
         "tableRef": "minamt",
-        "placeholder": "Enter Minimum Amount",
+        "placeholder": "Enter Min. Rental Val",
         "id": "input5",
         "validation": ["required", "trim", "unique"],
         "url": "",
          "model": "minamt"
     }, {
-        "name": "Maximum Amount",
+        "name": "Max. Discount Val",
         "type": "text",
         "tableRef": "maxamt",
-        "placeholder": "Enter Maximum Amount",
+        "placeholder": "Enter Max. Discount Val",
         "id": "input5",
         "validation": ["required", "trim", "unique"],
         "url": "",
