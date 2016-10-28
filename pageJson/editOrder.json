@@ -221,6 +221,42 @@
         "url": "",
         "model": "shippingAddressCountry"
     }, {
+        "name": "Rental Amount",
+        "type": "readonly",
+        "tableRef": "rentalamount",
+        "placeholder": "Enter rentalamount",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "rentalamount"
+    },{
+        "name": "Coupon",
+        "type": "readonly",
+        "tableRef": "coupon",
+        "placeholder": "Enter coupon",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "coupon"
+    },{
+        "name": "Discount(%)",
+        "type": "readonly",
+        "tableRef": "discount",
+        "placeholder": "Enter discount",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "discount"
+    },{
+        "name": "Discount Amount",
+        "type": "readonly",
+        "tableRef": "discountamount",
+        "placeholder": "Enter discountamount",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "discountamount"
+    },{
         "name": "Sub Total",
         "type": "readonly",
         "tableRef": "subtotal",

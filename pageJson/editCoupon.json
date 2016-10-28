@@ -23,7 +23,7 @@
         "url": "",
         "model": "name"
     },{
-        "name": "Discount",
+        "name": "Discount(%)",
         "type": "text",
         "tableRef": "discount",
         "placeholder": "Enter discount",

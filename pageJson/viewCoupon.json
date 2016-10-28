@@ -8,7 +8,7 @@
             "isSort": "",
             "tableRef": "name"
         }, {
-            "name": "Discount",
+            "name": "Discount(%)",
             "isSort": "",
             "tableRef": "discount"
         },{

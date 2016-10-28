@@ -12,7 +12,7 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     },{
-        "name": "Discount",
+        "name": "Discount(%)",
         "type": "text",
         "tableRef": "discount",
         "placeholder": "Enter discount",
