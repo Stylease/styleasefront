@@ -1,0 +1,58 @@
+{
+    "title": "All ExternalEnquiry",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [{
+            "name": "Email",
+            "isSort": "",
+            "tableRef": "email"
+        }, {
+            "name": "City",
+            "isSort": "",
+            "tableRef": "city"
+        }, {
+            "name": "Timestamp",
+            "isSort": "",
+            "type":"date",
+            "tableRef": "timestamp"
+        }
+
+    ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editLocation",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "country/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete country",
+        "content": "Are you sure you want to delete country?",
+        "api": "country/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+
+    "apiCall": {
+        "url": "country/getLimited",
+        "params": ""
+    }
+}
