@@ -170,9 +170,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     });
                 }
             }
+            $scope.filterSearch = false;
             $scope.search = '';
             $scope.searchClick = function (search) {
-
+                console.log("search", search);
+                $scope.filterSearch = true;
                 $scope.search = search;
                 console.log($scope.search);
                 search = $scope.search;
@@ -216,7 +218,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         search: $scope.search
                     });
                 } else {
-                    if ($scope.search) {
+                    if ($scope.filterSearch == true) {
+                        $scope.pagination.status = $scope.search.status;
+                        $scope.pagination.coupon = $scope.search.coupon;
+                    } else if ($scope.search) {
                         $scope.pagination.search = $scope.search;
                     } else if ($scope.pagination.search) {
                         $scope.pagination.search = $scope.pagination.search;

@@ -2,8 +2,21 @@
   <md-list ng-cloak>
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
-      <div class="flex search-bar" flex="20">
-        <md-select style="margin: 0 !important; z-index:999;" ng-model="search" ng-change="searchClick(search);">
+         <div class="flex search-bar"  flex="20">
+        <span>Coupon Code</span>
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.coupon" ng-change="searchClick(searchdata);">
+          <md-optgroup style="z-index:111 !important;">
+            <md-option value="">All</md-option>
+              <md-option value="st10">st10</md-option>
+                <md-option value="2">2</md-option>
+           
+          </md-optgroup>
+        </md-select>
+      </div>
+      
+         <div class="flex search-bar" style="margin-right:15px !important;" flex="20">
+        <span>Order Status</span>
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.status" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
             <md-option value="">All</md-option>
             <md-option value="Processing">Processing</md-option>
