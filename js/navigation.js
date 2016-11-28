@@ -140,5 +140,15 @@ var navigationservice = angular.module('navigationservice', [])
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
 
+
+
+       getCoupon: function(cdata, callback, errCallback) {
+             var data = cdata;
+            return $http({
+                url: adminurl + "coupon/getLimited",
+                method: "POST",
+                data: data
+            }).success(callback).error(errCallback);
+        },
     };
 });

@@ -132,6 +132,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "pagesize": 10
             };
 
+            //get coupon code
+                  NavigationService.getCoupon($scope.pagination, function (data) {
+                        if (data.value) {
+                           $scope.allCoupon = data.data.data;
+                           console.log("aaa", $scope.allCoupon);
+                        }
+                    }, function () {
+                        console.log("fail");
+                    });
+
             // SIDE MENU DATA
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
             console.log(urlid1);
@@ -185,25 +195,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.apiName = $scope.json.apiCall.url;
             $scope.pageInfo = {};
             $scope.getMoreResults = function (value, search) {
-                // NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
-                //     console.log(findData.data);
-                //     if (findData.value != false) {
-                //         if (findData.data && findData.data.data && findData.data.data.length > 0) {
-                //             $scope.pageInfo.lastpage = findData.data.totalpages;
-                //             $scope.pageInfo.pagenumber = findData.data.pagenumber;
-                //             $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
-                //             $scope.json.tableData = findData.data.data;
-                //             console.log("new log ", $scope.json.tableData);
-                //         } else {
-                //             $scope.json.tableData = [];
-                //         }
-                //     } else {
-                //         $scope.json.tableData = [];
-                //     }
-                // }, function () {
-                //     console.log("Fail");
-                // });
-
                 $scope.search = search;
                 $scope.value = value;
                 if (value) {

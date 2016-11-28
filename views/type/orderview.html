@@ -6,9 +6,9 @@
         <span>Coupon Code</span>
         <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.coupon" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
-            <md-option value="">All</md-option>
-              <md-option value="st10">st10</md-option>
-                <md-option value="2">2</md-option>
+            <md-option ng-selected="true" value="">All</md-option>
+              <md-option ng-repeat="coupon in  allCoupon" value="{{coupon.name}}">{{coupon.name}}</md-option>
+       
            
           </md-optgroup>
         </md-select>
@@ -18,7 +18,7 @@
         <span>Order Status</span>
         <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.status" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
-            <md-option value="">All</md-option>
+            <md-option ng-selected="true" value="">All</md-option>
             <md-option value="Processing">Processing</md-option>
             <md-option value="Order Confirmed">Order Confirmed</md-option>
             <md-option value="Out for Delivery">Out for Delivery</md-option>
