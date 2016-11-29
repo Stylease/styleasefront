@@ -33,7 +33,7 @@
 
 
     <md-list-item class="ls-head secondary-button-padding padlr16">
-      <p ng-repeat="field in json.fields">{{field.name}}</p>
+      <p class="word-b" ng-repeat="field in json.fields">{{field.name}}</p>
       <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
         <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
       </md-button>
