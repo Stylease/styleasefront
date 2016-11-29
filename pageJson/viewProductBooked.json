@@ -1,41 +1,39 @@
 {
-    "title": "All Gallery",
+    "title": "All Orders",
     "desciption": "",
     "pageType": "view",
     "sendIdWithCreate": true,
     "fields": [{
-        "name": "Image",
-        "isSort": "",
-        "type": "image",
-        "tableRef": "image"
-    }, {
-        "name": "Order",
-        "isSort": "",
-        "tableRef": "order"
-    }],
+            "name": "Product Name",
+            "isSort": "",
+            "tableRef": "product.name",
+            "type": ""
+        }, {
+            "name": "Time From",
+            "isSort": "",
+            "tableRef": "timeFrom",
+            "type": "date"
+        }, {
+            "name": "Time To",
+            "isSort": "",
+            "tableRef": "timeTo",
+            "type": "date"
+        }],
     "action": [{
-        "name": "edit",
-        "icon": "mode_edit",
-        "color": "blue",
-        "action": "redirect",
-        "jsonPage": "editGallery",
-        "fieldsToSend": ["_id"],
-        "callFindOne": "product/getOneGallery"
-    }, {
         "name": "delete",
         "icon": "delete",
         "color": "red",
         "action": "apiCallConfirm",
-        "title": "Delete Gallery",
-        "content": "Are you sure you want to delete Gallery?",
-        "api": "product/deleteGallery",
+        "title": "Delete Order",
+        "content": "Are you sure you want to delete Order?",
+        "api": "producttime/delete",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
         }]
     }],
     "apiCall": {
-        "url": "product/getAllGallery",
+        "url": "producttime/getOneProduct",
         "params": ""
     },
     "sidemenu": [{
@@ -57,5 +55,6 @@
         "fieldsToSend": [1],
         "callFindOne": "producttime/getOneProduct"
     }],
-    "createButtonState": "page({jsonName:'createGallery'})"
+    "createButtonState": ""
+   
 }

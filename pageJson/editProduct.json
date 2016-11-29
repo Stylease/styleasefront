@@ -216,6 +216,12 @@
         "jsonPage": "viewGallery",
         "fieldsToSend": [1],
         "callFindOne": "product/findGallery"
+    }, {
+        "name": "Order Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewProductBooked",
+        "fieldsToSend": [1],
+        "callFindOne": "producttime/getOneProduct"
     }]
 
 }
