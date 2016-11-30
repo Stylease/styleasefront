@@ -35,17 +35,7 @@
             "value": "_id"
         }]
     }],
-    "button": [{
-        "name": "excelexport",
-        "icon": "print",
-        "color": "blue",
-        "action": "excelexport"
-    }, {
-        "name": "uploadcsv",
-        "icon": "delete",
-        "color": "red",
-        "action": "uploadcsv"
-    }],
+    "button": [],
 
     "apiCall": {
         "url": "size/getLimited",

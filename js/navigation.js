@@ -1,7 +1,7 @@
 // var adminurl = "http://admin.thestylease.com";
 // var adminurl = "http://192.168.0.110:81/";
 var adminurl = "http://130.211.245.224:81/";
-// var adminurl = "http://localhost:81/";
+var adminurl = "http://localhost:81/";
 
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
@@ -127,6 +127,11 @@ var navigationservice = angular.module('navigationservice', [])
         getDropDown: function (apiName, successCallback, errorCallback) {
             $http.post(adminurl + apiName).success(successCallback).error(errorCallback);
         },
+
+         Excel: function (apiName, successCallback) {
+            $http.post(adminurl + apiName).success(successCallback);
+        },
+
         submitLogin: function (data, successCallback, errorCallback) {
             $http.post(adminurl + "register/login", data).success(successCallback).error(errorCallback);
         },

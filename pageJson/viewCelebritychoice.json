@@ -1,64 +1,45 @@
 {
-    "title": "All Celebrity Choice",
-    "desciption": "",
-    "pageType": "view",
-    "sortable": "celebritychoice/sort",
-    "fields": [
-      {
-        "name":"Celebrity Name",
-        "isSort":"",
-        "tableRef":"celebrity"
-      },
-      {
-        "name":"Product Name",
-        "isSort":"",
-        "tableRef":"product.name"
-      }
-    ],
-    "action": [
-      {
-        "name":"edit",
-        "icon":"mode_edit",
-        "color":"blue",
-        "action":"redirect",
-        "jsonPage":"editCelebritychoice",
-        "fieldsToSend":["_id"],
-        "callFindOne":"celebritychoice/getOne"
-      },
-      {
-        "name":"delete",
-        "icon":"delete",
-        "color":"red",
-        "action":"apiCallConfirm",
-        "title":"Delete CelebrityChoice",
-        "content":"Are you sure you want to delete celebritychoice?",
-        "api":"celebritychoice/delete",
-        "fieldsToSend":[
-          {
-            "name":"_id",
-            "value":"_id"
-          }
-        ]
-      }
-    ],
-    "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
+  "title": "All Celebrity Choice",
+  "desciption": "",
+  "pageType": "view",
+  "sortable": "celebritychoice/sort",
+  "fields": [{
+    "name": "Celebrity Name",
+    "isSort": "",
+    "tableRef": "celebrity"
+  }, {
+    "name": "Product Name",
+    "isSort": "",
+    "tableRef": "product.name"
+  }],
+  "action": [{
+    "name": "edit",
+    "icon": "mode_edit",
+    "color": "blue",
+    "action": "redirect",
+    "jsonPage": "editCelebritychoice",
+    "fieldsToSend": ["_id"],
+    "callFindOne": "celebritychoice/getOne"
+  }, {
+    "name": "delete",
+    "icon": "delete",
+    "color": "red",
+    "action": "apiCallConfirm",
+    "title": "Delete CelebrityChoice",
+    "content": "Are you sure you want to delete celebritychoice?",
+    "api": "celebritychoice/delete",
+    "fieldsToSend": [{
+      "name": "_id",
+      "value": "_id"
+    }]
+  }],
+  "button": [
 
-    "apiCall": {
-        "url": "celebritychoice/getLimited",
-        "params": ""
-    },
-    "createButtonState":"page({jsonName:'createCelebritychoice'})"
+  ],
+
+  "apiCall": {
+    "url": "celebritychoice/getLimited",
+    "params": ""
+  },
+  "createButtonState": "page({jsonName:'createCelebritychoice'})"
 }

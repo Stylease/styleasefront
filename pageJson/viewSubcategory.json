@@ -54,18 +54,7 @@
       }
     ],
     "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
+      
     ],
 
     "apiCall": {

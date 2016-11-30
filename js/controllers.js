@@ -1,4 +1,4 @@
-var adminURL = "http://wohlig.io:81/";
+var adminURL = "http://localhost:81/";
 // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
 
@@ -133,14 +133,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
 
             //get coupon code
-                  NavigationService.getCoupon($scope.pagination, function (data) {
-                        if (data.value) {
-                           $scope.allCoupon = data.data.data;
-                           console.log("aaa", $scope.allCoupon);
-                        }
-                    }, function () {
-                        console.log("fail");
-                    });
+            NavigationService.getCoupon($scope.pagination, function (data) {
+                if (data.value) {
+                    $scope.allCoupon = data.data.data;
+                    console.log("aaa", $scope.allCoupon);
+                }
+            }, function () {
+                console.log("fail");
+            });
 
             // SIDE MENU DATA
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
@@ -420,6 +420,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $state.go("onlyview", {
                 id: pageURL
             });
+        }
+
+        //excel export
+        if (action.action == 'excel') {
+            var apiname = action.api;
+            console.log("apiii", apiname);
+
+            window.open(adminURL + apiname, '_blank');
+            window.close();
         }
         // FOR EDIT
         if (action.action == 'redirect') {
