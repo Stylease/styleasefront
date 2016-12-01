@@ -29,6 +29,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
+
+
 .controller('UsersCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("users");
@@ -41,7 +43,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
+
+.controller('SelectFilterController', function($scope, $element) {
+     
+      $scope.searchTerm;
+      $scope.clearSearchTerm = function() {
+        $scope.searchTerm = '';
+      };
+      // The md-select directive eats keydown events for some quick select
+      // logic. Since we have a search input here, we don't need that logic.
+      $element.find('input').on('keydown', function(ev) {
+          ev.stopPropagation();
+      });
+    })
+
+
+.controller('jsonViewCtrl', function ($scope, $element, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
     //Used to name the .html file
     $scope.back = function () {
         window.history.back();
@@ -82,7 +99,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-
+ $scope.searchTerm;
+      $scope.clearSearchTerm = function() {
+        $scope.searchTerm = '';
+      };
+      // The md-select directive eats keydown events for some quick select
+      // logic. Since we have a search input here, we don't need that logic.
+      $element.find('input').on('keydown', function(ev) {
+          ev.stopPropagation();
+      });
 
     $scope.confirm = function (title, content, api, data) {
         var confirm = $mdDialog.confirm()
@@ -263,6 +288,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     n.model = "";
                 }
             });
+           
             // get select fields dropdown
             _.each($scope.json.fields, function (n) {
                 if (n.type == "selectFromTable") {
@@ -306,6 +332,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, function () {
                 console.log("Fail");
             });
+
+
+          
+
             // get select fields dropdown
             _.each($scope.json.fields, function (n) {
                 if (n.type == "selectFromTable") {

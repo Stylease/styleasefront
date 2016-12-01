@@ -26,12 +26,27 @@
       <div ng-if="field.type=='selectFromTable'">
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
-        <div ng-if="field.option=='multiple'">
-          <md-select ng-model="field.model" multiple>
+        <div ng-if="field.option=='multiple'" ng-controller="SelectFilterController">
+          <!--<md-select ng-model="field.model" multiple>
             <md-optgroup>
               <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
             </md-optgroup>
-          </md-select>
+          </md-select>-->
+                 <md-select ng-model="field.model"
+                   md-on-close="clearSearchTerm()"
+                   data-md-container-class="selectdemoSelectHeader"
+                   multiple>
+          <md-select-header class="demo-select-header">
+            <input class="searchTerm" ng-model="searchTerm"
+                   type="search"
+                   placeholder="Search for a {{field.name}}.."
+                 >
+          </md-select-header>
+          <md-optgroup label="{{field.name}}">
+            <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
+              filter:searchTerm" ng-selected="{{item.name.Selected == true }}">{{item.name}}</md-option>
+          </md-optgroup>
+        </md-select>
         </div>
         <div ng-if="field.option=='single'">
           <md-select ng-model="field.model">
