@@ -1,5 +1,5 @@
-// var adminURL = "http://localhost:81/";
-var adminURL = "http://130.211.245.224:81/";
+var adminURL = "http://localhost:81/";
+// var adminURL = "http://130.211.245.224:81/";
 // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
 
@@ -50,9 +50,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.clearSearchTerm = function() {
         $scope.searchTerm = '';
       };
+      console.log("aaa", $scope.searchTerm);
       // The md-select directive eats keydown events for some quick select
       // logic. Since we have a search input here, we don't need that logic.
       $element.find('input').on('keydown', function(ev) {
+           console.log("ev", ev, $scope.searchTerm);
           ev.stopPropagation();
       });
     })
@@ -347,9 +349,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 var dropdown = {};
                                 dropdown._id = data.data[i]._id;
                                 if (!n.dropDownName) {
-                                    dropdown.name = data.data[i].name;
+                                    dropdown.name = _.cloneDeep(data.data[i].name);
+                                    // dropdown.name = data.data[i].name;
                                 } else {
-                                    dropdown.name = data.data[i][n.dropDownName];
+                                    // dropdown.name =data.data[i][n.dropDownName];
+                                    dropdown.name = _.cloneDeep(data.data[i][n.dropDownName]);
                                 }
                                 n.dropdownvalues.push(dropdown);
                             }

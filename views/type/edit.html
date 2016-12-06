@@ -46,8 +46,8 @@
       <div ng-if="field.type=='selectFromTable'">
         <label for="{{field.id}}">{{field.name}}</label>
         <br>
-        <div ng-if="field.option=='multiple'" ng-change="editFilter()">
-        <!--<div ng-if="field.option=='multiple'"  ng-controller="SelectFilterController">-->
+        <!--<div ng-if="field.option=='multiple'" ng-change="editFilter()">-->
+         <div ng-if="field.option=='multiple'"  ng-controller="SelectFilterController">
           <!--<md-select style="margin: 0 !important;" ng-model="json.editData[field.model]" multiple>
             <md-optgroup>
               <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
@@ -66,7 +66,7 @@
           </md-select-header>
           <md-optgroup label="{{field.name}}">
             <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
-              filter:searchTerm" ng-selected="{{item.name.Selected == true }}">{{item.name}}</md-option>
+              filter:searchTerm" >{{item.name}}</md-option>
           </md-optgroup>
         </md-select>
 
