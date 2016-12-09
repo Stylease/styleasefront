@@ -5,6 +5,7 @@ var adminurl = "http://localhost:81/";
 
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
+var uploadallurl = imgurl + "allImage/";
 var imgpath = imgurl + "readFile";
 var navigationservice = angular.module('navigationservice', [])
 
@@ -93,6 +94,11 @@ var navigationservice = angular.module('navigationservice', [])
         name: "External Enquiry",
         classis: "active",
         link: "#/page/viewLocation",
+        subnav: []
+    },{
+        name: "Upload Image",
+        classis: "active",
+        link: "#/page/createImage",
         subnav: []
     }];
 
