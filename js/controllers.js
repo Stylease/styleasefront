@@ -101,6 +101,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
+ $scope.excelUploaded = function () {
+        console.log("Excel is uploaded with name ");
+        NavigationService.uploadExcel(function (data) {
+            $scope.data = data.data;
+            console.log("csvday",$scope.data);
+        });
+    };
+
+
  $scope.searchTerm;
       $scope.clearSearchTerm = function() {
         $scope.searchTerm = '';
@@ -465,6 +474,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             window.open(adminURL + apiname, '_blank');
             window.close();
         }
+
+
+        //excel export
+        if (action.action == 'importexcel') {
+            var apiname = action.api;
+            console.log("apiii", apiname);
+
+            window.open(adminURL + apiname, '_blank');
+            window.close();
+        }
+        
         // FOR EDIT
         if (action.action == 'redirect') {
             console.log("redirect");

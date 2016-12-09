@@ -26,8 +26,9 @@
         </md-not-found>
       </md-autocomplete>-->
       <span >
-     <md-button aria-label="Expand" ng-click="performAction(action,result)" class="md-icon-button" ng-repeat="action in json.button">
-       <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
+     <md-button aria-label="Expand" ng-click="performAction(action,result)"  ng-repeat="action in json.button">
+       <!--<ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>-->
+       <md-button class="md-raised">{{action.text}}</md-button>
      </md-button>
  </span>
       </div>

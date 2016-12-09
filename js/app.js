@@ -137,6 +137,7 @@ firstapp.directive('imageonload', function() {
 });
 
 firstapp.directive('uploadImage', function($http, $filter) {
+    console.log("innnnnnnnn",$filter);
     return {
         templateUrl: 'views/directive/uploadFile.html',
         scope: {

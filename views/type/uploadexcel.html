@@ -1,0 +1,29 @@
+<section class="md-whiteframe-z1 users">
+    <md-list ng-cloak>
+        <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+        <md-divider></md-divider>
+    </md-list>
+    <form name="plan" class="padlr16">
+        <md-input-container class="md-block" ng-repeat="field in json.fields">
+            <div ng-if="field.type=='hidden'">
+                <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+            </div>
+            <div ng-if="field.type=='image'">
+                <label for="">{{field.name}}</label>
+               <img ng-src="{{field.image|uploadpath}}"> 
+                <span style="float: right;">{{field.size}}</span>
+               
+                <div ng-if="field.option=='single'">
+                  <upload-image no-view type="excel" ng-model="form.file" ng-callback="excelUploaded();"></upload-image>
+                  
+                </div>
+            </div>
+
+            
+                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button class="md-raised md-primary" ng-click="makeReadyForApi()" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
+      <md-button class="md-raised md-warn" ng-click="back()">Cancel</md-button>
+    </section>
+        </md-input-container>
+    </form>
+</section>

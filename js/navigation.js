@@ -1,7 +1,7 @@
 // var adminurl = "http://admin.thestylease.com";
 // var adminurl = "http://192.168.0.110:81/";
 var adminurl = "http://130.211.245.224:81/";
-var adminurl = "http://localhost:81/";
+// var adminurl = "http://localhost:81/";
 
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
@@ -95,11 +95,12 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewLocation",
         subnav: []
-    },{
-        name: "Upload Image",
-        classis: "active",
-        link: "#/page/createImage",
-        subnav: []
+    // }
+    // ,{
+    //     name: "Upload Image",
+    //     classis: "active",
+    //     link: "#/page/createImage",
+    //     subnav: []
     }];
 
     return {
@@ -151,7 +152,10 @@ var navigationservice = angular.module('navigationservice', [])
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
 
+ uploadExcel: function (callback) {
+            $http.post(adminurl +  'product/import').success(callback);
 
+        },
 
        getCoupon: function(cdata, callback, errCallback) {
              var data = cdata;
