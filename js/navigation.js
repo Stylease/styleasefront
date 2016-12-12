@@ -5,6 +5,7 @@ var adminurl = "http://130.211.245.224:81/";
 
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
+var uploadallurl = imgurl + "allImage/";
 var imgpath = imgurl + "readFile";
 var navigationservice = angular.module('navigationservice', [])
 
@@ -94,6 +95,12 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewLocation",
         subnav: []
+    // }
+    // ,{
+    //     name: "Upload Image",
+    //     classis: "active",
+    //     link: "#/page/createImage",
+    //     subnav: []
     }];
 
     return {
@@ -145,7 +152,10 @@ var navigationservice = angular.module('navigationservice', [])
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
 
+ uploadExcel: function (callback) {
+            $http.post(adminurl +  'product/import').success(callback);
 
+        },
 
        getCoupon: function(cdata, callback, errCallback) {
              var data = cdata;

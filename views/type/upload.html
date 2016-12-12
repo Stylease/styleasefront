@@ -1,0 +1,30 @@
+<section class="md-whiteframe-z1 users">
+    <md-list ng-cloak>
+        <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+        <md-divider></md-divider>
+    </md-list>
+    <form name="plan" class="padlr16">
+        <md-input-container class="md-block" ng-repeat="field in json.fields">
+            <div ng-if="field.type=='hidden'">
+                <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+            </div>
+            <div ng-if="field.type=='image'">
+                <label for="">{{field.name}}</label>
+                <!-- <img ng-src="{{field.image|uploadpath}}"> -->
+                <span style="float: right;">{{field.size}}</span>
+                <div ng-if="field.option=='multiple'">
+                    <upload-all-image ng-model="field.model" no-view multiple inobj></upload-all-image>
+                    <div style="display:inline-block;padding: 10px 18px 0 0;" ng-repeat="img in field.model" ng-if="field.model">
+                        <img style="width:100px;" ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
+                    </div>
+                </div>
+                <div ng-if="field.option=='single'">
+                    <upload-image ng-model="field.model" no-view></upload-image>
+                    <div class="img-holder-big">
+                        <img style="width:100px;" ng-src="{{field.model | uploadpath:250:250:'fill'}}" ng-if="field.model" />
+                    </div>
+                </div>
+            </div>
+        </md-input-container>
+    </form>
+</section>

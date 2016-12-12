@@ -36,6 +36,15 @@
         "url": "",
         "model": "mobileimage",
         "size": "705px X 1087px"
+    },  {
+        "name": "Title(SEO)",
+        "type": "text",
+        "tableRef": "title",
+        "model": "title",
+        "placeholder": "Enter Title",
+        "id": "input5",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
     }, {
         "name": "Url",
         "type": "text",
