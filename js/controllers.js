@@ -1,5 +1,5 @@
-// var adminURL = "http://localhost:81/";
-var adminURL = "http://130.211.245.224:81/";
+var adminURL = "http://localhost:81/";
+// var adminURL = "http://130.211.245.224:81/";
 // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
 
@@ -101,9 +101,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
- $scope.excelUploaded = function () {
-        console.log("Excel is uploaded with name ");
-        NavigationService.uploadExcel(function (data) {
+ $scope.excelUploaded = function (file) {
+        console.log("Excel is uploaded with name ", file);
+        NavigationService.uploadExcel(file,function (data) {
             $scope.data = data.data;
             console.log("csvday",$scope.data);
         });

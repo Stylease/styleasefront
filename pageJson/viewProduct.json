@@ -45,11 +45,24 @@
             "value": "_id"
         }]
     }],
-    "button": [],
+    "button": [{
+       "name": "excelexport",
+       "icon": "print",
+       "color": "blue",
+       "action": "excel",
+       "text":"export",
+       "api": "product/generateExcel"
+   },{
+       "name": "excelexport",
+       "icon": "print",
+       "color": "blue",
+       "action": "redirect",
+        "text":"import",
+      "jsonPage": "importExcel"
+   }],
 
     "apiCall": {
         "url": "product/getLimited",
         "params": ""
-    },
-    "createButtonState": "page({jsonName:'createProduct'})"
+    }
 }

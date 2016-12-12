@@ -8,9 +8,9 @@
             <div ng-if="field.type=='hidden'">
                 <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
             </div>
-            <div ng-if="field.type=='image'">
-                <label for="">{{field.name}}</label>
-                <!-- <img ng-src="{{field.image|uploadpath}}"> -->
+
+               <div ng-if="field.type=='image'">
+              
                 <span style="float: right;">{{field.size}}</span>
                 <div ng-if="field.option=='multiple'">
                     <upload-all-image ng-model="field.model" no-view multiple inobj></upload-all-image>
