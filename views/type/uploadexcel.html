@@ -26,10 +26,13 @@
         </md-input-container>
     </form>
 </section>-->
-
 <section class="md-whiteframe-z1 users">
+   
     <md-list ng-cloak>
         <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+         <div class="flex search-bar" flex="20">
+          <a class="btn btn-success" ng-href="product.xlsx" download><i class="fa fa-table"></i> Download Excel Format </a>
+    </div>
         <md-divider></md-divider>
     </md-list>
     <form name="plan" class="padlr16">
@@ -46,14 +49,38 @@
                   <upload-image no-view type="excel" ng-model="form.file" ></upload-image>  
                 </div>
             </div>-->
-              <upload-image no-view type="excel" ng-model="file"></upload-image>
-           
-
-            
-                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised md-primary" ng-click="excelUploaded(file)" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
-      <md-button class="md-raised md-warn" ng-click="back()">Cancel</md-button>
-    </section>
+            <upload-image no-view type="excel" ng-model="file"></upload-image>
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button class="md-raised md-primary" ng-click="excelUploaded(file)" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
+                <md-button class="md-raised md-warn" ng-click="back()">Cancel</md-button>
+            </section>
+            <div ng-if="data">
+                <h5>Upload Status:</h5>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="100">Row #</th>
+                            <th>Status</th>
+                            <th width="200">Total Entries: {{data.value.length}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in data.value">
+                            <td>
+                                <span class="success" ng-if="!d.name"><i class="fa fa-check-circle"></i> Row {{$index+1}}</span>
+                                <span class="danger" ng-if="d.name"><i class="fa fa-times-circle"></i> Row {{$index+1}}</span>
+                            </td>
+                            <td colspan="2">
+                                <span ng-if="!d.name">Entry successful!</span>
+                                <span ng-if="d.name">
+                                <span>Entry failed!</span>
+                                <pre class="danger-pre"><code>{{d | json:4}}</code></pre>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </md-input-container>
     </form>
 </section>
