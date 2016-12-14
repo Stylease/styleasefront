@@ -65,4 +65,6 @@
         "url": "product/getLimited",
         "params": ""
     }
+    ,
+    "createButtonState": "page({jsonName:'createGallery'})"
 }
