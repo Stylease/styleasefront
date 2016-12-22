@@ -179,6 +179,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("fail");
             });
 
+                 //get subcategory 
+            NavigationService.getSubCategory( function (data) {
+                if (data.value) {
+                    $scope.subCategory = data.data;
+                    console.log($scope.subCategory);
+                }
+            }, function () {
+                console.log("fail");
+            });
+
+              //get designer 
+            NavigationService.getDesigner( function (data) {
+                if (data.value) {
+                    $scope.designer = data.data;
+                    console.log($scope.designer);
+                }
+            }, function () {
+                console.log("fail");
+            });
+
+
             // SIDE MENU DATA
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
             console.log(urlid1);
@@ -249,6 +270,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if ($scope.filterSearch == true) {
                         $scope.pagination.status = $scope.search.status;
                         $scope.pagination.coupon = $scope.search.coupon;
+                           $scope.pagination.subcategory = $scope.search.subcategory;
+                             $scope.pagination.designer = $scope.search.designer;
+                               $scope.pagination.search = $scope.search.search;
+                                 $scope.pagination.price = $scope.search.price;
                     } else if ($scope.search) {
                         $scope.pagination.search = $scope.search;
                     } else if ($scope.pagination.search) {
@@ -520,6 +545,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.defaultActive = action.active;
         }
     };
+
 
     $scope.makeReadyForApi = function () {
         console.log("Make Ready");

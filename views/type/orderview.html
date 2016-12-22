@@ -2,19 +2,42 @@
   <md-list ng-cloak>
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
-         <div class="flex search-bar"  flex="20">
+      <!--// coupon code-->
+      <div class="flex search-bar" flex="20">
         <span>Coupon Code</span>
         <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.coupon" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
-              <md-option ng-repeat="coupon in  allCoupon" value="{{coupon.name}}">{{coupon.name}}</md-option>
-       
-           
+            <md-option ng-repeat="coupon in  allCoupon" value="{{coupon.name}}">{{coupon.name}}</md-option>
           </md-optgroup>
         </md-select>
       </div>
-      
-         <div class="flex search-bar" style="margin-right:15px !important;" flex="20">
+      <!--//  subcategory-->
+      <div class="flex search-bar" flex="20">
+        <span>Occasion Type</span>
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.subcategory" ng-change="searchClick(searchdata);">
+          <md-optgroup style="z-index:111 !important;">
+            <md-option ng-selected="true" value="">All</md-option>
+            <md-option ng-repeat="subcategory in  subCategory" value="{{subcategory._id}}">{{subcategory.name}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </div>
+      <!--// search text-->
+      <div>
+        <input ng-model="searchdata.search" type="text" placeholder="Enter name here">
+      <md-button class="md-raised md-primary" ng-click="searchClick(searchdata)">Go</md-button>
+      </div>
+      <!--//  designer-->
+      <div class="flex search-bar" flex="20">
+        <span>Designer</span>
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.designer" ng-change="searchClick(searchdata);">
+          <md-optgroup style="z-index:111 !important;">
+            <md-option ng-selected="true" value="">All</md-option>
+            <md-option ng-repeat="design in  designer" value="{{design._id}}">{{design.name}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </div>
+      <div class="flex search-bar" style="margin-right:15px !important;" flex="20">
         <span>Order Status</span>
         <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.status" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
@@ -28,6 +51,27 @@
             <md-option value="Refund">Refund</md-option>
             <md-option value="Completed">Completed</md-option>
             <md-option value="Cancelled">Cancelled</md-option>
+          </md-optgroup>
+        </md-select>
+      </div>
+      <!--// price filter-->
+      <div class="flex search-bar" style="margin-right:15px !important;" flex="20">
+        <span>Price</span>
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.price" ng-change="searchClick(searchdata);">
+          <md-optgroup style="z-index:111 !important;">
+            <md-option ng-selected="true" value="">All</md-option>
+            <md-option value="0-10000">0-10000</md-option>
+            <md-option value="11000-20000">11000-20000</md-option>
+            <md-option value="21000-30000">21000-30000</md-option>
+            <md-option value="31000-30000">31000-30000</md-option>
+            <md-option value="31000-40000">31000-40000</md-option>
+            <md-option value="41000-50000">41000-50000</md-option>
+            <md-option value="51000-60000">51000-60000</md-option>
+            <md-option value="61000-70000">61000-70000</md-option>
+            <md-option value="71000-80000">71000-80000</md-option>
+            <md-option value="81000-90000">81000-90000</md-option>
+            <md-option value="91000-100000">91000-100000</md-option>
+            <md-option value="100000 & Above">100000 & Above</md-option>
           </md-optgroup>
         </md-select>
       </div>
@@ -58,10 +102,8 @@
         </md-list-item>
         <md-list ng-cloak ng-repeat="field in json.fields " ng-if="field.display=='table'">
           <md-list-item style="border-bottom: 1px solid #CBCACA;" class="ls-head firstpro secondary-button-padding padlr16">
-
             <p ng-repeat="heading in json.tableFields">{{heading.name}}</p>
           </md-list-item>
-
           <md-list-item ng-repeat="cartpro in result.cartproduct" class="firstpro secondary-button-padding padlr16">
             <p ng-repeat="values in json.tableFields">
               <span ng-if="values.type==='product'">{{cartpro.product.name}}</span>
@@ -75,13 +117,9 @@
         </md-list>
       </md-card>
     </md-content>
-
-
     <uib-pagination ng-if="json.tableData.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm"
       boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
       ng-hide="pageInfo.lastpage==1"></uib-pagination>
-
-
   </md-list>
   <a ui-sref="{{json.createButtonState}}" ng-if="json.createButtonState">
     <!-- <a ui-sref="{{json.create.createButtonState}}" ng-if="json.create"> -->
