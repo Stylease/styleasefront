@@ -35,5 +35,6 @@
     "apiCall": {
         "url": "producttime/getLimited",
         "params": ""
-    }
+    },
+    "createButtonState": "page({jsonName:'createProducttime'})"
 }

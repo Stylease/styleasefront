@@ -95,12 +95,6 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewLocation",
         subnav: []
-            }
-            ,{
-                name: "Upload Image",
-                classis: "active",
-                link: "#/page/createImage",
-                subnav: []
     }];
 
     return {
@@ -120,10 +114,10 @@ var navigationservice = angular.module('navigationservice', [])
         saveApi: function (data, apiName, successCallback, errorCallback) {
             $http.post(adminurl + apiName, data).success(successCallback).error(errorCallback);
         },
-        getSubCategory: function ( successCallback, errorCallback) {
+        getSubCategory: function (successCallback, errorCallback) {
             $http.post(adminurl + "subcategory/getAll").success(successCallback).error(errorCallback);
         },
-        getDesigner: function ( successCallback, errorCallback) {
+        getDesigner: function (successCallback, errorCallback) {
             $http.post(adminurl + "designer/getAll").success(successCallback).error(errorCallback);
         },
         deleteProject: function (data, successCallback, errorCallback) {
@@ -158,8 +152,10 @@ var navigationservice = angular.module('navigationservice', [])
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
 
-        uploadExcel: function (filename,callback) {
-            var data = {"file": filename};
+        uploadExcel: function (filename, callback) {
+            var data = {
+                "file": filename
+            };
             return $http({
                 url: adminurl + "product/import",
                 method: "POST",
