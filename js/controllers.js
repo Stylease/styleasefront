@@ -1,5 +1,5 @@
-var adminURL = "http://localhost:81/";
-// var adminURL = "http://130.211.245.224:81/";
+// var adminURL = "http://localhost:81/";
+var adminURL = "http://130.211.245.224:81/";
 // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
 
@@ -265,7 +265,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.getMoreResults = function (value, search) {
                 $scope.search = search;
                 $scope.value = value;
-                console.log("aaaaaaa", value, search);
                 if (value) {
                     console.log($scope.search);
                     if ($scope.search === undefined) {
