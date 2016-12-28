@@ -265,10 +265,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.getMoreResults = function (value, search) {
                 $scope.search = search;
                 $scope.value = value;
+                console.log("aaaaaaa", value, search);
                 if (value) {
                     console.log($scope.search);
                     if ($scope.search === undefined) {
-                        $scope.search = $stateParams.search;
+                        $scope.search = " ";
+                        // $scope.search = $stateParams.search;
                         console.log($scope.search);
                     }
                     $state.go("pageno", {
@@ -277,12 +279,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         search: $scope.search
                     });
                 } else {
+                   
                     if ($scope.filterSearch == true) {
                         $scope.pagination.status = $scope.search.status;
                         $scope.pagination.coupon = $scope.search.coupon;
                            $scope.pagination.subcategory = $scope.search.subcategory;
                              $scope.pagination.designer = $scope.search.designer;
+                             if($scope.search.search){
+
                                $scope.pagination.search = $scope.search.search;
+                             }else{
+                                 $scope.pagination.search=""; 
+                             }
                                  $scope.pagination.price = $scope.search.price;
                     } else if ($scope.search) {
                         $scope.pagination.search = $scope.search;

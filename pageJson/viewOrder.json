@@ -74,7 +74,7 @@
     "button": [],
 
     "apiCall": {
-        "url": "order/getLimited",
+        "url": "order/getLimitedWithFilter",
         "params": ""
     },
     "createButtonState": ""
