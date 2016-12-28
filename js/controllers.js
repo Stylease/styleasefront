@@ -1,5 +1,5 @@
-// var adminURL = "http://localhost:81/";
-var adminURL = "http://130.211.245.224:81/";
+var adminURL = "http://localhost:81/";
+// var adminURL = "http://130.211.245.224:81/";
 // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
 
@@ -107,6 +107,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.data = data.data;
             console.log("csvday",$scope.data);
         });
+    };
+
+    $scope.exportOrder = function(){
+         window.open(adminURL + 'order/generateExcel', '_blank');
+            window.close();
+        // var senddata={};
+        //  NavigationService.exportOrder(senddata,function (data) {
+        //     $scope.data = data.data;
+        //     console.log("csvday",$scope.data);
+        // }); 
     };
 
 

@@ -23,10 +23,7 @@
         </md-select>
       </div>
       <!--// search text-->
-      <div>
-        <input ng-model="searchdata.search" type="text" placeholder="Enter name here">
-      <md-button class="md-raised md-primary" ng-click="searchClick(searchdata)">Go</md-button>
-      </div>
+    
       <!--//  designer-->
       <div class="flex search-bar" flex="20">
         <span>Designer</span>
@@ -76,6 +73,26 @@
         </md-select>
       </div>
     </div>
+     <md-divider></md-divider>
+     <md-content class="md-padding">
+      
+<form ng-submit="$event.preventDefault()" name="searchForm">
+       <div layout-gt-sm="row">
+        <md-input-container flex="50">
+          <label>Name</label>
+          <input  ng-model="searchdata.search"  placeholder="Enter name here" type="text"/>
+            </md-input-container>
+         <md-input-container>
+          <md-button class="md-raised md-primary" ng-click="searchClick(searchdata)">Go</md-button>
+    
+      </md-input-container>
+         <div class="flex search-bar" flex="50">
+    <md-button ng-click="exportOrder()" class="pull-right md-raised">Export</md-button>
+    </div>
+      </div>
+    </form>
+   
+  </md-content>
     <md-divider></md-divider>
     <md-content flex="" ng-show="json.tableData.length>=0 " layout-padding="">
       <md-card style="box-shadow:0 2px 3px 0 rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.14),0 5px 1px -1px rgba(0,0,0,.12);" ng-repeat="result in json.tableData">

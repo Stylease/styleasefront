@@ -163,6 +163,18 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
 
+         exportOrder: function (filename, callback) {
+            var data = {
+                
+            };
+            return $http({
+                url: adminurl + "order/generateExcel",
+                method: "POST",
+                data: data
+            }).success(callback);
+        },
+
+
         getCoupon: function (cdata, callback, errCallback) {
             var data = cdata;
             return $http({
