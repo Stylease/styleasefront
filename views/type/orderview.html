@@ -2,7 +2,10 @@
   <md-list ng-cloak>
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
-      <!--// coupon code-->
+     
+    </div>
+    <md-content>
+       <!--// coupon code-->
       <div class="flex search-bar" flex="20">
         <span>Coupon Code</span>
         <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.coupon" ng-change="searchClick(searchdata);">
@@ -52,7 +55,7 @@
         </md-select>
       </div>
       <!--// price filter-->
-      <div class="flex search-bar" style="margin-right:15px !important;" flex="20">
+      <div class="flex search-bar" style="margin-right:15px !important;" flex="15">
         <span>Price</span>
         <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.price" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
@@ -72,7 +75,7 @@
           </md-optgroup>
         </md-select>
       </div>
-    </div>
+      </md-content>
      <md-divider></md-divider>
      <md-content class="md-padding">
       
