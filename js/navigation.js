@@ -1,7 +1,7 @@
 // var adminurl = "http://admin.thestylease.com";
 // var adminurl = "http://192.168.0.110:81/";
 var adminurl = "http://130.211.245.224:81/";
-// var adminurl = "http://localhost:81/";
+var adminurl = "http://localhost:81/";
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var uploadallurl = imgurl + "allImage/";
@@ -187,6 +187,9 @@ var navigationservice = angular.module('navigationservice', [])
             var data = {designer:designer};
             return $http({
                 url: adminurl + "order/generateExcelByDesigner",
+                headers: {
+   'Content-Type':  "application/octet-stream"
+ },
                 method: "POST",
                 data: data
             }).success(callback);

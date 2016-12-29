@@ -1,5 +1,5 @@
-// var adminURL = "http://localhost:81/";
-var adminURL = "http://130.211.245.224:81/";
+var adminURL = "http://localhost:81/";
+// var adminURL = "http://130.211.245.224:81/";
 // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
 
@@ -109,14 +109,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
-    $scope.exportOrder = function () {
+    // $scope.exportOrder = function () {
         
+    //         window.open(adminURL + 'order/generateExcel', '_blank');
+    //         window.close();
+    //       // var senddata={};
+
+    // };
+
+ $scope.exportOrder = function (data) {
+        if (data) {
+            console.log("data", data);
+            // NavigationService.exportOrderByDesigner(data, function (data) {
+            //     // window.close();
+            //     console.log("doneeee");
+            // });
+
+             window.open(adminURL + 'order/generateExcelByDesigner?designer='+data, '_blank');
+            window.close();
+        } else {
+            console.log("else");
             window.open(adminURL + 'order/generateExcel', '_blank');
             window.close();
-          // var senddata={};
+        }
+
 
     };
-
 
     $scope.searchTerm;
     $scope.clearSearchTerm = function () {
