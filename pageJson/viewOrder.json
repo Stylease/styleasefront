@@ -56,7 +56,7 @@
         "color": "blue",
         "action": "redirect",
         "jsonPage": "editOrder",
-        "fieldsToSend": ["_id"],
+        "fieldsToSend": ["oid"],
         "callFindOne": "order/getOne"
     }, {
         "name": "delete",
@@ -68,7 +68,7 @@
         "api": "order/delete",
         "fieldsToSend": [{
             "name": "_id",
-            "value": "_id"
+            "value": "oid"
         }]
     }],
     "button": [],

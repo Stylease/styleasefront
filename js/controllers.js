@@ -44,20 +44,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('SelectFilterController', function($scope, $element) {
-     
-      $scope.searchTerm;
-      $scope.clearSearchTerm = function() {
+.controller('SelectFilterController', function ($scope, $element) {
+
+    $scope.searchTerm;
+    $scope.clearSearchTerm = function () {
         $scope.searchTerm = '';
-      };
-      console.log("aaa", $scope.searchTerm);
-      // The md-select directive eats keydown events for some quick select
-      // logic. Since we have a search input here, we don't need that logic.
-      $element.find('input').on('keydown', function(ev) {
-           console.log("ev", ev, $scope.searchTerm);
-          ev.stopPropagation();
-      });
-    })
+    };
+    console.log("aaa", $scope.searchTerm);
+    // The md-select directive eats keydown events for some quick select
+    // logic. Since we have a search input here, we don't need that logic.
+    $element.find('input').on('keydown', function (ev) {
+        console.log("ev", ev, $scope.searchTerm);
+        ev.stopPropagation();
+    });
+})
 
 
 .controller('jsonViewCtrl', function ($scope, $element, TemplateService, NavigationService, $timeout, $stateParams, $http, $state, $filter, $mdDialog, $location) {
@@ -101,34 +101,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
- $scope.excelUploaded = function (file) {
+    $scope.excelUploaded = function (file) {
         console.log("Excel is uploaded with name ", file);
-        NavigationService.uploadExcel(file,function (data) {
+        NavigationService.uploadExcel(file, function (data) {
             $scope.data = data.data;
-            console.log("csvday",$scope.data);
+            // console.log("csvday",$scope.data);
         });
     };
 
-    $scope.exportOrder = function(){
-         window.open(adminURL + 'order/generateExcel', '_blank');
+    $scope.exportOrder = function () {
+        
+            window.open(adminURL + 'order/generateExcel', '_blank');
             window.close();
-        // var senddata={};
-        //  NavigationService.exportOrder(senddata,function (data) {
-        //     $scope.data = data.data;
-        //     console.log("csvday",$scope.data);
-        // }); 
+          // var senddata={};
+
     };
 
 
- $scope.searchTerm;
-      $scope.clearSearchTerm = function() {
+    $scope.searchTerm;
+    $scope.clearSearchTerm = function () {
         $scope.searchTerm = '';
-      };
-      // The md-select directive eats keydown events for some quick select
-      // logic. Since we have a search input here, we don't need that logic.
-      $element.find('input').on('keydown', function(ev) {
-          ev.stopPropagation();
-      });
+    };
+    // The md-select directive eats keydown events for some quick select
+    // logic. Since we have a search input here, we don't need that logic.
+    $element.find('input').on('keydown', function (ev) {
+        ev.stopPropagation();
+    });
 
     $scope.confirm = function (title, content, api, data) {
         var confirm = $mdDialog.confirm()
@@ -189,8 +187,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("fail");
             });
 
-                 //get subcategory 
-            NavigationService.getSubCategory( function (data) {
+            //get subcategory 
+            NavigationService.getSubCategory(function (data) {
                 if (data.value) {
                     $scope.subCategory = data.data;
                     console.log($scope.subCategory);
@@ -199,8 +197,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("fail");
             });
 
-              //get designer 
-            NavigationService.getDesigner( function (data) {
+            //get designer 
+            NavigationService.getDesigner(function (data) {
                 if (data.value) {
                     $scope.designer = data.data;
                     console.log($scope.designer);
@@ -278,19 +276,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         search: $scope.search
                     });
                 } else {
-                   
+
                     if ($scope.filterSearch == true) {
                         $scope.pagination.status = $scope.search.status;
                         $scope.pagination.coupon = $scope.search.coupon;
-                           $scope.pagination.subcategory = $scope.search.subcategory;
-                             $scope.pagination.designer = $scope.search.designer;
-                             if($scope.search.search){
+                        $scope.pagination.subcategory = $scope.search.subcategory;
+                        $scope.pagination.designer = $scope.search.designer;
+                        if ($scope.search.search) {
 
-                               $scope.pagination.search = $scope.search.search;
-                             }else{
-                                 $scope.pagination.search=""; 
-                             }
-                                 $scope.pagination.price = $scope.search.price;
+                            $scope.pagination.search = $scope.search.search;
+                        } else {
+                            $scope.pagination.search = "";
+                        }
+                        $scope.pagination.price = $scope.search.price;
                     } else if ($scope.search) {
                         $scope.pagination.search = $scope.search;
                     } else if ($scope.pagination.search) {
@@ -341,7 +339,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     n.model = "";
                 }
             });
-           
+
             // get select fields dropdown
             _.each($scope.json.fields, function (n) {
                 if (n.type == "selectFromTable") {
@@ -387,7 +385,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
 
 
-          
+
 
             // get select fields dropdown
             _.each($scope.json.fields, function (n) {
@@ -526,7 +524,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             window.open(adminURL + apiname, '_blank');
             window.close();
         }
-        
+
         // FOR EDIT
         if (action.action == 'redirect') {
             console.log("redirect");

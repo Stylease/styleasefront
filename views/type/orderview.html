@@ -82,12 +82,12 @@
           <label>Name</label>
           <input  ng-model="searchdata.search"  placeholder="Enter name here" type="text"/>
             </md-input-container>
-         <md-input-container>{{searchdata.search}}
+         <md-input-container>
           <md-button class="md-raised md-primary" ng-click="searchClick(searchdata)">Go</md-button>
     
       </md-input-container>
          <div class="flex search-bar" flex="50">
-    <md-button ng-click="exportOrder()" class="pull-right md-raised">Export</md-button>
+    <md-button ng-click="exportOrder(searchdata.designer)" class="pull-right md-raised">Export</md-button>
     </div>
       </div>
     </form>
