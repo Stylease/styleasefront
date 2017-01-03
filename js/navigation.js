@@ -75,7 +75,7 @@ var navigationservice = angular.module('navigationservice', [])
         link: "#/page/viewProductsort",
         subnav: []
     }, {
-        name: "Product Time",
+        name: "Disable Product",
         classis: "active",
         link: "#/page/viewProducttime",
         subnav: []

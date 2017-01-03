@@ -23,6 +23,12 @@
         <label>{{field.name}}</label>
         <textarea style="height:100px;" ng-model="field.model" name="{{field.name}}" id="{{field.id}}"></textarea>
       </div>
+
+      <div ng-if="field.type=='textarea1'">
+        <label>{{field.name}}</label>
+        <textarea style="height:100px;" required ng-model="field.model" name="{{field.name}}" id="{{field.id}}"></textarea>
+      </div>
+
       <div ng-if="field.type=='readonly'">
         <label>{{field.name}}</label>
         <input ng-model="field.model" type="text" readonly="true" name="{{field.name}}" id="{{field.id}}">
@@ -126,7 +132,7 @@
     </div> -->
 
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised md-primary" ng-click="makeReadyForApi()" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
+      <md-button class="md-raised md-primary" ng-click="makeReadyForApi()"ng-disabled="plan.$invalid" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
       <md-button class="md-raised md-warn" ng-click="back()">Cancel</md-button>
     </section>
 

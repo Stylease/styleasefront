@@ -41,6 +41,15 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "timeTo"
+    },
+     {
+        "name": "Note",
+        "type": "textarea",
+        "tableRef": "note",
+        "placeholder": "Enter note",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
     }],
     "action": [{
         "name": "submit",
