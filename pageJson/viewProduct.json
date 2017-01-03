@@ -66,5 +66,5 @@
         "params": ""
     }
     ,
-    "createButtonState": "page({jsonName:'createGallery'})"
+    "createButtonState": "page({jsonName:'createProduct'})"
 }
