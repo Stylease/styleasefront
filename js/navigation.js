@@ -116,11 +116,15 @@ var navigationservice = angular.module('navigationservice', [])
         getSubCategory: function (successCallback, errorCallback) {
             $http.post(adminurl + "subcategory/getAll").success(successCallback).error(errorCallback);
         },
+        
         getDesigner: function (successCallback, errorCallback) {
             $http.post(adminurl + "designer/getAll").success(successCallback).error(errorCallback);
         },
         deleteProject: function (data, successCallback, errorCallback) {
             $http.post(adminURL + "project/delete", data).success(successCallback).error(errorCallback);
+        },
+        findRentalDate: function (apiName, pagination, successCallback, errorCallback) {
+            $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
         findProjects: function (apiName, pagination, successCallback, errorCallback) {
             $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);

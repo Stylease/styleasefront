@@ -266,11 +266,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             $scope.filterSearch = false;
             $scope.search = '';
+
+
             $scope.searchClick = function (search) {
                 console.log("search", search);
                 $scope.filterSearch = true;
                 $scope.search = search;
-                console.log($scope.search);
+                console.log("scope",$scope.search);
                 search = $scope.search;
                 $scope.getMoreResults(undefined, $scope.search);
             };
@@ -301,6 +303,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.pagination.subcategory = $scope.search.subcategory;
                         $scope.pagination.designer = $scope.search.designer;
                         $scope.pagination.rentalDate = $scope.search.rentalDate;
+                        console.log("scope",$scope.pagination);
                         if ($scope.search.search) {
 
                             $scope.pagination.search = $scope.search.search;
@@ -317,6 +320,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                     console.log($scope.pagination);
                     NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
+                        console.log(findData);
+                        if (findData.value !== false) {
+                            if (findData.data && findData.data.data && findData.data.data.length > 0) {
+                                $scope.pageInfo.lastpage = findData.data.totalpages;
+                                $scope.pageInfo.pagenumber = findData.data.pagenumber;
+                                $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
+                                $scope.json.tableData = findData.data.data;
+                            } else {
+                                $scope.json.tableData = [];
+                                $scope.pageInfo.totalitems = 0;
+                            }
+                        } else {
+                            $scope.json.tableData = [];
+                            $scope.pageInfo.totalitems = 0;
+                        }
+                        console.log($scope.pagination);
+                    }, function () {
+                        console.log("Fail");
+                    });
+                    // $scope.dateNew="2017-02-10T18:30:00.000Z";
+                    NavigationService.findRentalDate($scope.apiName, $scope.pagination, function (findData) {
                         console.log(findData);
                         if (findData.value !== false) {
                             if (findData.data && findData.data.data && findData.data.data.length > 0) {
@@ -501,7 +525,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }, function () {
                     console.log("Fail");
                 });
-
             };
             $scope.getMoreResults();
         }

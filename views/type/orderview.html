@@ -2,44 +2,51 @@
   <md-list ng-cloak>
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
-     
+
     </div>
     <md-content>
-       <!--// coupon code-->
-      <div class="flex search-bar" flex="20">
-        <span>Coupon Code</span>
-        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.coupon" ng-change="searchClick(searchdata);">
+      <!--//fixed selectbox-->
+
+      <div class="flex select-wid" flex="20">
+        <span><b>Filter</b></span>
+        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchMe.myFilter">
+          <md-optgroup style="z-index:111 !important;">
+            
+            <md-option value="couponCode">Coupon Code</md-option>
+            <md-option value="occasionType">Occasion Type</md-option>
+            <md-option value="designer">Designer</md-option>
+            <md-option value="orderStatus">Order Status</md-option>
+            <md-option value="price">Price</md-option>
+            <md-option value="rentalDate">Rental Date</md-option>
+          </md-optgroup>
+        </md-select>
+      </div>
+      <!--// coupon code-->
+      <div class="flex select-wid" flex="20">
+        <span ng-show="searchMe.myFilter=='couponCode'">Coupon Code</span>
+        <md-select  ng-show="searchMe.myFilter=='couponCode'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.coupon" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
             <md-option ng-repeat="coupon in  allCoupon" value="{{coupon.name}}">{{coupon.name}}</md-option>
           </md-optgroup>
         </md-select>
-      </div>
-      <!--//  subcategory-->
-      <div class="flex search-bar" flex="20">
-        <span>Occasion Type</span>
-        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.subcategory" ng-change="searchClick(searchdata);">
+        <span  ng-show="searchMe.myFilter=='occasionType'">Occasion Type</span>
+        <md-select ng-show="searchMe.myFilter=='occasionType'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.subcategory" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
             <md-option ng-repeat="subcategory in  subCategory" value="{{subcategory._id}}">{{subcategory.name}}</md-option>
           </md-optgroup>
         </md-select>
-      </div>
-      <!--// search text-->
-    
-      <!--//  designer-->
-      <div class="flex search-bar" flex="20">
-        <span>Designer</span>
-        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.designer" ng-change="searchClick(searchdata);">
+
+        <span  ng-show="searchMe.myFilter=='designer'">Designer</span>
+        <md-select  ng-show="searchMe.myFilter=='designer'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.designer" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
             <md-option ng-repeat="design in  designer" value="{{design._id}}">{{design.name}}</md-option>
           </md-optgroup>
         </md-select>
-      </div>
-      <div class="flex search-bar" style="margin-right:15px !important;" flex="20">
-        <span>Order Status</span>
-        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.status" ng-change="searchClick(searchdata);">
+        <span  ng-show="searchMe.myFilter=='orderStatus'">Order Status</span>
+        <md-select  ng-show="searchMe.myFilter=='orderStatus'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.status" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
             <md-option value="Processing">Processing</md-option>
@@ -53,11 +60,8 @@
             <md-option value="Cancelled">Cancelled</md-option>
           </md-optgroup>
         </md-select>
-      </div>
-      <!--// price filter-->
-      <div class="flex search-bar" style="margin-right:15px !important;" flex="15">
-        <span>Price</span>
-        <md-select style="margin: 0 !important; z-index:999;" ng-model="searchdata.price" ng-change="searchClick(searchdata);">
+        <span  ng-show="searchMe.myFilter=='price'">Price</span>
+        <md-select  ng-show="searchMe.myFilter=='price'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.price" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
             <md-option value="0-10000">0-10000</md-option>
@@ -74,28 +78,65 @@
             <md-option value="100000 & Above">100000 & Above</md-option>
           </md-optgroup>
         </md-select>
+
+         <span  ng-show="searchMe.myFilter=='rentalDate'">Rental Date</span>
+         <input ng-show="searchMe.myFilter=='rentalDate'" type="date" ng-model="searchdata.rentalDate" ng-change="searchClick(searchdata);">
+        <!--<md-select  ng-if="searchdata.myFilter=='rentalDate'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.price" ng-change="searchClick(searchdata);">
+          <md-optgroup style="z-index:111 !important;">
+            <md-option ng-selected="true" value="">All</md-option>
+            <md-option value="0-10000">0-10000</md-option>
+            <md-option value="11000-20000">11000-20000</md-option>
+            <md-option value="21000-30000">21000-30000</md-option>
+            <md-option value="31000-30000">31000-30000</md-option>
+            <md-option value="31000-40000">31000-40000</md-option>
+            <md-option value="41000-50000">41000-50000</md-option>
+            <md-option value="51000-60000">51000-60000</md-option>
+            <md-option value="61000-70000">61000-70000</md-option>
+            <md-option value="71000-80000">71000-80000</md-option>
+            <md-option value="81000-90000">81000-90000</md-option>
+            <md-option value="91000-100000">91000-100000</md-option>
+            <md-option value="100000 & Above">100000 & Above</md-option>
+          </md-optgroup>
+        </md-select>-->
       </div>
-      </md-content>
-     <md-divider></md-divider>
-     <md-content class="md-padding">
-      
-<form ng-submit="$event.preventDefault()" name="searchForm">
-       <div layout-gt-sm="row">
-        <md-input-container flex="50">
-          <label>Name</label>
-          <input  ng-model="searchdata.search"  placeholder="Enter name here" type="text"/>
-            </md-input-container>
-         <md-input-container>
-          <md-button class="md-raised md-primary" ng-click="searchClick(searchdata)">Go</md-button>
-    
-      </md-input-container>
-         <div class="flex search-bar" flex="50">
-    <md-button ng-click="exportOrder(searchdata.designer)" class="pull-right md-raised">Export</md-button>
-    </div>
-      </div>
-    </form>
-   
-  </md-content>
+      <!--//  subcategory-->
+      <!--<div class="flex search-bar" flex="20">-->
+
+      <!--</div>-->
+      <!--// search text-->
+
+      <!--//  designer-->
+      <!--<div class="flex search-bar" flex="20">-->
+
+      <!--</div>-->
+      <!--<div class="flex search-bar" style="margin-right:15px !important;" flex="20">-->
+
+      <!--</div>-->
+      <!--// price filter-->
+      <!--<div class="flex search-bar" style="margin-right:15px !important;" flex="15">-->
+
+      <!--</div>-->
+    </md-content>
+    <md-divider></md-divider>
+    <md-content class="md-padding">
+
+      <form ng-submit="$event.preventDefault()" name="searchForm">
+        <div layout-gt-sm="row">
+          <md-input-container flex="50">
+            <label>Name</label>
+            <input ng-model="searchdata.search" placeholder="Enter name here" type="text" />
+          </md-input-container>
+          <md-input-container>
+            <md-button class="md-raised md-primary" ng-click="searchClick(searchdata)">Go</md-button>
+
+          </md-input-container>
+          <div class="flex search-bar" flex="50">
+            <md-button ng-click="exportOrder(searchdata.designer)" class="pull-right md-raised">Export</md-button>
+          </div>
+        </div>
+      </form>
+
+    </md-content>
     <md-divider></md-divider>
     <md-content flex="" ng-show="json.tableData.length>=0 " layout-padding="">
       <md-card style="box-shadow:0 2px 3px 0 rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.14),0 5px 1px -1px rgba(0,0,0,.12);" ng-repeat="result in json.tableData">
