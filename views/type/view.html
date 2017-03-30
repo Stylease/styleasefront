@@ -3,8 +3,8 @@
     <div class="clearfix">
       <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
       <div class="flex search-bar" flex="33">
-        <md-autocomplete style="display:inline-block;" md-search-text="pagination.search" md-items="result in json.tableData track by $index" md-min-length="0"
-          md-search-text-change="getMoreResults();" placeholder="Search by Name" class="layout-lg">
+        <md-autocomplete style="display:inline-block;" md-search-text="pagination.search" md-items="result in json.tableData track by $index"
+          md-min-length="0" md-search-text-change="getMoreResults();" placeholder="{{searchPlaceholder}}" class="layout-lg">
         </md-autocomplete>
         <!--<md-autocomplete
           ng-disabled="ctrl.isDisabled"
@@ -25,7 +25,7 @@
           <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
         </md-not-found>
       </md-autocomplete>-->
-      <span >
+        <span>
      <md-button aria-label="Expand" ng-click="performAction(action,result)"  ng-repeat="action in json.button">
        <!--<ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>-->
        <md-button class="md-raised">{{action.text}}</md-button>
@@ -33,7 +33,7 @@
  </span>
       </div>
 
-      
+
     </div>
     <md-divider></md-divider>
     <md-list-item class="ls-head secondary-button-padding padlr16">

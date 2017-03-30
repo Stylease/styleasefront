@@ -32,6 +32,10 @@ ng-md-icon {
   z-index: 60;
 }
 
+.active {
+  background-color: #c5c5c5;
+}
+
 
 /* Start writing sass here */
 
@@ -99,28 +103,26 @@ select {
 
 .selectdemoSelectHeader {
   .demo-header-searchbox {
-      border: none;
-      outline: none;
-      height: 100%;
-      width: 100%;
-      padding: 0; 
-    }
-  .demo-select-header {
-      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
-      padding-left: 10.667px;
-      height: 48px;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      align-items: center;
-      width: auto;
-     }
-    md-content._md {
-      max-height: 240px; 
-    }
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
   }
-
-
+  .demo-select-header {
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+    padding-left: 10.667px;
+    height: 48px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
+  md-content._md {
+    max-height: 240px;
+  }
+}
 
 .padlr16 {
   padding: 0 16px;
@@ -214,7 +216,7 @@ select {
   }
 }
 
-.select-wid{
+.select-wid {
   width: 50%;
   display: inline-block;
   margin: 10px;
@@ -234,6 +236,11 @@ select {
     }
   }
 }
+
 md-sidenav.md-sidenav-left {
-    width: 260px;
+  width: 260px;
+}
+
+.md-select-value>span:not(.md-select-icon) {
+  white-space: normal;
 }
