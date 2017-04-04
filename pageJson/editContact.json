@@ -50,29 +50,13 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Length",
+        "name": "Message",
         "type": "text",
-        "tableRef": "length",
-        "model": "length",
-        "placeholder": "Enter length",
+        "tableRef": "message",
+        "model": "message",
+        "placeholder": "Enter message",
         "id": "input5",
-        "validation": ["required", "trim", "unique"],
         "url": ""
-    }, {
-        "name": "Status",
-        "type": "select",
-        "tableRef": "status",
-        "placeholder": "Enter status",
-        "id": "input3",
-        "model": "status",
-        "validation": ["required", "trim", "unique"],
-        "url": [{
-            "value": true,
-            "name": "Enable"
-        }, {
-            "value": false,
-            "name": "Disable"
-        }]
     }],
     "action": [{
         "name": "submit",

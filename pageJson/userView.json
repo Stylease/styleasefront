@@ -34,8 +34,15 @@
             "value": "_id"
         }]
     }],
-    "button": [],
-  
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excel",
+        "text": "export",
+        "api": "User/generateExcel"
+    }],
+
     "apiCall": {
         "url": "user/getLimited",
         "params": ""

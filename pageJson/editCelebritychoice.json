@@ -36,7 +36,22 @@
             "validation": [],
             "url": "",
             "model": "images"
-        }
+        }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "model": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": true,
+            "name": "Enable"
+        }, {
+            "value": false,
+            "name": "Disable"
+        }]
+    }
 
     ],
     "action": [{
