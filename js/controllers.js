@@ -1,5 +1,5 @@
- var adminURL = "http://localhost:1337/";
- //var adminURL = "http://130.211.245.224:81/";
+ //var adminURL = "http://localhost:1337/";
+ var adminURL = "http://130.211.245.224:81/";
  // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
  var mockURL = adminURL + "callApi/";
 
