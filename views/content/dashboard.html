@@ -1,12 +1,7 @@
 <!-- <div id="progressBar">
 	<div class="loader"></div>
 </div> -->
-<div class="breadcrumbs">
-    <ul>
-        <li><a title="Home">Home</a></li>
-        <li><a ui-sref="dashboard" title="Dashboard">Dashboard</a></li>
-    </ul>
-</div>
+
 <div class="heading-sec">
     <div class="row">
         <div class="col-md-4 column">
@@ -18,212 +13,97 @@
 </div>
 <!-- Top Bar Chart -->
 <div class="panel-content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="mini-stats-sec">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="widget">
-                            <div class="widget-controls">
-                                <span class="refresh-content"><i class="fa fa-refresh"></i></span>
-                            </div>
-                            <!-- Widget Controls -->
-                            <div class="mini-stats ">
-                                <span class="red-skin"><i class="fa fa-area-chart"></i></span>
-                                <p><i class="fa  fa-arrow-up up"></i> Today Views</p>
-                                <h3>22,520</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="widget">
-                            <div class="widget-controls">
-                                <span class="refresh-content"><i class="fa fa-refresh"></i></span>
-                            </div>
-                            <!-- Widget Controls -->
-                            <div class="mini-stats ">
-                                <span class="sky-skin"><i class="fa fa-usd"></i></span>
-                                <p><i class="fa  fa-arrow-down down"></i> Revenue</p>
-                                <h3>1,425</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="widget">
-                            <div class="widget-controls">
-                                <span class="refresh-content"><i class="fa fa-refresh"></i></span>
-                            </div>
-                            <!-- Widget Controls -->
-                            <div class="mini-stats ">
-                                <span class="purple-skin"><i class="fa fa-bullhorn"></i></span>
-                                <p><i class="fa  fa-arrow-down down"></i> Item Sales</p>
-                                <h3>6,101</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="widget">
-                            <div class="widget-controls">
-                                <span class="refresh-content"><i class="fa fa-refresh"></i></span>
-                            </div>
-                            <!-- Widget Controls -->
-                            <div class="mini-stats ">
-                                <span class="pink-skin"><i class="fa fa-shopping-cart"></i></span>
-                                <p><i class="fa  fa-arrow-up up"></i> New Orders</p>
-                                <h3>5,218</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mini stats Sec -->
-        </div>
-    </div>
+   
     <div class="row">
         <div class="col-md-6">
             <div class="widget dashboard-table">
                 <table>
-                    <caption>Order date coming</caption>
+                    <h3>Order date coming</h3>
                     <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
+                        <th>Oder Id</th>
+                        <th>Product</th>
+                        <th>Date</th>
                     </tr>
-                    <tr ng-repeat="a in json.tableData">
+                    <tr ng-repeat="a in jsonUpcomingOrders">
                         <td>{{a.orderid}}</td>
+                        <td>
+                            <ul ng-repeat="prod in a.cartproduct">
+                                <li>{{prod.product.name}}
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul ng-repeat="prod in a.cartproduct">
+                                <li> {{prod.timeFrom | date}}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+           <div class="widget dashboard-table">
+                <table>
+                    <h3>Last few orders</h3>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr ng-repeat="a in jsonUpcomingOrders">
                         <td>{{a.orderid}}</td>
+                        <td>{{a.date| date}}</td>
+                        <td>{{a.total}}</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+      
+        <div class="col-md-6">
+             <div class="widget dashboard-table">
+                <table>
+                    <h3>Pickup data coming</h3>
+                    <tr>
+                        <th>Oder Id</th>
+                        <th>Product</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr ng-repeat="a in jsonPickupOrders">
                         <td>{{a.orderid}}</td>
+                        <td>
+                            <ul ng-repeat="prod in a.cartproduct">
+                                <li> {{prod.product.name}}
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul ng-repeat="prod in a.cartproduct">
+                                <li> {{prod.timeTo | date}}
+                                </li>
+                            </ul>
+                        </td>
                     </tr>
-                    
+
                 </table>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="widget dashboard-table">
+            
+             <div class="widget dashboard-table">
                 <table>
-                    <caption>Pickup data coming</caption>
+                    <h3>Need to be issued</h3>
                     <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
+                        <th>Order Id</th>
+                        <th>Date</th>
                     </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
+                    <tr ng-repeat="a in jsonRefundOrders">
+                        <td>{{a.orderid}}</td>
+                        <td>{{a.total}}</td>
                     </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
+
                 </table>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="widget dashboard-table">
-                <table>
-                     <caption>Last few orders</caption>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="widget dashboard-table">
-                <table>
-                     <caption>Need to be issued</caption>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+    
     </div>
 </div>
 <!-- Panel Content -->

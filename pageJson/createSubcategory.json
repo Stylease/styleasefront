@@ -6,8 +6,8 @@
     "fields": [{
         "name": "Category",
         "type": "selectFromTable",
-        "option": "single",
         "tableRef": "category",
+        "option": "singlesearch",
         "placeholder": "Enter category",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
@@ -27,10 +27,10 @@
         "placeholder": "Enter Image Type",
         "id": "input3",
         "validation": ["required", "trim", "unique"],
-        "url":  [{
+        "url": [{
             "value": "Hide",
             "name": "Hide"
-        },{
+        }, {
             "value": "Big",
             "name": "Big"
         }, {

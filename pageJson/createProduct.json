@@ -4,170 +4,172 @@
     "desciption": "",
     "pageType": "create",
     "fields": [{
-        "name": "Category",
-        "type": "selectFromTable",
-        "tableRef": "category",
-        "option": "multiple",
-        "placeholder": "Enter category",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "category/getAll"
-    }, {
-        "name": "Subategory",
-        "type": "selectFromTable",
-        "option": "multiple",
-        "tableRef": "subcategory",
-        "placeholder": "Enter subcategory",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "subcategory/getAll"
-    }, {
-        "name": "Color",
-        "type": "selectFromTable",
-        "tableRef": "color",
-        "option": "multiple",
-        "placeholder": "Enter Color",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "color/getAll"
-    }, {
-        "name": "Size",
-        "type": "selectFromTable",
-        "tableRef": "size",
-        "option": "multiple",
-        "placeholder": "Enter Size",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "size/getAll"
-    }, {
-        "name": "Designer Name",
-        "type": "selectFromTable",
-        "tableRef": "designer",
-        "option": "single",
-        "placeholder": "Enter designer",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "designer/getAll"
-    }, {
-        "name": "Product Name",
-        "type": "text",
-        "tableRef": "name",
-        "placeholder": "Enter name",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "SKU",
-        "type": "text",
-        "tableRef": "sku",
-        "placeholder": "Enter sku",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Order",
-        "type": "text",
-        "tableRef": "order",
-        "placeholder": "Enter order",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Details",
-        "type": "textarea",
-        "tableRef": "details",
-        "placeholder": "Enter details",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Material & Care",
-        "type": "textarea",
-        "tableRef": "care",
-        "placeholder": "Enter Material & Care",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Stylist Notes",
-        "type": "textarea",
-        "tableRef": "notes",
-        "placeholder": "Enter Stylist Notes",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Additional Notes",
-        "type": "textarea",
-        "tableRef": "additionalnotes",
-        "placeholder": "Enter Stylist Notes",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Retail Price",
-        "type": "text",
-        "tableRef": "price",
-        "placeholder": "Enter price",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "4 Day's Rental Amount",
-        "type": "text",
-        "tableRef": "fourdayrentalamount",
-        "placeholder": "Enter rentalamount",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "8 Day's Rental Amount",
-        "type": "text",
-        "tableRef": "eightdayrentalamount",
-        "placeholder": "Enter rentalamount",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "4 Day's Refundable Security Deposit",
-        "type": "text",
-        "tableRef": "fourdaysecuritydeposit",
-        "placeholder": "Enter 4 Day's Refundable Security Deposit",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "8 Day's Refundable Security Deposit",
-        "type": "text",
-        "tableRef": "eightdaysecuritydeposit",
-        "placeholder": "Enter 8 Day's Refundable Security Deposit",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Status",
-        "type": "select",
-        "tableRef": "status",
-        "placeholder": "Enter status",
-        "id": "input3",
-        "validation": ["required", "trim", "unique"],
-        "url": [{
-            "value": true,
-            "name": "Enable"
+            "name": "Category",
+            "type": "selectFromTable",
+            "tableRef": "category",
+            "option": "multiple",
+            "placeholder": "Enter category",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "category/getAll"
         }, {
-            "value": false,
-            "name": "Disable"
-        }]
-    }, {
-        "name": "Suggested Products",
-        "type": "selectFromTable",
-        "option": "multiple",
-        "tableRef": "suggestedProduct",
-        "placeholder": "Enter Suggested Products",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": "product/getAll"
-    }],
+            "name": "Subategory",
+            "type": "selectFromTable",
+            "option": "multiple",
+            "tableRef": "subcategory",
+            "placeholder": "Enter subcategory",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "subcategory/getAll"
+        }, {
+            "name": "Color",
+            "type": "selectFromTable",
+            "tableRef": "color",
+            "option": "multiple",
+            "placeholder": "Enter Color",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "color/getAll"
+        }, {
+            "name": "Size",
+            "type": "selectFromTable",
+            "tableRef": "size",
+            "option": "multiple",
+            "placeholder": "Enter Size",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "size/getAll"
+        }, {
+            "name": "Designer Name",
+            "type": "selectFromTable",
+            "tableRef": "designer",
+            "option": "singlesearch",
+            "placeholder": "Enter designer",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "designer/getAll"
+        },
+        {
+            "name": "Product Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter name",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "SKU",
+            "type": "text",
+            "tableRef": "sku",
+            "placeholder": "Enter sku",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Order",
+            "type": "text",
+            "tableRef": "order",
+            "placeholder": "Enter order",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Details",
+            "type": "textarea",
+            "tableRef": "details",
+            "placeholder": "Enter details",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Material & Care",
+            "type": "textarea",
+            "tableRef": "care",
+            "placeholder": "Enter Material & Care",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Stylist Notes",
+            "type": "textarea",
+            "tableRef": "notes",
+            "placeholder": "Enter Stylist Notes",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Additional Notes",
+            "type": "textarea",
+            "tableRef": "additionalnotes",
+            "placeholder": "Enter Stylist Notes",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Retail Price",
+            "type": "text",
+            "tableRef": "price",
+            "placeholder": "Enter price",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "4 Day's Rental Amount",
+            "type": "text",
+            "tableRef": "fourdayrentalamount",
+            "placeholder": "Enter rentalamount",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "8 Day's Rental Amount",
+            "type": "text",
+            "tableRef": "eightdayrentalamount",
+            "placeholder": "Enter rentalamount",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "4 Day's Refundable Security Deposit",
+            "type": "text",
+            "tableRef": "fourdaysecuritydeposit",
+            "placeholder": "Enter 4 Day's Refundable Security Deposit",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "8 Day's Refundable Security Deposit",
+            "type": "text",
+            "tableRef": "eightdaysecuritydeposit",
+            "placeholder": "Enter 8 Day's Refundable Security Deposit",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Status",
+            "type": "select",
+            "tableRef": "status",
+            "placeholder": "Enter status",
+            "id": "input3",
+            "validation": ["required", "trim", "unique"],
+            "url": [{
+                "value": true,
+                "name": "Enable"
+            }, {
+                "value": false,
+                "name": "Disable"
+            }]
+        }, {
+            "name": "Suggested Products",
+            "type": "selectFromTable",
+            "option": "multiple",
+            "tableRef": "suggestedProduct",
+            "placeholder": "Enter Suggested Products",
+            "id": "input1",
+            "validation": ["required", "trim", "unique"],
+            "url": "product/getAll"
+        }
+    ],
     "action": [{
         "name": "submit",
         "action": "submitUser"

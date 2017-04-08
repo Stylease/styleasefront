@@ -1,5 +1,5 @@
- //var adminURL = "http://localhost:1337/";
- var adminURL = "http://130.211.245.224:81/";
+ var adminURL = "http://localhost:1337/";
+ //var adminURL = "http://130.211.245.224:81/";
  // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
  var mockURL = adminURL + "callApi/";
 
@@ -36,40 +36,52 @@
          $scope.menutitle = NavigationService.makeactive("Dashboard");
          TemplateService.title = $scope.menutitle;
          $scope.navigation = NavigationService.getnav();
-        $scope.pagination={};
-         $scope.json={};
+         $scope.jsonUpcomingOrders=[];
+          $scope.jsonPickupOrders = [];
+           $scope.jsonRefundOrders = []
          $scope.pageInfo={};
-         $scope.pagination.status = "Processing";
-         $scope.pagination.coupon = "";
-         $scope.pagination.subcategory = "";
-         $scope.pagination.designer = "";
-         $scope.pagination.rentalDate ="";
-         $scope.pagination.price = "";
-        $scope.pagination.search = "";
-         $scope.pagination.pagenumber = 1;
-         $scope.pagination.pagesize = 10;
-        
          console.log($scope.pagination);
-         NavigationService.findProjects("Order/getLimitedWithFilter", $scope.pagination, function (findData) {
+         NavigationService.findProjects("Order/getUpcomingOrders",$scope.json, function (findData) {
              console.log(findData);
              if (findData.value !== false) {
-                 if (findData.data && findData.data.data && findData.data.data.length > 0) {
-                     $scope.pageInfo.lastpage = findData.data.totalpages;
-                     $scope.pageInfo.pagenumber = findData.data.pagenumber;
-                     $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
-                     $scope.json.tableData = findData.data.data;
-                 } else {
-                     $scope.json.tableData = [];
-                     $scope.pageInfo.totalitems = 0;
-                 }
+                 if (findData.data  && findData.data.length > 0) {
+                
+                     $scope.jsonUpcomingOrders= findData.data;
+                 } 
              } else {
-                 $scope.json.tableData = [];
-                 $scope.pageInfo.totalitems = 0;
+                 $scope.jsonUpcomingOrders = [];
              }
-             console.log($scope.pagination);
          }, function () {
              console.log("Fail");
          });
+           NavigationService.findProjects("Order/getUpcomingPickupOrders",$scope.json, function (findData) {
+             console.log(findData);
+             if (findData.value !== false) {
+                 if (findData.data  && findData.data.length > 0) {
+                
+                     $scope.jsonPickupOrders = findData.data;
+                 } 
+             } else {
+                 $scope.jsonPickupOrders = [];
+             }
+         }, function () {
+             console.log("Fail");
+         });
+         
+          NavigationService.findProjects("Order/getRefundOrders",$scope.json, function (findData) {
+             console.log(findData);
+             if (findData.value !== false) {
+                 if (findData.data  && findData.data.length > 0) {
+                
+                     $scope.jsonRefundOrders = findData.data;
+                 } 
+             } else {
+                 $scope.jsonRefundOrders = [];
+             }
+         }, function () {
+             console.log("Fail");
+         });
+         
      })
 
      .controller('UsersCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
