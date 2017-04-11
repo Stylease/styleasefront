@@ -22,7 +22,19 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "name"
-    }, {
+    },
+     {
+        "name": "Designer Type",
+        "type": "selectFromTable",
+        "tableRef": "designerType.name",
+        "option":"single",
+        "placeholder": "Enter designer Type",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "designerType/getAll",
+        "model": "designerType",
+        "modelDot": "name"
+    },{
         "name": "Status",
         "type": "select",
         "tableRef": "status",

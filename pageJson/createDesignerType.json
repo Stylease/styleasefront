@@ -1,0 +1,37 @@
+{
+    "title": "Create DesignerType",
+    "jsonPage": "viewDesignerType",
+    "desciption": "",
+    "pageType": "create",
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitDesignerType"
+    }, {
+        "name": "cancel",
+        "stateName": "page({jsonName:'viewDesignerType'})"
+    }],
+
+    "apiCall": {
+        "url": "DesignerType/save"
+    },
+     "preApi": {
+        "url": "DesignerType/getLimited",
+        "params": ""
+    },
+
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}

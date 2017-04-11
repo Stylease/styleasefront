@@ -51,8 +51,8 @@
           </md-select-header>
           <md-optgroup label="occasionType">
             <md-option ng-selected="true" value="">All</md-option>
-            <md-option ng-repeat="subcategory in subCategory |
-              filter:searchTerm" value="{{subcategory._id}}">{{subcategory.name}}</md-option>
+            <md-option ng-repeat="subcat in subCategory |
+              filter:searchTerm" value="{{subcat._id}}">{{subcat.name}}</md-option>
           </md-optgroup>
         </md-select>
 
@@ -86,8 +86,18 @@
         </md-select>-->
         <span ng-show="searchMe.myFilter=='orderStatus'">Order Status</span>
         <md-select ng-show="searchMe.myFilter=='orderStatus'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.status"
-          ng-change="searchClick(searchdata);">
-          <md-optgroup style="z-index:111 !important;">
+          ng-change="searchClick(searchdata);"md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
+          <md-select-header class="demo-select-header">
+            <input class="searchTerm" ng-model="searchTerm" type="search" placeholder="Search for a orderStatus..">
+          </md-select-header>
+          <md-optgroup label="orderStatus">
+            <md-option ng-selected="true" value="">All</md-option>
+            <md-option ng-repeat="status in  jsonStatus |
+              filter:searchTerm" value="{{status}}">{{status}}</md-option>
+          </md-optgroup>
+        </md-select>
+
+          <!--<md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
             <md-option value="Processing">Processing</md-option>
             <md-option value="Order Confirmed">Order Confirmed</md-option>
@@ -99,7 +109,7 @@
             <md-option value="Completed">Completed</md-option>
             <md-option value="Cancelled">Cancelled</md-option>
           </md-optgroup>
-        </md-select>
+        </md-select>-->
         <span ng-show="searchMe.myFilter=='price'">Price</span>
         <md-select ng-show="searchMe.myFilter=='price'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.price" ng-change="searchClick(searchdata);">
           <md-optgroup style="z-index:111 !important;">

@@ -1,5 +1,5 @@
- var adminURL = "http://localhost:1337/";
- //var adminURL = "http://130.211.245.224:81/";
+ //var adminURL = "http://localhost:1337/";
+ var adminURL = "http://130.211.245.224:81/";
  // window.uploadurl = "http://192.168.1.122:81/" + "upload/";
  var mockURL = adminURL + "callApi/";
 
@@ -138,7 +138,17 @@
          var jsonParam8 = jsonArr[8];
          var jsonParam9 = jsonArr[9];
          // console.log(jsonArr);
-
+$scope.jsonStatus=[
+"Processing",
+"Order Confirmed",
+"Out for Delivery",
+"Delivered",
+"Pick-up",
+"Received",
+"Refund",
+"Completed",
+"Cancelled"
+]
          $scope.sortableOptions = {
              stop: function (e, ui) {
                  console.log($scope.json.tableData);
@@ -674,7 +684,7 @@
              // CALL GENERAL API
              NavigationService.saveApi($scope.formData, $scope.apiName, function (data) {
                  console.log($scope.json.jsonPage);
-                 window.history.back();
+                window.history.back();
                  // showToast("Project Saved Successfully");
                  // console.log("Success");
                  // if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {

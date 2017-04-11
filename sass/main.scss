@@ -529,6 +529,7 @@ md-sidenav.md-sidenav-left {
     float: left;
     margin-top: -26px;
     padding-top: 50px;
+    background-color:#EAF9FD;
     width: 100%;
 }
 .panel-content .row {
@@ -12776,6 +12777,9 @@ box-shadow: 0px 0px 5px 0px rgba(31,181,174,1);
 
 
 .dashboard-table{
+    h3{
+        padding:0 20px;
+       text-decoration: underline;}
     table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -12785,11 +12789,11 @@ box-shadow: 0px 0px 5px 0px rgba(31,181,174,1);
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 10px 15px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #C2ECF7;
 }
 }
 

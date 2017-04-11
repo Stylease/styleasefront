@@ -37,6 +37,10 @@
     "apiCall": {
         "url": "category/save"
     },
+     "preApi": {
+        "url": "category/getLimited",
+        "params": ""
+    },
 
     "sidemenu": [{
         "url": "",
