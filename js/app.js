@@ -105,7 +105,11 @@ firstapp.filter('getValue', function ($filter) {
             var keyArr = keyVal.split(".");
             var returnValue = input;
             _.each(keyArr, function (n) {
-                returnValue = returnValue[n];
+                if(!_.isEmpty(returnValue)) {
+                    returnValue = returnValue[n];
+                }
+                // returnValue = returnValue[n];
+               
             });
             if (type == "date") {
                 // console.log('in date');
