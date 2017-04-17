@@ -11,18 +11,16 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    }, 
-    {
+    }, {
         "name": "Designer Type",
         "type": "selectFromTable",
+        "option": "multiple",
         "tableRef": "designerType",
-        "option": "singlesearch",
         "placeholder": "Enter designer Type",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "designerType/getAll"
-    },
-    {
+    }, {
         "name": "Status",
         "type": "select",
         "tableRef": "status",

@@ -7,13 +7,7 @@
             "name": "Name",
             "isSort": "",
             "tableRef": "name"
-        }, 
-          {
-        "name":"Designer Type",
-        "isSort":"",
-        "tableRef":"designerType.name"
-      },
-      {
+        }, {
             "name": "Status",
             "isSort": "",
             "tableRef": "status"
