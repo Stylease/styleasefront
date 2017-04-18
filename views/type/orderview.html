@@ -65,7 +65,8 @@
         </md-select>-->
 
         <span ng-show="searchMe.myFilter=='designer'">Designer</span>
-        <md-select ng-show="searchMe.myFilter=='designer'" ng-model="searchdata.designer" ng-change="searchClick(searchdata);" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
+        <md-select ng-show="searchMe.myFilter=='designer'" ng-model="searchdata.designer" ng-change="searchClick(searchdata);" md-on-close="clearSearchTerm()"
+          data-md-container-class="selectdemoSelectHeader">
           <md-select-header class="demo-select-header">
             <input class="searchTerm" ng-model="searchTerm" type="search" placeholder="Search for a designer..">
           </md-select-header>
@@ -86,7 +87,7 @@
         </md-select>-->
         <span ng-show="searchMe.myFilter=='orderStatus'">Order Status</span>
         <md-select ng-show="searchMe.myFilter=='orderStatus'" style="margin: 0 !important; z-index:999;" ng-model="searchdata.status"
-          ng-change="searchClick(searchdata);"md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
+          ng-change="searchClick(searchdata);" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
           <md-select-header class="demo-select-header">
             <input class="searchTerm" ng-model="searchTerm" type="search" placeholder="Search for a orderStatus..">
           </md-select-header>
@@ -97,7 +98,7 @@
           </md-optgroup>
         </md-select>
 
-          <!--<md-optgroup style="z-index:111 !important;">
+        <!--<md-optgroup style="z-index:111 !important;">
             <md-option ng-selected="true" value="">All</md-option>
             <md-option value="Processing">Processing</md-option>
             <md-option value="Order Confirmed">Order Confirmed</md-option>
@@ -174,7 +175,7 @@
         <div layout-gt-sm="row">
           <md-input-container flex="50">
             <label>Name</label>
-            <input ng-model="searchdata.search" placeholder="Enter First/Last name here" type="text" />
+            <input ng-model="searchdata.search" placeholder="Enter user name here" type="text" />
           </md-input-container>
           <md-input-container>
             <md-button class="md-raised md-primary" ng-click="searchClick(searchdata)">Go</md-button>

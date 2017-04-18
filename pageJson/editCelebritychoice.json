@@ -28,30 +28,29 @@
             "name": "Image",
             "size": "489px X 749px",
             "type": "image",
-            "tableRef": "images",
-            "option":"multiple",
+            "tableRef": "image",
+            "option": "single",
             "placeholder": "Enter image",
             "id": "input5",
-            "model": "",
             "validation": [],
             "url": "",
-            "model": "images"
+            "model": "image"
         }, {
-        "name": "Status",
-        "type": "select",
-        "tableRef": "status",
-        "model": "status",
-        "placeholder": "Enter status",
-        "id": "input3",
-        "validation": ["required", "trim", "unique"],
-        "url": [{
-            "value": true,
-            "name": "Enable"
-        }, {
-            "value": false,
-            "name": "Disable"
-        }]
-    }
+            "name": "Status",
+            "type": "select",
+            "tableRef": "status",
+            "model": "status",
+            "placeholder": "Enter status",
+            "id": "input3",
+            "validation": ["required", "trim", "unique"],
+            "url": [{
+                "value": true,
+                "name": "Enable"
+            }, {
+                "value": false,
+                "name": "Disable"
+            }]
+        }
 
     ],
     "action": [{
