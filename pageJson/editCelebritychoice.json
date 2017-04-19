@@ -16,14 +16,14 @@
         }, {
             "name": "Product",
             "type": "selectFromTable",
+            "tableRef": "product.name",
             "option": "single",
-            "tableRef": "product",
             "placeholder": "Enter product",
             "id": "input1",
             "validation": ["required", "trim", "unique"],
             "url": "product/getAll",
-            "model": "product"
-
+            "model": "product",
+            "modelDot": "name"
         }, {
             "name": "Image",
             "size": "489px X 749px",

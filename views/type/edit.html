@@ -47,30 +47,25 @@
         <label for="{{field.id}}">{{field.name}}</label>
         <br>
         <!--<div ng-if="field.option=='multiple'" ng-change="editFilter()">-->
-         <div ng-if="field.option=='multiple'"  ng-controller="SelectFilterController">
+        <div ng-if="field.option=='multiple'" ng-controller="SelectFilterController">
           <!--<md-select style="margin: 0 !important;" ng-model="json.editData[field.model]" multiple>
             <md-optgroup>
               <md-option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>-->
 
-           <md-select ng-model="json.editData[field.model]"
-                   md-on-close="clearSearchTerm()"
-                   data-md-container-class="selectdemoSelectHeader"
-                   multiple>
-          <md-select-header class="demo-select-header">
-            <input class="demo-header-searchbox md-text" ng-model="searchTerm"
-                   type="search"
-                   placeholder="Search for a {{field.name}}.."
-                 >
-          </md-select-header>
-          <md-optgroup label="{{field.name}}">
-            <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
-              filter:searchTerm" >{{item.name}}</md-option>
-          </md-optgroup>
-        </md-select>
+          <md-select ng-model="json.editData[field.model]" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader"
+            multiple>
+            <md-select-header class="demo-select-header">
+              <input class="demo-header-searchbox md-text" ng-model="searchTerm" type="search" placeholder="Search for a {{field.name}}..">
+            </md-select-header>
+            <md-optgroup label="{{field.name}}">
+              <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
+              filter:searchTerm">{{item.name}}</md-option>
+            </md-optgroup>
+          </md-select>
 
-      </div>
+        </div>
         <div ng-if="field.option=='single'">
           <md-select style="margin: 0 !important;" ng-model="json.editData[field.model]">
             <md-optgroup>
