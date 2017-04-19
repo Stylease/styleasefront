@@ -14,9 +14,9 @@
         <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
       </div>
 
-        <div ng-if="field.type=='date'">
+      <div ng-if="field.type=='date'">
         <label>{{field.name}}</label>
-        <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+        <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}" min="{{today}}">
       </div>
 
       <div ng-if="field.type=='textarea'">
@@ -43,44 +43,32 @@
               <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>-->
-                 <md-select ng-model="field.model"
-                   md-on-close="clearSearchTerm()"
-                   data-md-container-class="selectdemoSelectHeader"
-                   multiple>
-          <md-select-header class="demo-select-header">
-            <input class="searchTerm" ng-model="searchTerm"
-                   type="search"
-                   placeholder="Search for a {{field.name}}.."
-                 >
-          </md-select-header>
-          <md-optgroup label="{{field.name}}">
-            <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
+          <md-select ng-model="field.model" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+            <md-select-header class="demo-select-header">
+              <input class="searchTerm" ng-model="searchTerm" type="search" placeholder="Search for a {{field.name}}..">
+            </md-select-header>
+            <md-optgroup label="{{field.name}}">
+              <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
               filter:searchTerm" ng-selected="{{item.name.Selected == true }}">{{item.name}}</md-option>
-          </md-optgroup>
-        </md-select>
+            </md-optgroup>
+          </md-select>
         </div>
 
-         <div ng-if="field.option=='singlesearch'" ng-controller="SelectFilterController">
+        <div ng-if="field.option=='singlesearch'" ng-controller="SelectFilterController">
           <!--<md-select ng-model="field.model" multiple>
             <md-optgroup>
               <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
             </md-optgroup>
           </md-select>-->
-                 <md-select ng-model="field.model"
-                   md-on-close="clearSearchTerm()"
-                   data-md-container-class="selectdemoSelectHeader"
-                   >
-          <md-select-header class="demo-select-header">
-            <input class="searchTerm" ng-model="searchTerm"
-                   type="search"
-                   placeholder="Search for a {{field.name}}.."
-                 >
-          </md-select-header>
-          <md-optgroup label="{{field.name}}">
-            <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
+          <md-select ng-model="field.model" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
+            <md-select-header class="demo-select-header">
+              <input class="searchTerm" ng-model="searchTerm" type="search" placeholder="Search for a {{field.name}}..">
+            </md-select-header>
+            <md-optgroup label="{{field.name}}">
+              <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues |
               filter:searchTerm" ng-selected="{{item.name.Selected == true }}">{{item.name}}</md-option>
-          </md-optgroup>
-        </md-select>
+            </md-optgroup>
+          </md-select>
         </div>
 
 
@@ -132,7 +120,7 @@
     </div> -->
 
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised md-primary" ng-click="makeReadyForApi()"ng-disabled="plan.$invalid" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
+      <md-button class="md-raised md-primary" ng-click="makeReadyForApi()" ng-disabled="plan.$invalid" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
       <md-button class="md-raised md-warn" ng-click="back()">Cancel</md-button>
     </section>
 

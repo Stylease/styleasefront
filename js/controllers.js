@@ -36,52 +36,52 @@
          $scope.menutitle = NavigationService.makeactive("Dashboard");
          TemplateService.title = $scope.menutitle;
          $scope.navigation = NavigationService.getnav();
-         $scope.jsonUpcomingOrders=[];
-          $scope.jsonPickupOrders = [];
-           $scope.jsonRefundOrders = []
-         $scope.pageInfo={};
+         $scope.jsonUpcomingOrders = [];
+         $scope.jsonPickupOrders = [];
+         $scope.jsonRefundOrders = []
+         $scope.pageInfo = {};
          console.log($scope.pagination);
-         NavigationService.findProjects("Order/getUpcomingOrders",$scope.json, function (findData) {
+         NavigationService.findProjects("Order/getUpcomingOrders", $scope.json, function (findData) {
              console.log(findData);
              if (findData.value !== false) {
-                 if (findData.data  && findData.data.length > 0) {
-                
-                     $scope.jsonUpcomingOrders= findData.data;
-                 } 
+                 if (findData.data && findData.data.length > 0) {
+
+                     $scope.jsonUpcomingOrders = findData.data;
+                 }
              } else {
                  $scope.jsonUpcomingOrders = [];
              }
          }, function () {
              console.log("Fail");
          });
-           NavigationService.findProjects("Order/getUpcomingPickupOrders",$scope.json, function (findData) {
+         NavigationService.findProjects("Order/getUpcomingPickupOrders", $scope.json, function (findData) {
              console.log(findData);
              if (findData.value !== false) {
-                 if (findData.data  && findData.data.length > 0) {
-                
+                 if (findData.data && findData.data.length > 0) {
+
                      $scope.jsonPickupOrders = findData.data;
-                 } 
+                 }
              } else {
                  $scope.jsonPickupOrders = [];
              }
          }, function () {
              console.log("Fail");
          });
-         
-          NavigationService.findProjects("Order/getRefundOrders",$scope.json, function (findData) {
+
+         NavigationService.findProjects("Order/getRefundOrders", $scope.json, function (findData) {
              console.log(findData);
              if (findData.value !== false) {
-                 if (findData.data  && findData.data.length > 0) {
-                
+                 if (findData.data && findData.data.length > 0) {
+
                      $scope.jsonRefundOrders = findData.data;
-                 } 
+                 }
              } else {
                  $scope.jsonRefundOrders = [];
              }
          }, function () {
              console.log("Fail");
          });
-         
+
      })
 
      .controller('UsersCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
@@ -138,17 +138,17 @@
          var jsonParam8 = jsonArr[8];
          var jsonParam9 = jsonArr[9];
          // console.log(jsonArr);
-$scope.jsonStatus=[
-"Processing",
-"Order Confirmed",
-"Out for Delivery",
-"Delivered",
-"Pick-up",
-"Received",
-"Refund",
-"Completed",
-"Cancelled"
-]
+         $scope.jsonStatus = [
+             "Processing",
+             "Order Confirmed",
+             "Out for Delivery",
+             "Delivered",
+             "Pick-up",
+             "Received",
+             "Refund",
+             "Completed",
+             "Cancelled"
+         ]
          $scope.sortableOptions = {
              stop: function (e, ui) {
                  console.log($scope.json.tableData);
@@ -419,6 +419,7 @@ $scope.jsonStatus=[
                  $scope.goToCancelPageCreate = function () {
                      $location.url("/page/" + $scope.json.action[1].url + idForCreate);
                  };
+                 //  console.log("**********page create***********", $scope.json.jsonPage);
                  _.each($scope.json.fields, function (n) {
                      if (n.type == "select") {
                          n.model = "";
@@ -432,6 +433,14 @@ $scope.jsonStatus=[
                      } else if (n.type == "selectFromTable") {
                          n.model = "";
                      }
+
+                     if (n.type == "date") {
+                         if ($scope.json.jsonPage == 'viewProducttime') {
+                             //  console.log("********* field type date ***********", n);
+                             $scope.today = new Date().toISOString().split('T')[0];
+                         }
+                     }
+
                  });
 
                  // get select fields dropdown
@@ -684,7 +693,7 @@ $scope.jsonStatus=[
              // CALL GENERAL API
              NavigationService.saveApi($scope.formData, $scope.apiName, function (data) {
                  console.log($scope.json.jsonPage);
-                window.history.back();
+                 window.history.back();
                  // showToast("Project Saved Successfully");
                  // console.log("Success");
                  // if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {
