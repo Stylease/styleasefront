@@ -70,17 +70,19 @@
                         <th>Date</th>
                     </tr>
                     <tr ng-repeat="a in jsonPickupOrders">
-                        <td>{{a.orderid}}</td>
+                        <td>
+                            <!--{{a.orderid}}-->
+                            </td>
                         <td>
                             <ul ng-repeat="prod in a.cartproduct">
-                                <li> {{prod.product.name}}
-                                </li>
+                                <!--<li> {{prod.product.name}}
+                                </li>-->
                             </ul>
                         </td>
                         <td>
                             <ul ng-repeat="prod in a.cartproduct">
-                                <li> {{prod.timeTo | date}}
-                                </li>
+                                <!--<li> {{prod.timeTo | date}}
+                                </li>-->
                             </ul>
                         </td>
                     </tr>

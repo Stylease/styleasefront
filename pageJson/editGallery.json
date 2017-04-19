@@ -29,7 +29,6 @@
         "tableRef": "image",
         "placeholder": "Enter image",
         "id": "input5",
-        "model": "",
         "validation": [],
         "url": "",
         "model": "image",
