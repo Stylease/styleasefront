@@ -4,16 +4,16 @@
 
 <!-- Top Bar Chart -->
 <div class="panel-content">
-   
-<div class="heading-sec">
-    <div class="row">
-        <div class="col-md-4 column">
-            <div class="heading-profile">
-                <h2>Dashboard</h2>
+
+    <div class="heading-sec">
+        <div class="row">
+            <div class="col-md-4 column">
+                <div class="heading-profile">
+                    <h2>Dashboard</h2>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <div class="row">
         <div class="col-md-6">
             <div class="widget dashboard-table">
@@ -42,7 +42,7 @@
 
                 </table>
             </div>
-           <div class="widget dashboard-table">
+            <div class="widget dashboard-table">
                 <table>
                     <h3>Last few orders</h3>
                     <tr>
@@ -59,9 +59,9 @@
                 </table>
             </div>
         </div>
-      
+
         <div class="col-md-6">
-             <div class="widget dashboard-table">
+            <div class="widget dashboard-table">
                 <table>
                     <h3>Pickup data coming</h3>
                     <tr>
@@ -71,26 +71,26 @@
                     </tr>
                     <tr ng-repeat="a in jsonPickupOrders">
                         <td>
-                            <!--{{a.orderid}}-->
-                            </td>
+                            {{a.orderid}}
+                        </td>
                         <td>
                             <ul ng-repeat="prod in a.cartproduct">
-                                <!--<li> {{prod.product.name}}
-                                </li>-->
+                                <li> {{prod.product.name}}
+                                </li>
                             </ul>
                         </td>
                         <td>
                             <ul ng-repeat="prod in a.cartproduct">
-                                <!--<li> {{prod.timeTo | date}}
-                                </li>-->
+                                <li> {{prod.timeTo | date}}
+                                </li>
                             </ul>
                         </td>
                     </tr>
 
                 </table>
             </div>
-            
-             <div class="widget dashboard-table">
+
+            <div class="widget dashboard-table">
                 <table>
                     <h3>Refund to be issued</h3>
                     <tr>
@@ -105,7 +105,7 @@
                 </table>
             </div>
         </div>
-    
+
     </div>
 </div>
 

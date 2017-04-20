@@ -230,8 +230,8 @@
       </md-card>
     </md-content>
     <uib-pagination ng-if="json.tableData.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm"
-      boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
-      ng-hide="pageInfo.lastpage==1"></uib-pagination>
+      boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults('undefined',searchdata);"
+      max-size="pageInfo.totalitems" ng-hide="pageInfo.lastpage==1"></uib-pagination>
   </md-list>
   <a ui-sref="{{json.createButtonState}}" ng-if="json.createButtonState">
     <!-- <a ui-sref="{{json.create.createButtonState}}" ng-if="json.create"> -->

@@ -359,7 +359,9 @@
                              // $scope.search = $stateParams.search;
                              console.log($scope.search);
                          }
-                         $state.go("pageno", {
+                         console.log("******page", $scope.pagination, $stateParams.jsonName);
+
+                         $state.go("page", {
                              no: $scope.pagination.pagenumber,
                              jsonName: $stateParams.jsonName,
                              search: $scope.search
@@ -367,6 +369,7 @@
                      } else {
 
                          if ($scope.filterSearch == true) {
+                             console.log("search!!!!", $scope.search);
                              $scope.pagination.status = $scope.search.status;
                              $scope.pagination.coupon = $scope.search.coupon;
                              $scope.pagination.subcategory = $scope.search.subcategory;
@@ -390,7 +393,7 @@
                              console.log("$scope.pagination");
                              $scope.pagination.rentalDate = ""
                          }
-                         console.log($scope.pagination);
+                         console.log($scope.apiName);
                          NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
                              console.log(findData);
                              if (findData.value !== false) {
