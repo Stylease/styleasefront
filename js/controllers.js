@@ -259,7 +259,130 @@
              if (data.pageType == "orderview") {
                  $scope.apiName = $scope.json.apiCall.url;
                  console.log("in orderview", $scope.apiName);
+                 //filter orderview
 
+                 //  $scope.orderFilter = function () {
+                 //      $scope.modalInstance = $uibModal.open({
+                 //          scope: $scope,
+                 //          templateUrl: 'views/modal/filter.html',
+                 //      });
+                 //  };
+
+                 //  $scope.orderFilter = function () {
+                 //      $mdDialog.show({
+                 //          controller: jsonViewCtrl,
+                 //          templateUrl: 'views/modal/filter.html',
+                 //          parent: angular.element(document.body),
+                 //          targetEvent: ev,
+                 //          clickOutsideToClose: true,
+                 //          fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                 //      })
+                 //  };
+                 //  $scope.filterData = [{
+                 //      name: 'Age',
+                 //      arrayName: 'age',
+                 //      data: [{
+                 //          name: 'Less than 20 years',
+                 //          value: '20'
+                 //      }, {
+                 //          name: '21 - 25 years',
+                 //          value: '21 - 25'
+                 //      }, {
+                 //          name: '26 - 30 years',
+                 //          value: '26 - 30'
+                 //      }, {
+                 //          name: '31 - 35 years',
+                 //          value: '31 - 35'
+                 //      }, {
+                 //          name: '36 - 40 years',
+                 //          value: '36 - 40'
+                 //      }, {
+                 //          name: 'More than 40 years',
+                 //          value: '40'
+                 //      }]
+                 //  }, {
+                 //      name: 'Coaching Focus',
+                 //      arrayName: 'coachingFocus',
+                 //      data: [{
+                 //          name: 'Sprinting',
+                 //          value: 'Sprinting'
+                 //      }, {
+                 //          name: 'Middle Distance',
+                 //          value: 'Middle Distance'
+                 //      }, {
+                 //          name: 'Endurance',
+                 //          value: 'Endurance'
+                 //      }, {
+                 //          name: 'Throws',
+                 //          value: 'Throws'
+                 //      }, {
+                 //          name: 'Jumps',
+                 //          value: 'Jumps'
+                 //      }, {
+                 //          name: 'Hurdles',
+                 //          value: 'Hurdles'
+                 //      }, {
+                 //          name: 'Hill/Fell Running',
+                 //          value: 'Hill/Fell Running'
+                 //      }, {
+                 //          name: 'Cross Country',
+                 //          value: 'Cross Country'
+                 //      }, ]
+                 //  }, {
+                 //      name: 'Gender',
+                 //      arrayName: 'gender',
+                 //      data: [{
+                 //          name: 'Male',
+                 //          value: 'Male'
+                 //      }, {
+                 //          name: 'Female',
+                 //          value: 'Female'
+                 //      }]
+                 //  }, {
+                 //      name: 'Credentials',
+                 //      arrayName: 'credentials',
+                 //      data: [{
+                 //          name: 'Level 1',
+                 //          value: 'Level 1'
+                 //      }, {
+                 //          name: 'Level 2',
+                 //          value: 'Level 2'
+                 //      }, {
+                 //          name: 'Level 3',
+                 //          value: 'Level 3'
+                 //      }, {
+                 //          name: 'Level 4',
+                 //          value: 'Level 4'
+                 //      }, ]
+                 //  }, {
+                 //      name: 'Coaching Experience',
+                 //      arrayName: 'experience',
+                 //      data: [{
+                 //          name: '0 - 5 years',
+                 //          value: '0 - 5'
+                 //      }, {
+                 //          name: '6 - 10 years',
+                 //          value: '6 - 10'
+                 //      }, {
+                 //          name: '11 - 15 years',
+                 //          value: '11 - 15'
+                 //      }, {
+                 //          name: '16 - 20 years',
+                 //          value: '16 - 20'
+                 //      }, {
+                 //          name: 'More than 20 years',
+                 //          value: '20'
+                 //      }]
+                 //  }];
+
+                 //  $scope.filterActive = 0;
+                 //  $scope.selectedFilters = {};
+
+                 //  $scope.changeFilter = function (data) {
+                 //      $scope.filterActive = data;
+                 //  };
+
+                 //filter orderview end
                  $scope.pagination = {
                      "search": "",
                      "pagenumber": 1,

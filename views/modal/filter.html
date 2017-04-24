@@ -1,0 +1,31 @@
+<div class="filter-all">
+    <div class="modal-header blue-bg">
+        <div class="pull-right">
+            <button class="btn btn-clear" ng-click="$dismiss()">
+    <i class="ln-cross"></i>
+  </button>
+        </div>
+        <h5 class="modal-title">Filter By</h5>
+    </div>
+    <div class="filter-cont">
+        <div class="part p1">
+            <ul class="list-unstyled">
+                <li ng-click="changeFilter($index)" ng-class="{'in': filterActive == $index}" ng-repeat="f in filterData">
+                    {{f.name}} <span ng-if="filter[f.arrayName].length > 0">({{filter[f.arrayName].length}})</span>
+                </li>
+            </ul>
+        </div>
+        <div class="part p2">
+            <ul ng-repeat="f in filterData" ng-show="filterActive == $index" class="list-unstyled">
+                <li class="upload-btn check-cust" ng-repeat="v in f.data">
+                    <input type="checkbox" id="{{v.name}}" checklist-model="filter[f.arrayName]" checklist-value="v.value" />
+                    <label for="{{v.name}}">{{v.name}}</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="filter-btn text-center">
+        <button class="btn btn-primary" ng-click="filterParameteres()">Apply</button>
+        <button class="btn btn-primary" ng-click="clearFilter()">Clear Filter</button>
+    </div>
+</div>
