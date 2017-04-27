@@ -9,23 +9,26 @@
     </div>
     <div class="filter-cont">
         <div class="part p1">
-            <ul class="list-unstyled">
+            <md-checkbox ng-repeat="f in filterData">
+                {{f.name}}
+            </md-checkbox>
+            <!--<ul class="list-unstyled">
                 <li ng-click="changeFilter($index)" ng-class="{'in': filterActive == $index}" ng-repeat="f in filterData">
                     {{f.name}} <span ng-if="filter[f.arrayName].length > 0">({{filter[f.arrayName].length}})</span>
                 </li>
-            </ul>
+            </ul>-->
         </div>
         <div class="part p2">
-            <ul ng-repeat="f in filterData" ng-show="filterActive == $index" class="list-unstyled">
-                <li class="upload-btn check-cust" ng-repeat="v in f.data">
+            <ul ng-repeat="f in filterData" class="list-unstyled">
+                <!--<li class="upload-btn check-cust" ng-repeat="v in f.data">
                     <input type="checkbox" id="{{v.name}}" checklist-model="filter[f.arrayName]" checklist-value="v.value" />
                     <label for="{{v.name}}">{{v.name}}</label>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
     <div class="filter-btn text-center">
-        <button class="btn btn-primary" ng-click="filterParameteres()">Apply</button>
-        <button class="btn btn-primary" ng-click="clearFilter()">Clear Filter</button>
+        <md-button class="md-raised md-primary">Apply</md-button>
+        <md-button class="md-raised md-warn" ng-click="clearFilter()">Clear Filter</md-button>
     </div>
 </div>
