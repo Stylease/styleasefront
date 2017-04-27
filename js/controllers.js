@@ -270,12 +270,16 @@
 
                  $scope.orderFilter = function () {
                      $mdDialog.show({
-                         //  controller: jsonViewCtrl,
+                          controller: FilterCtrl,
                          templateUrl: 'views/modal/filter.html',
                          clickOutsideToClose: true,
                          fullscreen: $scope.customFullscreen
                      });
 
+                 };
+                 function FilterCtrl($scope, $mdDialog) {
+                 $scope.orderFilterClose = function () {
+                   $mdDialog.hide();
                  };
                  $scope.filterData = [{
                      name: 'Age',
@@ -373,7 +377,7 @@
                          value: '20'
                      }]
                  }];
-
+                 }
                  $scope.filterActive = 0;
                  $scope.selectedFilters = {};
 

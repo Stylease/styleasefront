@@ -1,34 +1,44 @@
-<div class="filter-all">
-    <div class="modal-header blue-bg">
-        <div class="pull-right">
-            <button class="btn btn-clear" ng-click="$dismiss()">
-    <i class="ln-cross"></i>
-  </button>
+<md-dialog aria-label="Filter By">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Filter By</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="clearFilter()">
+                Close
+                <!--<md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>-->
+            </md-button>
         </div>
-        <h5 class="modal-title">Filter By</h5>
-    </div>
-    <div class="filter-cont">
-        <div class="part p1">
-            <md-checkbox ng-repeat="f in filterData">
-                {{f.name}}
-            </md-checkbox>
-            <!--<ul class="list-unstyled">
-                <li ng-click="changeFilter($index)" ng-class="{'in': filterActive == $index}" ng-repeat="f in filterData">
-                    {{f.name}} <span ng-if="filter[f.arrayName].length > 0">({{filter[f.arrayName].length}})</span>
-                </li>
-            </ul>-->
-        </div>
-        <div class="part p2">
-            <ul ng-repeat="f in filterData" class="list-unstyled">
-                <!--<li class="upload-btn check-cust" ng-repeat="v in f.data">
-                    <input type="checkbox" id="{{v.name}}" checklist-model="filter[f.arrayName]" checklist-value="v.value" />
-                    <label for="{{v.name}}">{{v.name}}</label>
-                </li>-->
-            </ul>
-        </div>
-    </div>
-    <div class="filter-btn text-center">
-        <md-button class="md-raised md-primary">Apply</md-button>
-        <md-button class="md-raised md-warn" ng-click="clearFilter()">Clear Filter</md-button>
-    </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab ng-repeat="f in filterData" label="{{f.name}}">
+                <md-content class="md-padding">
+<div class="fullscreen-dialog">
+                   <div flex="100" flex-gt-sm="100" layout="column">
+                        <div>
+                                <div layout="row" layout-wrap flex>
+                                    <div ng-repeat="v in f.data" class="standard" flex="30">
+                                        <label>
+                                            <input type="checkbox" ng-checked="exists(item, selected)"
+                                                ng-click="toggle(item, selected)"/>
+                                            {{v.name}}
+                                        </label>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
 </div>
+ 
+                    <!--<md-checkbox ng-repeat="v in f.data">
+                        {{v.name}}
+                    </md-checkbox>-->
+                </md-content>
+            </md-tab>
+        </md-tabs>
+        <div class="filter-btn text-center">
+            <md-button class="md-raised md-primary">Apply</md-button>
+            <!--<md-button class="md-raised md-warn" ng-click="clearFilter()">Clear Filter</md-button>-->
+        </div>
+    </md-dialog-content>
+
+</md-dialog>

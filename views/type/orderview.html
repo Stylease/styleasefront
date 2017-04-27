@@ -1,12 +1,13 @@
 <section class="md-whiteframe-z1 users">
   <md-list ng-cloak>
     <div class="clearfix">
-      <md-subheader class="md-no-sticky all-user" ng-click="orderFilter()">{{json.title}}</md-subheader>
-      <!--ng-click="orderFilter();-->
+      <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
+       <md-button class="md-icon-button" ng-click="orderFilter()">
+                Filter
+      </md-button>
     </div>
     <md-content>
       <!--//fixed selectbox-->
-
       <div class="flex select-wid" flex="20">
         <span><b>Filter</b></span>
         <md-select style="margin: 0 !important; z-index:999;" ng-model="searchMe.myFilter">
