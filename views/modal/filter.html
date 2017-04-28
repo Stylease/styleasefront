@@ -13,22 +13,91 @@
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab ng-repeat="f in filterData" label="{{f.name}}">
                 <md-content class="md-padding">
-<div class="fullscreen-dialog">
-                   <div flex="100" flex-gt-sm="100" layout="column">
-                        <div>
+                    <!--<pre>{{filterData}}</pre>-->
+                    <div class="fullscreen-dialog">
+                        <div flex="100" flex-gt-sm="100" layout="column">
+                            <!--for coupon code start-->
+                            <div ng-if="f.name === 'Coupon Code'">
                                 <div layout="row" layout-wrap flex>
-                                    <div ng-repeat="v in f.data" class="standard" flex="30">
+                                    <div ng-repeat="c in filterData.allCoupon" class="standard" flex="30">
                                         <label>
-                                            <input type="checkbox" ng-checked="exists(item, selected)"
-                                                ng-click="toggle(item, selected)"/>
-                                            {{v.name}}
+                                            <input type="checkbox" checklist-model="filter[f.name]" />
+                                            {{c.name}}
                                         </label>
                                     </div>
                                 </div>
+                            </div>
+                            <!--for coupon code end-->
+                            <!--for Occasion Type start-->
+                            <div ng-if="f.name === 'Occasion Type'">
+
+                                <div layout="row" layout-wrap flex>
+                                    <div ng-repeat="sub in filterData.subCategory" class="standard" flex="30">
+                                        <label>
+                                            <input type="checkbox" ng-checked="exists(item, selected)"
+                                                ng-click="toggle(item, selected)"/>
+                                            {{sub.name}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--for Occasion Type end-->
+                            <!--for Designer  start-->
+                            <div ng-if="f.name === 'Designer'">
+
+                                <div layout="row" layout-wrap flex>
+                                    <div ng-repeat="d in filterData.designer" class="standard" flex="30">
+                                        <label>
+                                            <input type="checkbox" ng-checked="exists(item, selected)"
+                                                ng-click="toggle(item, selected)"/>
+                                            {{d.name}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--for designer end-->
+                            <!--for order status start-->
+                            <div ng-if="f.name === 'Order Status'">
+
+                                <div layout="row" layout-wrap flex>
+                                    <div ng-repeat="d in f.data" class="standard" flex="30">
+                                        <label>
+                                            <input type="checkbox" ng-checked="exists(item, selected)"
+                                                ng-click="toggle(item, selected)"/>
+                                            {{d}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--for order status end-->
+                            <!--for Price start-->
+                            <div ng-if="f.name === 'Price'">
+
+                                <div layout="row" layout-wrap flex>
+                                    <div ng-repeat="d in f.data" class="standard" flex="30">
+                                        <label>
+                                            <input type="checkbox" ng-checked="exists(item, selected)"
+                                                ng-click="toggle(item, selected)"/>
+                                            {{d}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--for Price end-->
+                            <!--for Rental Date start-->
+                            <div ng-if="f.name === 'Rental Date'">
+                                <div layout="row" layout-wrap flex>
+                                    <div class="standard" flex="30">
+                                        <label>
+                                              <input type="date" ng-model="searchdata.rentalDate" ng-change="searchClick(searchdata);">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--for Price end-->
                         </div>
                     </div>
-</div>
- 
+
                     <!--<md-checkbox ng-repeat="v in f.data">
                         {{v.name}}
                     </md-checkbox>-->
@@ -36,7 +105,7 @@
             </md-tab>
         </md-tabs>
         <div class="filter-btn text-center">
-            <md-button class="md-raised md-primary">Apply</md-button>
+            <md-button class="md-raised md-primary" ng-click="searchClick()">Apply</md-button>
             <!--<md-button class="md-raised md-warn" ng-click="clearFilter()">Clear Filter</md-button>-->
         </div>
     </md-dialog-content>

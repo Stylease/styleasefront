@@ -127,6 +127,7 @@
          var urlParams = {};
          $scope.dropdown = {};
          $scope.dropdownvalues = [];
+         $scope.filterData = [];
          $scope.sidemenuVal = $stateParams;
          var jsonParam1 = jsonArr[1];
          var jsonParam2 = jsonArr[2];
@@ -138,17 +139,17 @@
          var jsonParam8 = jsonArr[8];
          var jsonParam9 = jsonArr[9];
          // console.log(jsonArr);
-         $scope.jsonStatus = [
-             "Processing",
-             "Order Confirmed",
-             "Out for Delivery",
-             "Delivered",
-             "Pick-up",
-             "Received",
-             "Refund",
-             "Completed",
-             "Cancelled"
-         ]
+         //  $scope.jsonStatus = [
+         //      "Processing",
+         //      "Order Confirmed",
+         //      "Out for Delivery",
+         //      "Delivered",
+         //      "Pick-up",
+         //      "Received",
+         //      "Refund",
+         //      "Completed",
+         //      "Cancelled"
+         //  ]
          $scope.sortableOptions = {
              stop: function (e, ui) {
                  console.log($scope.json.tableData);
@@ -259,6 +260,13 @@
              if (data.pageType == "orderview") {
                  $scope.apiName = $scope.json.apiCall.url;
                  console.log("in orderview", $scope.apiName);
+
+                 $scope.pagination = {
+                     "search": "",
+                     "pagenumber": 1,
+                     "pagesize": 10
+                 };
+
                  //filter orderview
 
                  //  $scope.orderFilter = function () {
@@ -270,114 +278,85 @@
 
                  $scope.orderFilter = function () {
                      $mdDialog.show({
-                          controller: FilterCtrl,
+                         controller: FilterCtrl,
                          templateUrl: 'views/modal/filter.html',
                          clickOutsideToClose: true,
                          fullscreen: $scope.customFullscreen
                      });
 
                  };
-                 function FilterCtrl($scope, $mdDialog) {
-                 $scope.orderFilterClose = function () {
-                   $mdDialog.hide();
+
+                 function FilterCtrl($scope, $mdDialog, NavigationService) {
+                     $scope.pagination = {
+                         "search": "",
+                         "pagenumber": 1,
+                         "pagesize": 10
+                     };
+                     $scope.orderFilterClose = function () {
+                         $mdDialog.hide();
+                     };
+                     $scope.filterData = [{
+                         name: "Coupon Code",
+                     }, {
+                         name: "Occasion Type",
+                     }, {
+                         name: "Designer"
+                     }, {
+                         name: "Order Status",
+                         data: ["Processing",
+                             "Order Confirmed",
+                             "Out for Delivery",
+                             "Delivered",
+                             "Pick-up",
+                             "Received",
+                             "Refund",
+                             "Completed",
+                             "Cancelled"
+                         ]
+                     }, {
+                         name: "Price",
+                         data: [
+                             "0-10000", "11000-20000", "21000-30000", "31000-40000", "41000-50000", "51000-60000", "61000-70000",
+                             "71000-80000", "81000-90000", "91000-100000", "100000 & Above"
+                         ]
+                     }, {
+                         name: "Rental Date"
+                     }];
+
+                     NavigationService.getCoupon($scope.pagination, function (data) {
+                         console.log("allCoupon", $scope.allCoupon);
+                         if (data.value) {
+                             $scope.allCoupon = data.data.data;
+                             $scope.filterData.allCoupon = $scope.allCoupon;
+                             //  console.log("allCoupon", $scope.allCoupon);
+                             //  console.log("filterData", $scope.filterData);
+                         }
+                     }, function () {
+                         console.log("fail");
+                     });
+                     //  get subcategory
+                     NavigationService.getSubCategory(function (data) {
+                         if (data.value) {
+                             $scope.subCategory = data.data;
+                             $scope.filterData.subCategory = $scope.subCategory;
+                             console.log("nnnnnnnn", $scope.filterData.subCategory);
+                         }
+                     }, function () {
+                         console.log("fail");
+                     });
+
+                     //get designer 
+                     NavigationService.getDesigner(function (data) {
+                         if (data.value) {
+                             $scope.designer = data.data;
+                             $scope.filterData.designer = $scope.designer;
+                             console.log("mmmm", $scope.filterData.designer);
+                         }
+                     }, function () {
+                         console.log("fail");
+                     });
+
                  };
-                 $scope.filterData = [{
-                     name: 'Age',
-                     arrayName: 'age',
-                     data: [{
-                         name: 'Less than 20 years',
-                         value: '20'
-                     }, {
-                         name: '21 - 25 years',
-                         value: '21 - 25'
-                     }, {
-                         name: '26 - 30 years',
-                         value: '26 - 30'
-                     }, {
-                         name: '31 - 35 years',
-                         value: '31 - 35'
-                     }, {
-                         name: '36 - 40 years',
-                         value: '36 - 40'
-                     }, {
-                         name: 'More than 40 years',
-                         value: '40'
-                     }]
-                 }, {
-                     name: 'Coaching Focus',
-                     arrayName: 'coachingFocus',
-                     data: [{
-                         name: 'Sprinting',
-                         value: 'Sprinting'
-                     }, {
-                         name: 'Middle Distance',
-                         value: 'Middle Distance'
-                     }, {
-                         name: 'Endurance',
-                         value: 'Endurance'
-                     }, {
-                         name: 'Throws',
-                         value: 'Throws'
-                     }, {
-                         name: 'Jumps',
-                         value: 'Jumps'
-                     }, {
-                         name: 'Hurdles',
-                         value: 'Hurdles'
-                     }, {
-                         name: 'Hill/Fell Running',
-                         value: 'Hill/Fell Running'
-                     }, {
-                         name: 'Cross Country',
-                         value: 'Cross Country'
-                     }, ]
-                 }, {
-                     name: 'Gender',
-                     arrayName: 'gender',
-                     data: [{
-                         name: 'Male',
-                         value: 'Male'
-                     }, {
-                         name: 'Female',
-                         value: 'Female'
-                     }]
-                 }, {
-                     name: 'Credentials',
-                     arrayName: 'credentials',
-                     data: [{
-                         name: 'Level 1',
-                         value: 'Level 1'
-                     }, {
-                         name: 'Level 2',
-                         value: 'Level 2'
-                     }, {
-                         name: 'Level 3',
-                         value: 'Level 3'
-                     }, {
-                         name: 'Level 4',
-                         value: 'Level 4'
-                     }, ]
-                 }, {
-                     name: 'Coaching Experience',
-                     arrayName: 'experience',
-                     data: [{
-                         name: '0 - 5 years',
-                         value: '0 - 5'
-                     }, {
-                         name: '6 - 10 years',
-                         value: '6 - 10'
-                     }, {
-                         name: '11 - 15 years',
-                         value: '11 - 15'
-                     }, {
-                         name: '16 - 20 years',
-                         value: '16 - 20'
-                     }, {
-                         name: 'More than 20 years',
-                         value: '20'
-                     }]
-                 }];
-                 }
                  $scope.filterActive = 0;
                  $scope.selectedFilters = {};
 
@@ -386,41 +365,39 @@
                  };
 
                  //filter orderview end
-                 $scope.pagination = {
-                     "search": "",
-                     "pagenumber": 1,
-                     "pagesize": 10
-                 };
 
                  //get coupon code
-                 NavigationService.getCoupon($scope.pagination, function (data) {
-                     if (data.value) {
-                         $scope.allCoupon = data.data.data;
-                         console.log("aaa", $scope.allCoupon);
-                     }
-                 }, function () {
-                     console.log("fail");
-                 });
+                 //  NavigationService.getCoupon($scope.pagination, function (data) {
+                 //      if (data.value) {
+                 //          $scope.allCoupon = data.data.data;
+                 //          $scope.filterData.allCoupon = $scope.allCoupon;
+                 //          console.log("allCoupon", $scope.allCoupon);
+                 //          console.log("filterData", $scope.filterData);
+                 //      }
+                 //  }, function () {
+                 //      console.log("fail");
+                 //  });
 
                  //get subcategory 
-                 NavigationService.getSubCategory(function (data) {
-                     if (data.value) {
-                         $scope.subCategory = data.data;
-                         console.log($scope.subCategory);
-                     }
-                 }, function () {
-                     console.log("fail");
-                 });
+                 //  NavigationService.getSubCategory(function (data) {
+                 //      if (data.value) {
+                 //          $scope.subCategory = data.data;
+                 //          console.log($scope.subCategory);
+                 //      }
+                 //  }, function () {
+                 //      console.log("fail");
+                 //  });
 
-                 //get designer 
-                 NavigationService.getDesigner(function (data) {
-                     if (data.value) {
-                         $scope.designer = data.data;
-                         console.log($scope.designer);
-                     }
-                 }, function () {
-                     console.log("fail");
-                 });
+                 //  //get designer 
+                 //  NavigationService.getDesigner(function (data) {
+                 //      if (data.value) {
+                 //          $scope.designer = data.data;
+                 //          console.log($scope.designer);
+                 //      }
+                 //  }, function () {
+                 //      console.log("fail");
+                 //  });
+
 
 
                  // SIDE MENU DATA
