@@ -276,6 +276,7 @@
                  //      });
                  //  };
 
+                 //functionality for filter start
                  $scope.orderFilter = function () {
                      $mdDialog.show({
                          controller: FilterCtrl,
@@ -286,6 +287,7 @@
 
                  };
 
+                 //filter code for popup filter start
                  function FilterCtrl($scope, $mdDialog, NavigationService) {
                      $scope.pagination = {
                          "search": "",
@@ -356,7 +358,19 @@
                          console.log("fail");
                      });
 
+                     $scope.searchClick = function (search) {
+                         console.log("search 360", search);
+                         //  $scope.filterSearch = true;
+                         $scope.search = search;
+                         console.log($scope.search);
+                         search = $scope.search;
+                         $scope.getMoreResults(undefined, $scope.search);
+                     };
+                     $scope.search = '';
+                     //API call require in this function only
+
                  };
+                 //filter code for popup filter end
                  $scope.filterActive = 0;
                  $scope.selectedFilters = {};
 
@@ -365,7 +379,7 @@
                  };
 
                  //filter orderview end
-
+                 //functionality for filter end
                  //get coupon code
                  //  NavigationService.getCoupon($scope.pagination, function (data) {
                  //      if (data.value) {
