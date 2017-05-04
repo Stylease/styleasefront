@@ -577,6 +577,13 @@
                          if (!$scope.pagination.rentalDate) {
                              $scope.pagination.rentalDate = ""
                          }
+                          if (!$scope.pagination.status){
+                             $scope.pagination.status = $scope.searchPop.orderStat;
+                             $scope.pagination.coupon = $scope.searchPop.couponCode;
+                             $scope.pagination.subcategory = $scope.searchPop.occasionType;
+                             $scope.pagination.designer = $scope.searchPop.designers;
+                         }
+                         
                          console.log($scope.apiName);
                          console.log("$scope.pagination",$scope.pagination);
                          NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
