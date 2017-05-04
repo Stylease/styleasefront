@@ -19,67 +19,83 @@
                             <!--for coupon code start-->
                             <div ng-if="f.name === 'Coupon Code'">
                                 <div layout="row" layout-wrap flex>
-                                    <div ng-repeat="c in filterData.allCoupon" class="standard" flex="30">
+                                    <!--<div ng-repeat="c in filterData.allCoupon" class="standard" flex="30">
                                         <label>
                                             <input type="checkbox" checklist-model="filter[f.name]" />
                                             {{c.name}}
                                         </label>
+                                    </div>-->
+                                    <div ng-repeat="coup in filterData.allCoupon track by $index" class="standard" flex="30">
+                                        <input type="checkbox" id="{{coup.name}}" ng-model="formData[coup.name]" ng-change="pushfilters(coup,f.name)" />
+                                        <label for="{{coup.name}}" class="check-label">{{coup.name}}</label>
                                     </div>
                                 </div>
                             </div>
                             <!--for coupon code end-->
                             <!--for Occasion Type start-->
                             <div ng-if="f.name === 'Occasion Type'">
-
                                 <div layout="row" layout-wrap flex>
-                                    <div ng-repeat="sub in filterData.subCategory" class="standard" flex="30">
+                                    <!--<div ng-repeat="sub in filterData.subCategory" class="standard" flex="30">
                                         <label>
                                             <input type="checkbox" ng-checked="exists(item, selected)"
                                                 ng-click="toggle(item, selected)"/>
                                             {{sub.name}}
                                         </label>
+                                    </div>-->
+                                    <div ng-repeat="sub in filterData.subCategory track by $index" class="standard" flex="30">
+                                        <input type="checkbox" id="{{sub.name}}" ng-model="formData[sub.name]" ng-change="pushfilters(sub,f.name)" />
+                                        <label for="{{sub.name}}" class="check-label">{{sub.name}}</label>
                                     </div>
                                 </div>
                             </div>
                             <!--for Occasion Type end-->
                             <!--for Designer  start-->
                             <div ng-if="f.name === 'Designer'">
-
                                 <div layout="row" layout-wrap flex>
-                                    <div ng-repeat="d in filterData.designer" class="standard" flex="30">
+                                    <!--<div ng-repeat="d in filterData.designer" class="standard" flex="30">
                                         <label>
                                             <input type="checkbox" ng-checked="exists(item, selected)"
                                                 ng-click="toggle(item, selected)"/>
                                             {{d.name}}
                                         </label>
+                                    </div>-->
+                                    <div ng-repeat="desig in filterData.designer track by $index" class="standard" flex="30">
+                                        <input type="checkbox" id="{{desig.name}}" ng-model="formData[desig.name]" ng-change="pushfilters(desig,f.name)" />
+                                        <label for="{{desig.name}}" class="check-label">{{desig.name}}</label>
                                     </div>
                                 </div>
                             </div>
                             <!--for designer end-->
                             <!--for order status start-->
                             <div ng-if="f.name === 'Order Status'">
-
                                 <div layout="row" layout-wrap flex>
-                                    <div ng-repeat="d in f.data" class="standard" flex="30">
+                                    <!--<div ng-repeat="d in f.data" class="standard" flex="30">
                                         <label>
                                             <input type="checkbox" ng-checked="exists(item, selected)"
                                                 ng-click="toggle(item, selected)"/>
                                             {{d}}
                                         </label>
+                                    </div>-->
+                                    <div ng-repeat="orStat in f.data track by $index" class="standard" flex="30">
+                                        <input type="checkbox" id="{{orStat}}" ng-model="formData[orStat]" ng-change="pushfilters(orStat,f.name)" />
+                                        <label for="{{orStat}}" class="check-label">{{orStat}}</label>
                                     </div>
                                 </div>
                             </div>
                             <!--for order status end-->
                             <!--for Price start-->
                             <div ng-if="f.name === 'Price'">
-
                                 <div layout="row" layout-wrap flex>
-                                    <div ng-repeat="d in f.data" class="standard" flex="30">
+                                    <!--<div ng-repeat="d in f.data" class="standard" flex="30">
                                         <label>
                                             <input type="checkbox" ng-checked="exists(item, selected)"
                                                 ng-click="toggle(item, selected)"/>
                                             {{d}}
                                         </label>
+                                    </div>-->
+                                    <div ng-repeat="pricing in f.data track by $index" class="standard" flex="30">
+                                        <input type="checkbox" id="{{pricing}}" ng-model="formData[pricing]" ng-change="pushfilters(pricing,f.name)" />
+                                        <label for="{{pricing}}" class="check-label">{{pricing}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +105,7 @@
                                 <div layout="row" layout-wrap flex>
                                     <div class="standard" flex="30">
                                         <label>
-                                              <input type="date" ng-model="searchdata.rentalDate" ng-change="searchClick(searchdata);">
+                                              <input type="date" ng-model="formData.rentalDate" ng-change="pushfilters(formData,f.name)">
                                         </label>
                                     </div>
                                 </div>
@@ -105,7 +121,7 @@
             </md-tab>
         </md-tabs>
         <div class="filter-btn text-center">
-            <md-button class="md-raised md-primary" ng-click="searchClick()">Apply</md-button>
+            <md-button class="md-raised md-primary" ng-click="searchClick(searchPop)">Apply</md-button>
             <!--<md-button class="md-raised md-warn" ng-click="clearFilter()">Clear Filter</md-button>-->
         </div>
     </md-dialog-content>

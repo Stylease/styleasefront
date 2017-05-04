@@ -33,7 +33,7 @@
     }, {
         "name": "Name",
         "isSort": "",
-        "tableRef": "firstname"
+        "tableRef": "user"
     }, {
         "name": "Payment Mode",
         "isSort": "",
@@ -74,7 +74,7 @@
     "button": [],
 
     "apiCall": {
-        "url": "order/getLimitedWithFilter",
+        "url": "order/getLimitedWithFilterPopup",
         "params": ""
     },
     "createButtonState": ""

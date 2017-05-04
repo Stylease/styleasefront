@@ -260,13 +260,7 @@
              if (data.pageType == "orderview") {
                  $scope.apiName = $scope.json.apiCall.url;
                  console.log("in orderview", $scope.apiName);
-
-                 $scope.pagination = {
-                     "search": "",
-                     "pagenumber": 1,
-                     "pagesize": 10
-                 };
-
+                 
                  //filter orderview
 
                  //  $scope.orderFilter = function () {
@@ -279,7 +273,7 @@
                  //functionality for filter start
                  $scope.orderFilter = function () {
                      $mdDialog.show({
-                         controller: FilterCtrl,
+                         scope:$scope,
                          templateUrl: 'views/modal/filter.html',
                          clickOutsideToClose: true,
                          fullscreen: $scope.customFullscreen
@@ -288,7 +282,6 @@
                  };
 
                  //filter code for popup filter start
-                 function FilterCtrl($scope, $mdDialog, NavigationService) {
                      $scope.pagination = {
                          "search": "",
                          "pagenumber": 1,
@@ -358,18 +351,94 @@
                          console.log("fail");
                      });
 
-                     $scope.searchClick = function (search) {
-                         console.log("search 360", search);
-                         //  $scope.filterSearch = true;
-                         $scope.search = search;
-                         console.log($scope.search);
-                         search = $scope.search;
-                         $scope.getMoreResults(undefined, $scope.search);
-                     };
-                     $scope.search = '';
+                    //  $scope.searchClick = function (search) {
+                    //      console.log("search 360", search);
+                    //      //  $scope.filterSearch = true;
+                    //      $scope.search = search;
+                    //      console.log($scope.search);
+                    //      search = $scope.search;
+                    //      $scope.getMoreResults(undefined, $scope.search);
+                    //  };
+                     $scope.searchPop = {};
                      //API call require in this function only
 
-                 };
+                     //filters of order 
+                     $scope.searchPop.couponCode = [];
+                     $scope.searchPop.occasionType = [];
+                     $scope.searchPop.designers = [];
+                     $scope.searchPop.orderStat = [];
+                     $scope.searchPop.price = '';
+                     $scope.searchPop.rentalDate = '';
+
+                     $scope.pushfilters = function (data, catName) {
+
+                         // console.log("dataaaapushFilterscatName", data);
+                         //console.log("dataaaapushFilterscatName", catName);
+
+                         //coupon code
+                         if (catName == 'Coupon Code') {
+                             if (document.getElementById(data.name).checked) {
+                                 $scope.searchPop.couponCode.push(data.name);
+                                 //console.log("$scope.searchPop.couponCode", $scope.couponCode);
+                             } else {
+                                 var arraydata = $scope.searchPop.couponCode.indexOf(data.name);
+                                 $scope.searchPop.couponCode.splice(arraydata, 1);
+                                 //console.log("$scope.searchPop.couponCode", $scope.searchPop.couponCode);
+                             }
+                         }
+
+                         //Occasion type
+                         if (catName == 'Occasion Type') {
+                             if (document.getElementById(data.name).checked) {
+                                 $scope.searchPop.occasionType.push(data._id);
+                                 //console.log("$scope.searchPop.occasionType", $scope.searchPop.occasionType);
+                             } else {
+                                 var arraydata = $scope.searchPop.occasionType.indexOf(data._id);
+                                 $scope.searchPop.occasionType.splice(arraydata, 1);
+                                 //console.log("$scope.searchPop.occasionType", $scope.searchPop.occasionType);
+                             }
+                         }
+
+                         //Designer
+                         if (catName == 'Designer') {
+                             if (document.getElementById(data.name).checked) {
+                                 $scope.searchPop.designers.push(data._id);
+                                 //console.log("$scope.searchPop.designers", $scope.searchPop.designers);
+                             } else {
+                                 var arraydata = $scope.searchPop.designers.indexOf(data._id);
+                                 $scope.searchPop.designers.splice(arraydata, 1);
+                                 //console.log("$scope.searchPop.designer", $scope.searchPop.designer);
+                             }
+                         }
+
+                         //Order Status
+                         if (catName == 'Order Status') {
+                             if (document.getElementById(data).checked) {
+                                 $scope.searchPop.orderStat.push(data);
+                                 console.log("$scope.searchPop.orderStat", $scope.searchPop.orderStat);
+                             } else {
+                                 var arraydata = $scope.searchPop.orderStat.indexOf(data);
+                                 $scope.searchPop.orderStat.splice(arraydata, 1);
+                                 console.log("$scope.searchPop.orderStat", $scope.searchPop.orderStat);
+                             }
+                         }
+
+                         //price
+                         if (catName == 'Price') {
+                             if (document.getElementById(data).checked) {
+                                 $scope.searchPop.price=data;
+                                 console.log("$scope.searchPop.price", $scope.searchPop.price);
+                             }
+                         }
+
+                         //Rental Date
+                         if (catName == 'Rental Date') {
+                             $scope.searchPop.rentalDate = data.rentalDate;
+                             console.log("$scope.searchPop.rentalDate", $scope.searchPop.rentalDate);
+                         }
+
+                     }
+                 // filters for order end
                  //filter code for popup filter end
                  $scope.filterActive = 0;
                  $scope.selectedFilters = {};
@@ -412,8 +481,6 @@
                  //      console.log("fail");
                  //  });
 
-
-
                  // SIDE MENU DATA
                  var urlid1 = $location.absUrl().split('%C2%A2')[1];
                  console.log(urlid1);
@@ -452,6 +519,7 @@
                          });
                      }
                  }
+                 
                  $scope.filterSearch = false;
                  $scope.search = '';
                  $scope.searchClick = function (search) {
@@ -487,10 +555,10 @@
 
                          if ($scope.filterSearch == true) {
                              console.log("search!!!!", $scope.search);
-                             $scope.pagination.status = $scope.search.status;
-                             $scope.pagination.coupon = $scope.search.coupon;
-                             $scope.pagination.subcategory = $scope.search.subcategory;
-                             $scope.pagination.designer = $scope.search.designer;
+                             $scope.pagination.status = $scope.search.orderStat;
+                             $scope.pagination.coupon = $scope.search.couponCode;
+                             $scope.pagination.subcategory = $scope.search.occasionType;
+                             $scope.pagination.designer = $scope.search.designers;
                              $scope.pagination.rentalDate = $scope.search.rentalDate;
                              $scope.pagination.price = $scope.search.price;
                              if ($scope.search.search) {
@@ -507,10 +575,10 @@
                              $scope.pagination.search = '';
                          }
                          if (!$scope.pagination.rentalDate) {
-                             console.log("$scope.pagination");
                              $scope.pagination.rentalDate = ""
                          }
                          console.log($scope.apiName);
+                         console.log("$scope.pagination",$scope.pagination);
                          NavigationService.findProjects($scope.apiName, $scope.pagination, function (findData) {
                              console.log(findData);
                              if (findData.value !== false) {
@@ -519,6 +587,7 @@
                                      $scope.pageInfo.pagenumber = findData.data.pagenumber;
                                      $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
                                      $scope.json.tableData = findData.data.data;
+                                     $mdDialog.hide();
                                  } else {
                                      $scope.json.tableData = [];
                                      $scope.pageInfo.totalitems = 0;
@@ -533,7 +602,7 @@
                          });
                      }
                  }
-                 $scope.getMoreResults();
+                $scope.getMoreResults();
 
              } else if (data.pageType == "create") {
                  $scope.goToCancelPageCreate = function () {
@@ -606,9 +675,6 @@
                  }, function () {
                      console.log("Fail");
                  });
-
-
-
 
                  // get select fields dropdown
                  _.each($scope.json.fields, function (n) {
@@ -694,13 +760,13 @@
                                  $scope.pageInfo.pagenumber = findData.data.pagenumber;
                                  $scope.pageInfo.totalitems = $scope.pagination.pagesize * findData.data.totalpages;
                                  $scope.json.tableData = findData.data.data;
-                                 // console.log("new log ", $scope.json.tableData);
+                                console.log("new log ", $scope.json.tableData);
 
                              } else {
-                                 $scope.json.tableData = [];
+                              //   $scope.json.tableData = [];
                              }
                          } else {
-                             $scope.json.tableData = [];
+                            // $scope.json.tableData = [];
                          }
                      }, function () {
                          console.log("Fail");
