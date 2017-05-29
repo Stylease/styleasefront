@@ -1,0 +1,100 @@
+<section class="md-whiteframe-z1 users ng-scope">
+    <md-list ng-cloak>
+        <div class="clearfix">
+            <md-subheader class="md-no-sticky all-user">Designer Report</md-subheader>
+        </div>
+        <div class="clearfix">
+
+            <div class="date-product">Start Date :<input type="Date" ng-model="searchdata.startDate"></div>
+            <div class="date-product">End Date : <input type="Date" ng-model="searchdata.endDate"></div>
+            <div class="date-product"><button ng-click="getDesignerDetails(searchdata)">Filter</button></div>
+        </div>
+        <md-divider></md-divider>
+        <md-content class="md-padding">
+
+            <form ng-submit="$event.preventDefault()" name="searchForm">
+                <div layout-gt-sm="row">
+                    <md-input-container flex="50">
+                        <label>Name</label>
+                        <input ng-model="searchdata.searchText" ng-change="getDesingerName(searchdata)" placeholder="Enter user name here" type="text"
+                        />
+                        <div class="search-suggest" ng-if="searchdata.searchText != '' && isText == true">
+                            <ul class="list-unstyled">
+                                <li class="search-item" ng-click="selectDesigner($index)" ng-repeat="item in designerArray" ng-if="designerArray.length > 0">
+                                    <p class="text-wrapper">{{item.name}}</p>
+                                </li>
+                                <li class="search-item" ng-if="designerArray.length == 0">
+                                    <span class="left-space rounded"><i class="fa fa-ban"></i></span>
+                                    <p class="text-wrapper">No match found</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-button class="md-raised md-primary" ng-click="getDesignerDetails(searchdata)">Go</md-button>
+
+                    </md-input-container>
+                    <div class="flex search-bar" flex="50">
+                        <md-button ng-click="generateExcel(searchdata.designer)" class="pull-right md-raised">Export</md-button>
+                    </div>
+                </div>
+            </form>
+
+        </md-content>
+        <md-divider></md-divider>
+
+        <md-content flex="" layout-padding="">
+            <md-card style="box-shadow:0 2px 3px 0 rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.14),0 5px 1px -1px rgba(0,0,0,.12);">
+                <md-list ng-cloak>
+                    <md-list-item style="border-bottom: 1px solid #CBCACA;" class="ls-head firstpro secondary-button-padding padlr16">
+
+                        <div class="test">
+                            <h3>Product Name</h3>
+                        </div>
+                        <div class="test">
+                            <h3>Order Id</h3>
+                        </div>
+                        <div class="test">
+                            <h3>Price</h3>
+                        </div>
+                        <div class="test">
+                            <h3>Four Day Rental Amount</h3>
+                        </div>
+                        <div class="test">
+                            <h3>Eight Day Rental Amount</h3>
+                        </div>
+
+                        <!--<p>
+                            <span>Product Name</span>
+                            <span>Order Id</span>
+                            <span>Price</span>
+                            <span>Four Day Rental Amount</span>
+                            <span>Eight Day Rental Amount</span>
+                        </p>-->
+                    </md-list-item>
+                    <md-list-item class="firstpro secondary-button-padding padlr16" ng-repeat="item in productArray track by $index" ng-if="productArray.length>0">
+                        <div class="test">
+                            <h5>{{item.name}}</h5>
+                        </div>
+                        <div class="test">
+                            <h5>{{item.orderId}}</h5>
+                        </div>
+                        <div class="test">
+                            <h5>{{item.price}}</h5>
+                        </div>
+                        <div class="test">
+                            <h5>{{item.fourdayrentalamount}}</h5>
+                        </div>
+                        <div class="test">
+                            <h5>{{item.eightdayrentalamount}}</h5>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="firstpro secondary-button-padding padlr16" ng-if="productArray.length == 0">
+                        <div class="test">
+                            <h3>No data found</h3>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </md-content>
+</section>

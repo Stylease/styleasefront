@@ -52,9 +52,15 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: "/page/:jsonName",
             templateUrl: "views/template.html",
             controller: 'jsonViewCtrl'
+        })
+
+        .state('viewDesingerReport', {
+            url: "/viewDesingerReport",
+            templateUrl: "views/template.html",
+            controller: 'ViewDesingerReportCtrl'
         });
 
-  $urlRouterProvider.otherwise("/dashboard");
+    $urlRouterProvider.otherwise("/dashboard");
 
 });
 
@@ -105,11 +111,11 @@ firstapp.filter('getValue', function ($filter) {
             var keyArr = keyVal.split(".");
             var returnValue = input;
             _.each(keyArr, function (n) {
-                if(!_.isEmpty(returnValue)) {
+                if (!_.isEmpty(returnValue)) {
                     returnValue = returnValue[n];
                 }
                 // returnValue = returnValue[n];
-               
+
             });
             if (type == "date") {
                 // console.log('in date');

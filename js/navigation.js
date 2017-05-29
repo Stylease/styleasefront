@@ -1,7 +1,7 @@
 //var adminurl = "http://admin.thestylease.com/";
 // var adminurl = "http://192.168.0.110:81/";
-var adminurl = "http://130.211.245.224:81/";
-// var adminurl = "http://localhost:1337/";
+// var adminurl = "http://130.211.245.224:81/";
+var adminurl = "http://localhost:1337/";
 var imgurl = adminurl + "upload/";
 var uploadurl = imgurl;
 var uploadallurl = imgurl + "allImage/";
@@ -104,6 +104,12 @@ var navigationservice = angular.module('navigationservice', [])
                 name: "External Enquiry",
                 classis: "active",
                 link: "#/page/viewLocation",
+                subnav: []
+            },
+            {
+                name: "Designer Report",
+                classis: "active",
+                link: "#/viewDesingerReport",
                 subnav: []
             }
         ];
@@ -211,6 +217,23 @@ var navigationservice = angular.module('navigationservice', [])
                     },
                     method: "POST",
                     data: data
+                }).success(callback);
+            },
+
+            //Code by nilesh
+            getDesignerOrderDetail: function (formData, callback) {
+                $http({
+                    url: adminurl + 'order/getDesignerOrderDetail',
+                    method: 'POST',
+                    data: formData
+                }).success(callback);
+            },
+
+            getMyDesigner: function (formData, callback) {
+                $http({
+                    url: adminurl + 'designer/getMyDesigner',
+                    method: 'POST',
+                    data: formData
                 }).success(callback);
             },
         };
