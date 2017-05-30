@@ -1077,6 +1077,7 @@
          $scope.navigation = NavigationService.getnav();
          $scope.searchdata = {};
          $scope.designerArray = [];
+         $scope.totalRentalAmount = null;
          $scope.isText = false;
 
          function showToast(text) {
@@ -1103,7 +1104,7 @@
                  NavigationService.getDesignerOrderDetail(reqObj, function (data) {
                      console.log("getDesignerOrderDetail", data.data);
                      //$scope.productArray = data.data.salesDetails;
-
+                     $scope.totalRentalAmount = data.data.totalRentalAmount;
                      _.each(data.data.salesDetails, function (n) {
                          _.each(n.cartproduct, function (m) {
                              var product = {};
